@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "bold walsheim";
+    src: local("bold walsheim"), url(../../shared/fonts/GTWalsheimPro-Bold.ttf);
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: clamp(50px,2vw,100px);
+    gap: calc(15vw + 20vh);
+}
+.footerBG{
+    position: absolute;
+    width: 100vw;
+    left: 0px;
+    margin-top: clamp(-40px, 2vw, -100px);
+    z-index: -1;
+}
+.ourAchivements{
+    display: flex;
+    gap: clamp(100px, 2vw, 180px);
+}
+.achivement{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(20px, 2vw, 48px);
+}
+.titleAchivement{
+    font-family: "bold walsheim", sans-serif;
+    font-size: clamp(30px, 2vw, 58px);
+    font-weight: 900;
+    color: rgba(12, 18, 42, 1);
+}
+.textAchivement{
+    font-family: "regular walsheim", sans-serif;
+    color: rgba(61, 65, 85, 1);
+    font-size: clamp(10px, 1vw, 16px);
+    text-align: center;
+    font-weight: 400;
+}
+.urls{
+    display: flex;
+    gap: clamp(20px, 2vw, 30px);
+}
+.url{
+    font-size: clamp(10px, 1vw, 16px);
+    color: rgba(12, 18, 42, 1);
+    font-family: "medium walsheim", sans-serif;
+    font-weight: 500;
+}

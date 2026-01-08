@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "regular walsheim";
+    src: local("regular walsheim"), url(../../shared/fonts/GTWalsheimPro-Regular.ttf);
+}
+
+.layout{
+    display: flex;
+    flex: 1;
+    gap: 40px;
+    flex-direction: column;
+    padding: clamp(30px, 2vw, 50px) clamp(20px, 2vw, 40px);
+    justify-content:  center;
+}
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "regular walsheim", sans-serif;
+}

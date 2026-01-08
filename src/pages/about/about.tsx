@@ -1,5 +1,5 @@
+import { AboutUs } from "../../components/about";
+
 export function AboutUsPage(){
-    return (
-        <div></div>
-    )
+    return <AboutUs/>
 }

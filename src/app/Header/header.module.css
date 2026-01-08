@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "medium walsheim";
+    src: local("medium walsheim"), url(../../shared/fonts/GTWalsheimPro-Medium.ttf);
+}
+
+.header{
+    display: grid;
+    height: 10vh;
+    grid-template-columns: 4fr 1fr 4fr ;
+    border: 1px rgba(228, 228, 231, 1) solid;
+    padding: 0px clamp(40px, 2vw, 50px);
+    border-radius: 123px;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10%;
+}
+.urls{
+    display: flex;
+    gap: clamp(10px, 2vw, 24px);
+}
+.url{
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: clamp(8px, 1.6vw, 14px);
+    font-family: "medium walsheim", sans-serif;
+    font-weight: 500;
+    color: rgba(158, 160, 170, 1);
+}
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: clamp(16px, 2vw, 24px);
+}
+.hatImageUrl{
+    width: clamp(17px, 2vw, 31px);
+}
+.logo{
+    width: clamp(115px, 2vw, 130px);
+}
