@@ -2,7 +2,6 @@
 
 ## Навігація
 - [Project "Drones online store" | Проєкт "Онлайн магазин дронів"](#project-drones-online-store--проєкт-онлайн-магазин-дронів)
-  - [Навігація](#навігація)
   - [Склад команди | Team members | Developers](#склад-команди--team-members--developers)
   - [Стиль написання коду | Style of code writing](#стиль-написання-коду--style-of-code-writing)
   - [Архітектура проєкту | Project architecture](#архітектура-проєкту--project-architecture)
