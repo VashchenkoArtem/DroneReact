@@ -94,7 +94,7 @@
   - Персональний розділ користувача з історією замовлень, налаштуваннями профілю та збереженими даними. | A personal section for the user with order history, profile settings, and saved data.
 
 ### 9. Login / Авторизація
-Форма для входу в існуючий акаунт за допомогою пошти, номера телефону або соціальних мереж. | A login form to access an existing account using email, phone number, or social media.
+  - Форма для входу в існуючий акаунт за допомогою пошти, номера телефону або соціальних мереж. | A login form to access an existing account using email, phone number, or social media.
 
 ### 10. Registration / Реєстрація
-Сторінка для створення нового облікового запису, де користувач вводить свої персональні дані для доступу до сервісу. | A page for creating a new account where the user enters their personal data to access the service.
+  - Сторінка для створення нового облікового запису, де користувач вводить свої персональні дані для доступу до сервісу. | A page for creating a new account where the user enters their personal data to access the service.
