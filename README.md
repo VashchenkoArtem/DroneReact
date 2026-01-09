@@ -1,11 +1,10 @@
 # Project "Drones online store" | Проєкт "Онлайн магазин дронів"
 
 ## Навігація
-- [Project "Drones online store" | Проєкт "Онлайн магазин дронів"](#project-drones-online-store--проєкт-онлайн-магазин-дронів)
-  - [Склад команди | Team members | Developers](#склад-команди--team-members--developers)
-  - [Стиль написання коду | Style of code writing](#стиль-написання-коду--style-of-code-writing)
-  - [Архітектура проєкту | Project architecture](#архітектура-проєкту--project-architecture)
-  - [Pages Description / Опис сторінок](#pages-description--опис-сторінок)
+- [Склад команди | Team members | Developers](#склад-команди--team-members--developers)
+- [Стиль написання коду | Style of code writing](#стиль-написання-коду--style-of-code-writing)
+- [Архітектура проєкту | Project architecture](#архітектура-проєкту--project-architecture)
+- [Pages Description / Опис сторінок](#pages-description--опис-сторінок)
 
 
 ## Склад команди | Team members | Developers
