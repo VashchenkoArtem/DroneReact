@@ -7,16 +7,6 @@
   - [Стиль написання коду | Style of code writing](#стиль-написання-коду--style-of-code-writing)
   - [Архітектура проєкту | Project architecture](#архітектура-проєкту--project-architecture)
   - [Pages Description / Опис сторінок](#pages-description--опис-сторінок)
-    - [1. Main Page / Головна сторінка](#1-main-page--головна-сторінка)
-    - [2. About Us / Про нас](#2-about-us--про-нас)
-    - [3. Catalog / Каталог](#3-catalog--каталог)
-    - [4. Product Page / Сторінка товару](#4-product-page--сторінка-товару)
-    - [5. Cart / Кошик](#5-cart--кошик)
-    - [6. Order (Checkout) / Замовлення](#6-order-checkout--замовлення)
-    - [7. Contacts / Контакти](#7-contacts--контакти)
-    - [8. Profile (Account) / Кабінет (Акаунт)](#8-profile-account--кабінет-акаунт)
-    - [9. Login / Авторизація](#9-login--авторизація)
-    - [10. Registration / Реєстрація](#10-registration--реєстрація)
 
 
 ## Склад команди | Team members | Developers
@@ -83,7 +73,7 @@
   - Точка входу в додаток. Містить загальний огляд проєкту, ключові функції та навігаційні посилання. | The entry point of the application. It contains a general overview of the project, key features, and navigation links.
 
 ### 2. About Us / Про нас
-  - Окрема сторінка з інформацією про нас, нашу мету та нашу команду. Вона висвітлює наші основні цінності та людей, які стоять за проєктом. | A dedicated page with information about us, our mission, and our team. It highlights our core values and the people behind the project.
+  - Окрема сторінка з інформацією про нас, нашу мету та нашу команду. Вона описує наші основні цілі та команду. | A dedicated page with information about us, our mission, and our team. It highlights our core values and the people behind the project.
 
 ### 3. Catalog / Каталог
   - Список усіх доступних товарів із можливістю фільтрації та сортування для зручного пошуку. | A list of all available products with filtering and sorting capabilities for easy searching.
