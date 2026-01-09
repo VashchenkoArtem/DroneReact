@@ -12,6 +12,7 @@
     border-radius: 123px;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
     column-gap: 10%;
 }
 .urls{
@@ -37,4 +38,9 @@
 }
 .logo{
     width: clamp(115px, 2vw, 130px);
+}
+@media (max-width: 767px){
+    .header{
+        grid-template-columns: 1fr 1fr ;
+    }
 }

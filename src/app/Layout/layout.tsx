@@ -7,7 +7,9 @@ export function Layout(){
     return (
         <div className={styles.layout}>
             <Header/>
-            <Outlet/>
+            <div className = {styles.mainContent}>
+                <Outlet/>
+            </div>
             <Footer/>
         </div>
     )

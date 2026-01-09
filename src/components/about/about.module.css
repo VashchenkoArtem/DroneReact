@@ -23,6 +23,7 @@
 .titleArticle{
     font-family: "ultra bold walsheim", sans-serif;
     color: rgba(205, 213, 221, 1);
+    text-align: center;
     font-size: clamp(30px, 2vw, 58px);
     font-weight: 900;
 }
