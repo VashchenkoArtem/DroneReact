@@ -1,6 +1,7 @@
 import { useMediaQuery } from "react-responsive";
 import { ICONS } from "../../shared";
 import styles from "./header.module.css"
+import { Link } from "react-router-dom";
 
 const Logo = ICONS.headerLogo
 const Orders = ICONS.headerOrders
@@ -26,8 +27,12 @@ export function Header(){
     return (
         <header className={styles.header}>
             <div className={styles.urls}>
-                <h1 className={styles.url}>КАТАЛОГ</h1>
-                <h1 className={styles.url}>ПРО НАС</h1>
+                <Link to = "">
+                    <h1 className={styles.url}>КАТАЛОГ</h1>
+                </Link>
+                <Link to = "/about">
+                    <h1 className={styles.url}>ПРО НАС</h1>
+                </Link>
                 <h1 className={styles.url}>КОНТАКТИ</h1>
             </div>
             <Logo className={styles.logo} />

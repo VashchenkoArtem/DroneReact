@@ -2,7 +2,16 @@
     font-family: "regular walsheim";
     src: local("regular walsheim"), url(../../shared/fonts/GTWalsheimPro-Regular.ttf);
 }
-
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "regular walsheim", sans-serif;
+    scrollbar-width: none;
+}
+a{
+    text-decoration: none;
+}
 .layout{
     display: flex;
     flex: 1;
@@ -13,12 +22,7 @@
     justify-content:  center;
 
 }
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: "regular walsheim", sans-serif;
-}
+
 .mainContent{
     padding: 0px clamp(20px, 2vw, 40px);
 }

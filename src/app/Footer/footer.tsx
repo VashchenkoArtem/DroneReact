@@ -1,6 +1,7 @@
 import { useMediaQuery } from "react-responsive";
 import { IMAGES } from "../../shared";
 import styles from "./footer.module.css";
+import { Link } from "react-router-dom";
 
 export function Footer(){
     const isPhone = useMediaQuery({
@@ -26,7 +27,9 @@ export function Footer(){
                 </div>
                 <div className={styles.urls}>
                     <h1 className={styles.url}>КАТАЛОГ</h1>
-                    <h1 className={styles.url}>ПРО НАС</h1>
+                    <Link to = "/about">
+                        <h1 className={styles.url}>ПРО НАС</h1>
+                    </Link>
                     <h1 className={styles.url}>КОНТАКТИ</h1>
                     <h1 className={styles.url}>КОШИК</h1>
                     <h1 className={styles.url}>КАБІНЕТ</h1>

@@ -7,11 +7,11 @@ export function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-          <Route path = "/" element = {<Layout/>}>
-              <Route path="/" element = {<HomePage/>}/>
-              <Route path="/about" element = {<AboutUsPage/>} />
-              <Route path="*" element = {<PageUndefined/>}/>
-          </Route>
+        <Route path = "/" element = {<Layout/>}>
+          <Route path="/" element = {<HomePage/>}/>
+          <Route path="/about" element = {<AboutUsPage/>} />
+          <Route path="*" element = {<PageUndefined/>}/>
+        </Route>
       </Routes>
     </BrowserRouter>  
   )

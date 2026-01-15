@@ -1,0 +1,13 @@
+.undefinedBody{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.undefinedText{
+    color: rgba(205, 213, 221, 1);
+    text-align: center;
+    font-size: clamp(50px, 2vw, 58px);
+    font-weight: 900;
+}
