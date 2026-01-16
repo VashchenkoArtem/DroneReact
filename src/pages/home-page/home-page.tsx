@@ -18,7 +18,7 @@ export function HomePage(){
 
 
                 <div className={styles.droneActions}>
-                    {/* <ICONS.droneImage className={styles.droneImage} /> */}
+                    <ICONS.droneImage className={styles.droneImage} />
                     <p className={styles.droneDescription}>Передові технології в одному місці. </p>
                     <p className={styles.droneDescription}>Обирай найкраще для найважливішого.</p>
 

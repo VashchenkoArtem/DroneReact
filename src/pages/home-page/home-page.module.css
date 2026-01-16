@@ -2,7 +2,9 @@
     font-family: "bold walsheim";
     src: local("bold walsheim"), url(../../shared/fonts/GTWalsheimPro-Bold.ttf);
 }
-
+*{
+    scrollbar-width: none;
+}
 main {
     display: flex;
     flex-direction: column;
