@@ -12,6 +12,7 @@ export function HomePage(){
 
     return (
         <main>
+            <img src={IMAGES.headerBG} className={styles.headerImage} alt="Header Background" />
             <div className={styles.droneContainer}>
                 <h1>ТЕХНОЛОГІЇ</h1>
                 <h1>ЯКІ ЗМІНЮЮТЬ РЕАЛЬНІСТЬ</h1>
@@ -19,10 +20,13 @@ export function HomePage(){
 
                 <div className={styles.droneActions}>
                     <ICONS.droneImage className={styles.droneImage} />
-                    <p className={styles.droneDescription}>Передові технології в одному місці. </p>
-                    <p className={styles.droneDescription}>Обирай найкраще для найважливішого.</p>
 
-                    <button className={styles.droneButton}>ДО КАТАЛОГУ</button>
+                    <div className={styles.droneInfo}>
+                        <p className={styles.droneDescription}>Передові технології в одному місці. </p>
+                        <p className={styles.droneDescription}>Обирай найкраще для найважливішого.</p>
+
+                        <button className={styles.droneButton}>ДО КАТАЛОГУ</button>
+                    </div>
                 </div>
             </div>
 
