@@ -1,0 +1,359 @@
+@font-face {
+    font-family: "bold walsheim";
+    src: local("bold walsheim"), url(../../shared/fonts/GTWalsheimPro-Bold.ttf);
+}
+*{
+    scrollbar-width: none;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: calc(15vw + 20vh); */
+    margin-top: auto;
+    padding: 0px;
+    position: relative;
+    width: 100vw;
+}
+
+h1 {
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.3;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+.headerImage {
+    position: absolute; 
+    top: 0;             
+    left: 0;
+    width: 100%;
+    z-index: -1;       
+    transform: translate(0, -17.2vh);
+}
+
+.droneImage {
+    /* position: relative; */
+    transform: translate(calc(8vw + 20px), -33vh);
+
+    /* background-color: rgb(59, 10, 164); */
+
+}
+
+
+/* Drone Container */
+.droneContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(20px, 4vh, 60px);
+    padding: 0px clamp(20px, 2vw, 40px);
+    background-color: transparent;
+    width: 100%;
+    /* height: 100vh; */
+    position: relative;
+}
+
+.droneInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: clamp(10px, 1vw, 15px);
+
+    /* background-color: powderblue; */
+
+    
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    transform: translate(0, -60vh);
+
+}
+
+
+.droneActions {
+    display: flex;
+    flex-direction: row;
+    /* align-items: flex-end; */
+    /* height: fit-content; */
+    color: rgba(12, 18, 42, 1);
+    
+    /* background-color: red; */
+
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+
+
+.droneButton, .CatalogButton {
+    background-color: rgba(12, 18, 42, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 50px;
+    margin-top: clamp(30px, 1vw, 40px);
+    padding: clamp(18px, 1vw, 20px) clamp(40px, 2vw, 45px);
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.droneContainer h1:first-child {
+    margin-top: clamp(120px, 5vh, 160px);
+}
+
+/* About Us Container */
+.aboutUsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(2px, 1vw, 10px);
+    padding: 0px clamp(20px, 2vw, 40px);
+    background-color: white;
+}
+
+.aboutUsContainer h1{
+    font-size: 2.75rem;
+    color: rgba(205, 213, 221, 1);
+}
+
+.aboutUsButton {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(12, 18, 42, 1);
+
+    border: 2px solid rgba(12, 18, 42, 1);
+    border-radius: 50px;
+
+    margin-top: clamp(30px, 1vw, 40px);
+    padding: clamp(18px, 1vw, 20px) clamp(40px, 2vw, 45px);
+
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1vw, 15px);
+
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* New Products Container */
+.newProductsContainer {
+    width: 100%;
+    padding: clamp(40px, 6vw, 120px) clamp(20px, 6vw, 120px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(20px, 6vh, 44px);
+    background-color: white;
+}
+
+.newProductsContainer h1 {
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 800;
+    color: #c5cbd3;
+    margin-bottom: clamp(80px, 6vh, 120px);
+    /* letter-spacing: 0.1em; */
+}
+
+.newProductsList {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(5px, 1vw, 38px);
+
+}
+
+.newProductCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    position: relative;
+    height: auto;
+    border-radius: 24px;
+    /* overflow: hidden; */
+    padding: clamp(180px, 2vw, 200px) clamp(20px, 2vw, 40px) clamp(20px, 2vw, 40px);
+}
+
+.newProductCard:nth-child(1) {
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0) 0%,
+        rgba(236,188,77,0.95) 100%
+    );
+}
+
+.newProductCard:nth-child(2) {
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0) 0%,
+        rgba(28,38,32,0.95) 100%
+    );
+}
+
+.newProductCard:nth-child(3) {
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0) 0%,
+        rgba(104,173,186,0.95) 100%
+    );
+}
+
+.newProductImage {
+    position: absolute;
+    z-index: 3;
+    top: clamp(-110px, 2vw, -200px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(160px, 24vw, 260px);
+    height: auto;
+    pointer-events: none;
+}
+
+.newProductDescription {
+    /* position: absolute; */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.newProductTitle {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.newProductDescription p {
+    font-size: 14px;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.newProductToBuy {
+    margin-top: clamp(20px, 2vw, 30px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.newProductPrice {
+    font-size: 1rem;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.newProductButton {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.7);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1vw, 15px);
+    cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+    .newProductsList {
+        grid-template-columns: 1fr;
+    }
+
+    .newProductCard {
+        height: 420px;
+    }
+}
+
+
+/* Catalog Container */
+.CatalogContainer {
+    width: 100%;
+    padding: clamp(40px, 6vw, 120px) clamp(20px, 6vw, 120px);
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: clamp(20px, 6vh, 44px);
+    background-color: white;
+}
+
+.CatalogContainer h1{
+    font-size: 2.75rem;
+    color: rgba(205, 213, 221, 1);
+}
+
+.productsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: clamp(20px, 6vh, 44px);
+}
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+    gap: clamp(10px, 1vw, 15px);
+    width: 210px; 
+    min-height: 300px; 
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.productImage {
+    width: clamp(200px, 12vw, 220px);
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.productTitle {
+    color: rgba(12, 18, 42, 1);
+    font-weight: 500;
+    font-size: clamp(16px, 1.5vw, 20px);
+    text-align: center;
+    margin-top: auto; 
+}
+
+.productPrice {
+    color: rgb(50, 53, 71);
+    font-weight: 400;
+    font-size: clamp(14px, 1.2vw, 16px);
+    text-align: center;
+    margin-top: 5px;
+}
+
+/*  */
+.newProductMore {
+    background-color: rgba(12, 18, 42, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 50px;
+    margin-top: clamp(20px, 1vw, 30px);
+    padding: clamp(12px, 1vw, 16px) clamp(30px, 2vw, 35px);
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

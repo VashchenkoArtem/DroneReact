@@ -1,3 +1,11 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "regular walsheim", sans-serif;
+}
+
+
 @font-face {
     font-family: "regular walsheim";
     src: local("regular walsheim"), url(../../shared/fonts/GTWalsheimPro-Regular.ttf);
@@ -16,16 +24,15 @@ a{
     display: flex;
     flex: 1;
     gap: 40px;
-    width: 100dvw;
+    /* width: 100vw; */
     flex-direction: column;
-    padding-top: clamp(30px, 2vw, 50px);
+    padding-top: clamp(30px, 2vw, 40px);
     justify-content:  center;
-
 }
 
-.mainContent{
+/* .mainContent{
     padding: 0px clamp(20px, 2vw, 40px);
-}
+} */
 @media (max-width: 767px){
     .layout{
         padding-top: clamp(5px, 2vw, 12px);
