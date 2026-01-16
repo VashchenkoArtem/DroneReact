@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import { ICONS, IMAGES, IProduct } from "../../shared";
 import styles from "./home-page.module.css"
+import { useProductsNew, useProductsPopular } from "../../hooks";
 
-// export interface ProductProps {
-// 	product: IProduct;
-// }
+const firstDrone = IMAGES.firstDrone
+const secondDrone = IMAGES.firstDrone
+const thirdDrone = IMAGES.firstDrone
+const fourthDrone = IMAGES.firstDrone
 
 export function HomePage(){
-    // const { product } = props;
-
+    const { newProducts } = useProductsNew()
+    const { popularProducts } = useProductsPopular()
 
     return (
         <main>
@@ -44,54 +46,27 @@ export function HomePage(){
                 <h1>НОВЕ НА САЙТІ</h1>
 
                 <div className={styles.newProductsList}>
-                    <div className={styles.newProductCard}>
-                        <ICONS.newDroneOne className={styles.newProductImage} />
-                        
-                        {/* <img src={IMAGES.droneBG} className={styles.newProductBG} /> */}
+                    {   newProducts?.map((product: IProduct) => {
+                        return (
+                            <div key = {product.id} className={styles.newProductCard}>
+                                
+                                <ICONS.droneImage className = {styles.newProductImage} />
+                                <div className={styles.newProductDescription}>
+                                    <h2 className={styles.newProductTitle}>{product.name}</h2>
+                                    <p className={styles.newProductDescription}>{product.description}</p>
+                                </div>
 
-                        <div className={styles.newProductDescription}>
-                            <h2 className={styles.newProductTitle}>DJI Mini 4K</h2>
-                            <p className={styles.newProductDescription}>Easy-To-Use Mini Camera Drone</p>
-                        </div>
-
-                        <div className={styles.newProductToBuy}>
-                            <p className={styles.newProductPrice}>from $299</p>
-                            <button className={styles.newProductButton} >КУПИТИ <ICONS.newProductsArrow className={styles.newProductButtonArrow} /></button>
-
-                            {/* <button className={styles.newProductMore}>
-                                <Link to={`/product/${product.id}`}>Читати далі</Link>
-                            </button> */}
-
-                        </div>
-                    </div>
-
-                    <div className={styles.newProductCard}>
-                        <ICONS.newDroneTwo className={styles.newProductImage} />
-
-                        <div className={styles.newProductDescription}>
-                            <h2 className={styles.newProductTitle}>DJI Mini 4Pro</h2>
-                            <p className={styles.newProductDescription}>Easy-To-Use Mini Camera Drone</p>
-                        </div>
-
-                        <div className={styles.newProductToBuy}>
-                            <p className={styles.newProductPrice}>from $299</p>
-                            <button className={styles.newProductButton}>КУПИТИ <ICONS.newProductsArrow /></button>
-                        </div>
-                    </div>
-
-                    <div className={styles.newProductCard}>
-                        <ICONS.newDroneOne className={styles.newProductImage} />
-                        
-                        <div className={styles.newProductDescription}>
-                            <h2 className={styles.newProductTitle}>DJI Mini 4K</h2>
-                            <p className={styles.newProductDescription}>Easy-To-Use Mini Camera Drone</p>
-                        </div>
-
-                        <div className={styles.newProductToBuy}>
-                            <p className={styles.newProductPrice}>from $299</p>
-                            <button className={styles.newProductButton}>КУПИТИ <ICONS.newProductsArrow /></button>
-                        </div>
-                    </div>
+                                <div className={styles.newProductToBuy}>
+                                    <p className={styles.newProductPrice}>from {product.price}$</p>
+                                    <Link to={`/product/${product.id}`}>
+                                        <button className={styles.newProductButton}>КУПИТИ 
+                                            <ICONS.newProductsArrow className={styles.newProductButtonArrow} />
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
 
@@ -99,33 +74,15 @@ export function HomePage(){
                 <h1>КАТАЛОГ</h1>
 
                 <div className={styles.productsList}>
-                    <div className={styles.productCard}>
-                        <ICONS.newDroneOne className={styles.productImage} />
-                        
-                        <h2 className={styles.productTitle}>DJI Mini 4K</h2>
-                        <p className={styles.newProductPrice}>from $299</p>
-                    </div>
-
-                    <div className={styles.productCard}>
-                        <ICONS.newDroneTwo className={styles.productImage} />
-
-                        <h2 className={styles.productTitle}>DJI Mini 4Pro</h2>
-                        <p className={styles.newProductPrice}>from $299</p>
-                    </div>
-
-                    <div className={styles.productCard}>
-                        <ICONS.newDroneThree className={styles.productImage} />
-                        
-                        <h2 className={styles.productTitle}>DJI Mini 4K</h2>
-                        <p className={styles.productPrice}>from $299</p>
-                    </div>
-
-                    <div className={styles.productCard}>
-                        <ICONS.newDroneOne className={styles.productImage} />
-                        
-                        <h2 className={styles.productTitle}>DJI Mini 4K</h2>
-                        <p className={styles.productPrice}>from $299</p>
-                    </div>
+                    { popularProducts?.map((product: IProduct) => {
+                        return (
+                            <div key = {product.id} className={styles.productCard}>
+                                <ICONS.newDroneOne className={styles.productImage} />
+                                
+                                <h2 className={styles.productTitle}>{product.name}</h2>
+                                <p className={styles.productPrice}>from ${product.price}</p>
+                            </div>)
+                        })}
                 </div>
 
                 <button className={styles.CatalogButton}>ДИВИТИСЬ ВСІ <ICONS.newProductsArrow /></button>

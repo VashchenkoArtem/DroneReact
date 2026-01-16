@@ -14,13 +14,9 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 10%;
-<<<<<<< HEAD
-    margin: 0px clamp(20px, 2vw, 40px);
-=======
     margin: 0 clamp(0px, 2vw, 40px);
     position: relative;
     z-index: 10; /* щоб був поверх фону */
->>>>>>> Nastya
 }
 .urls{
     display: flex;

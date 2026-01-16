@@ -4,14 +4,14 @@ import type { IProduct } from "../shared";
 export function useProductsPopular() {
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState<boolean>(false)
-    const [ products, setProducts ] = useState<IProduct | null>(null)
+    const [ popularProducts, setProducts ] = useState<IProduct[] | null>(null)
 
     useEffect(() => {
         const fetchPopularProducts = async () => {
             try {
                 setLoading(true)
 
-                const response = await fetch("http://localhost:8000/products/popular")
+                const response = await fetch("http://127.0.0.1:8000/products/suggestions?popular=true&limit=3&offset=0")
                 const data = await response.json()
 
                 if (response.status === 500) {
@@ -36,5 +36,5 @@ export function useProductsPopular() {
         }
         fetchPopularProducts()
     }, [])
-    return { products, loading, error }
+    return { popularProducts, loading, error }
 }

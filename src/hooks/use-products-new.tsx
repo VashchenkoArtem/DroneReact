@@ -3,7 +3,7 @@ import type { IProduct } from "../shared";
 
 export function useProductsNew() {
     const [error, setError] = useState<string | null>(null)
-    const [ products, setProducts ] = useState<IProduct | null>(null)
+    const [ newProducts, setProducts ] = useState<IProduct[] | null>(null)
     const [loading, setLoading] = useState<boolean>(false)
 
     useEffect(() => {
@@ -11,7 +11,7 @@ export function useProductsNew() {
             try {
                 setLoading(true)
 
-                const response = await fetch("http://localhost:8000/products/suggestions")
+                const response = await fetch("http://127.0.0.1:8000/products/suggestions?new=true&limit=3&offset=0")
                 const data = await response.json()
 
                 if (response.status === 500) {
@@ -36,5 +36,5 @@ export function useProductsNew() {
         }
         fetchNewestProducts()
     }, [])
-    return { products, loading, error }
+    return { newProducts, loading, error }
 }
