@@ -6,19 +6,17 @@
 .header{
     display: grid;
     height: 7vh;
-    grid-template-columns: 4fr 1fr 4fr ;
-
+    grid-template-columns: 4fr 1fr 4fr;
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(228, 228, 231, 1);
-
     padding: 0px clamp(40px, 2vw, 50px);
     border-radius: 123px;
-
     justify-content: space-between;
     align-items: center;
     column-gap: 10%;
     margin: 0 clamp(0px, 2vw, 40px);
-
+    position: relative;
+    z-index: 10; /* щоб був поверх фону */
 }
 .urls{
     display: flex;
@@ -48,5 +46,24 @@
 @media (max-width: 767px){
     .header{
         grid-template-columns: 1fr 1fr ;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header {
+        padding: 0px clamp(20px, 2vw, 40px);
+        column-gap: 5%;
+    }
+}
+
+@media (max-width: 767px){
+    .header {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        padding: clamp(10px, 2vw, 20px);
+    }
+    main {
+        margin-top: 10vh;
+        gap: calc(10vw + 15vh);
     }
 }
