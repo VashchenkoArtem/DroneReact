@@ -152,11 +152,10 @@ h1 {
 .newProductsContainer {
     width: 100%;
     padding: clamp(40px, 6vw, 120px) clamp(20px, 6vw, 120px);
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(20px, 6vh, 44px);
+    gap: clamp(60px, 12vh, 135px);
     background-color: white;
 }
 
@@ -185,6 +184,7 @@ h1 {
     height: auto;
     border-radius: 24px;
     /* overflow: hidden; */
+    z-index: 10;
     padding: clamp(180px, 2vw, 200px) clamp(20px, 2vw, 40px) clamp(20px, 2vw, 40px);
 }
 
@@ -200,7 +200,7 @@ h1 {
     background: linear-gradient(
         180deg,
         rgba(255,255,255,0) 0%,
-        rgba(28,38,32,0.95) 100%
+        rgba(104,173,186,0.95) 100%
     );
 }
 
@@ -208,17 +208,18 @@ h1 {
     background: linear-gradient(
         180deg,
         rgba(255,255,255,0) 0%,
-        rgba(104,173,186,0.95) 100%
+        rgb(14, 185, 157) 100%
+
     );
 }
 
 .newProductImage {
     position: absolute;
     z-index: 3;
-    top: clamp(-110px, 2vw, -200px);
+    top: clamp(-230px, 4vw, -320px);
     left: 50%;
     transform: translateX(-50%);
-    width: clamp(160px, 24vw, 260px);
+    width: clamp(240px, 24vw, 350px);
     height: auto;
     pointer-events: none;
 }
@@ -303,7 +304,7 @@ h1 {
     justify-content: center;
     width: 100%;
     gap: clamp(16px, 6vh, 24px);
-    max-height: 340px;
+    max-height: 640px;
     overflow-y: scroll;
 }
 
@@ -357,4 +358,34 @@ h1 {
     letter-spacing: 0.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+.droneBG{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 135%;
+    z-index: 0;
+    opacity: 60%;
+    border-radius: 24px;
+    background-size: cover;
+    cursor: pointer;
+    transition: 
+        opacity 0.4s ease;
+    transform: scale(1);
+}
+.droneBG:hover{
+    opacity:80%;
+}
+
+.droneBG:nth-of-type(1){
+    background-image: url("../../assets/images/firstNewDroneBG.png");
+}
+
+.droneBG:nth-of-type(2){
+    background-image: url("../../assets/images/secondNewDroneBG.png");
+}
+
+.droneBG:nth-of-type(3){
+    background-image: url("../../assets/images/thirdNewDroneBG.png");
 }

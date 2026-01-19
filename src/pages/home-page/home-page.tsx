@@ -49,6 +49,7 @@ export function HomePage(){
                     {   newProducts?.map((product: IProduct) => {
                         return (
                             <div key = {product.id} className={styles.newProductCard}>
+                                <div className = {styles.droneBG}/>
                                 <ICONS.droneImage className = {styles.newProductImage} />
                                 <div className={styles.newProductDescription}>
                                     <h2 className={styles.newProductTitle}>{product.name}</h2>
