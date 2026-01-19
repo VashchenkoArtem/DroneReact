@@ -331,8 +331,9 @@ h1 {
 .productTitle {
     color: rgba(12, 18, 42, 1);
     font-weight: 500;
+    width: 100%;
     font-size: clamp(16px, 1.5vw, 20px);
-    text-align: center;
+    text-align: start;
     margin-top: auto; 
 }
 
@@ -340,7 +341,7 @@ h1 {
     color: rgb(50, 53, 71);
     font-weight: 400;
     font-size: clamp(14px, 1.2vw, 16px);
-    text-align: center;
+    text-align: left;
     margin-top: 5px;
 }
 
@@ -378,14 +379,18 @@ h1 {
     opacity:80%;
 }
 
-.droneBG:nth-of-type(1){
-    background-image: url("../../assets/images/firstNewDroneBG.png");
+.productPrices {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1vw;
+    justify-content: flex-start;
+    text-align: left;
 }
 
-.droneBG:nth-of-type(2){
-    background-image: url("../../assets/images/secondNewDroneBG.png");
+.productPriceWithoutDiscount {
+    text-decoration: line-through;
 }
-
-.droneBG:nth-of-type(3){
-    background-image: url("../../assets/images/thirdNewDroneBG.png");
+.productPriceWithDiscount{
+    color: rgb(125, 53, 53);
 }

@@ -80,7 +80,16 @@ export function HomePage(){
                                 <ICONS.newDroneOne className={styles.productImage} />
                                 
                                 <h2 className={styles.productTitle}>{product.name}</h2>
-                                <p className={styles.productPrice}>from ${product.price}</p>
+                                {product.discount ?
+                                    <div className={styles.productPrices}>
+                                        <p className={styles.productPriceWithoutDiscount}>${product.price}</p>
+                                        <p className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}>${product.price - product.price * product.discount / 100}</p>
+                                    </div>
+                                :
+                                <div className = {styles.productPrices}>
+                                    <p className={styles.productPrice}>${product.price}</p>
+                                </div>
+                                }
                             </div>)
                         })}
                 </div>
