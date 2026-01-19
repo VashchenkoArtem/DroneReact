@@ -284,11 +284,10 @@ h1 {
 /* Catalog Container */
 .CatalogContainer {
     width: 100%;
-    padding: clamp(40px, 6vw, 120px) clamp(20px, 6vw, 120px);
     display: flex;
     flex-direction: column;
-
     align-items: center;
+    padding: 0px clamp(20px, 2vw, 40px);
     gap: clamp(20px, 6vh, 44px);
     background-color: white;
 }
@@ -301,9 +300,11 @@ h1 {
 .productsList {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    gap: clamp(20px, 6vh, 44px);
+    gap: clamp(16px, 6vh, 24px);
+    max-height: 340px;
+    overflow-y: scroll;
 }
 
 .productCard {
@@ -312,9 +313,9 @@ h1 {
     align-items: center;
     justify-content: space-between; 
     gap: clamp(10px, 1vw, 15px);
-    width: 210px; 
+    width: 320px; 
     min-height: 300px; 
-    padding: 20px;
+    padding: clamp(8px, 1vw, 14px);
     background-color: #fff;
     border-radius: 16px;
     transition: transform 0.3s ease;

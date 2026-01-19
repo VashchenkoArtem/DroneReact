@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 import { ICONS, IMAGES, IProduct } from "../../shared";
 import styles from "./home-page.module.css"
 import { useProductsNew, useProductsPopular } from "../../hooks";
+import { useEffect, useState } from "react";
 
-const firstDrone = IMAGES.firstDrone
-const secondDrone = IMAGES.firstDrone
-const thirdDrone = IMAGES.firstDrone
-const fourthDrone = IMAGES.firstDrone
 
 export function HomePage(){
     const { newProducts } = useProductsNew()
-    const { popularProducts } = useProductsPopular()
-
+    const [ limitOfPosts, setLimitOfPosts ] = useState<number>(4)
+    const { popularProducts, fetchPopularProducts } = useProductsPopular(limitOfPosts)
+    useEffect(() => {
+        fetchPopularProducts()
+    }, [limitOfPosts])
     return (
         <main>
             <img src={IMAGES.headerBG} className={styles.headerImage} alt="Header Background" />
@@ -49,7 +49,6 @@ export function HomePage(){
                     {   newProducts?.map((product: IProduct) => {
                         return (
                             <div key = {product.id} className={styles.newProductCard}>
-                                
                                 <ICONS.droneImage className = {styles.newProductImage} />
                                 <div className={styles.newProductDescription}>
                                     <h2 className={styles.newProductTitle}>{product.name}</h2>
@@ -85,7 +84,12 @@ export function HomePage(){
                         })}
                 </div>
 
-                <button className={styles.CatalogButton}>ДИВИТИСЬ ВСІ <ICONS.newProductsArrow /></button>
+                <button
+                    className={styles.CatalogButton}
+                    onClick={()=>{
+                        setLimitOfPosts(limitOfPosts + 4)
+                    }}
+                    >ДИВИТИСЬ ВСІ <ICONS.newProductsArrow /></button>
             </div>
 
 
