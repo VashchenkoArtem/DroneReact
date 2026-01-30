@@ -8,7 +8,8 @@ import { ReactComponent as newDroneOne } from "../assets/icons/newProductDroneOn
 import { ReactComponent as newDroneTwo } from "../assets/icons/newProductDroneTwo.svg"
 import { ReactComponent as newDroneThree } from "../assets/icons/newProductDroneThree.svg"
 import { ReactComponent as newProductsArrow } from "../assets/icons/newProductsArrow.svg"
+import { ReactComponent as cartImage } from "../assets/icons/cartImage.svg"
 
 
 
-export const ICONS = { headerLogo, headerOrders, headerProfile, headerBurgerMenu, droneImage, buttonArrow, newDroneOne, newDroneTwo, newDroneThree, newProductsArrow }
+export const ICONS = { headerLogo, headerOrders, headerProfile, headerBurgerMenu, droneImage, buttonArrow, newDroneOne, newDroneTwo, newDroneThree, newProductsArrow, cartImage }

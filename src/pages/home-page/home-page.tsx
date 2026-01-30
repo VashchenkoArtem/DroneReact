@@ -27,7 +27,9 @@ export function HomePage(){
                         <p className={styles.droneDescription}>Передові технології в одному місці. </p>
                         <p className={styles.droneDescription}>Обирай найкраще для найважливішого.</p>
 
-                        <button className={styles.droneButton}>ДО КАТАЛОГУ</button>
+                        <Link to='/catalog'>
+                            <button className={styles.droneButton}>ДО КАТАЛОГУ</button>
+                        </Link>
                     </div>
                 </div>
             </div>

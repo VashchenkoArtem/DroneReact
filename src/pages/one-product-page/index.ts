@@ -1,0 +1,1 @@
+export { OneProductPage } from './one-product-page';
