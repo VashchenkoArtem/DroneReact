@@ -11,7 +11,7 @@ export function useProductsSimilar(productId: number) {
             try {
                 setLoading(true)
 
-                const response = await fetch(`http://127.0.0.1:8000/products/suggestions?sameAs=${productId}`)
+                const response = await fetch(`http://127.0.0.1:8000/products/suggestions?sameAs=${productId}&limit=4`)
                 const data = await response.json()
 
                 if (response.status === 500) {

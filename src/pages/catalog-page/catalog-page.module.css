@@ -60,9 +60,9 @@
 .newProductsList {
     display: flex;
     flex-wrap: wrap; 
+    justify-content: space-between; 
     width: 100%;
     gap: clamp(15px, 1.5vw, 25px);
-    justify-content: flex-start; 
     padding: 0 clamp(10px, 3vw, 40px); 
 }
 

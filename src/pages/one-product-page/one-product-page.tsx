@@ -9,16 +9,8 @@ import { ICONS, IMAGES, IProduct } from "../../shared";
 export function OneProductPage(){
     const { id } = useParams()
     const { product, error, loading } = useProductById(Number(id))
-    const { similarProducts } = useProductsSimilar()
-
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        if (Number.isNaN(Number(id))) {
-			navigate("/")
-		}
-    }, [id, navigate])
-
+    const { similarProducts } = useProductsSimilar(Number(id))
+    if (!product) return null
     if (error || !product){
 		return (
 			<h1>{error}</h1>
