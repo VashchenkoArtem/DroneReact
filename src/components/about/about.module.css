@@ -40,6 +40,7 @@
 .block{
     display: flex;
     gap: clamp(20px,2vw,28px);
+    padding: clamp(5px, 2vw, 10px);
     align-items: center;
 }
 .infoBlock{
