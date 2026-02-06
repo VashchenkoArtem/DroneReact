@@ -9,7 +9,7 @@ import { ReactComponent as newDroneTwo } from "../assets/icons/newProductDroneTw
 import { ReactComponent as newDroneThree } from "../assets/icons/newProductDroneThree.svg"
 import { ReactComponent as newProductsArrow } from "../assets/icons/newProductsArrow.svg"
 import { ReactComponent as cartImage } from "../assets/icons/cartImage.svg"
+import { ReactComponent as nextPage } from "../assets/icons/SkipNextFilled.svg"
+import { ReactComponent as previousPage } from "../assets/icons/SkipPreviousFilled.svg"
 
-
-
-export const ICONS = { headerLogo, headerOrders, headerProfile, headerBurgerMenu, droneImage, buttonArrow, newDroneOne, newDroneTwo, newDroneThree, newProductsArrow, cartImage }
+export const ICONS = { headerLogo, headerOrders, headerProfile, headerBurgerMenu, droneImage, buttonArrow, newDroneOne, newDroneTwo, newDroneThree, newProductsArrow, cartImage, nextPage, previousPage }

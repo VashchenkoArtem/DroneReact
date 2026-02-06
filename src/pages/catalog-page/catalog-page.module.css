@@ -60,10 +60,9 @@
 .newProductsList {
     display: flex;
     flex-wrap: wrap; 
-    justify-content: space-between; 
     width: 100%;
-    gap: clamp(15px, 1.5vw, 25px);
-    padding: 0 clamp(10px, 3vw, 40px); 
+    gap: clamp(60px, 3vw, 100px);
+    padding: 0 clamp(40px, 3vw, 160px); 
 }
 
 .productCard {
@@ -110,7 +109,26 @@
     color: #999;
     text-decoration: line-through;
 }
-
+.buttonToPage, .arrowPageButton{
+    width: 40px;
+    height: 40px;
+    border-radius: 123px;
+    font-size: 0.875rem;
+    border: none;
+    background-color: white;
+}
+.pagination{
+    display: flex;
+    align-items: center;
+    gap: clamp(3px, 2vw, 6px);
+}
+.activePage{
+    background-color: rgba(244, 244, 244, 1);
+}
+.arrowPage{
+    width: 22px;
+    height: 22px;
+}
 @media (max-width: 900px) {
     .newProductsList {
         justify-content: center;

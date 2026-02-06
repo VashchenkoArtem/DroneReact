@@ -3,17 +3,17 @@ import type { IProduct } from "../shared";
 
 export function useProducts() {
     const [error, setError] = useState<string | null>(null)
-    const [products, setProducts] = useState<IProduct[] | null>(null)
+    const [allProducts, setProducts] = useState<IProduct[] | null>(null)
     const [loading, setLoading] = useState<boolean>(false)
 
     useEffect(() => {
-        async function getProducts() {
+        async function getProducts(categoryId?: number) {
             try {
                 setLoading(true)
 
-                const response = await fetch('http://127.0.0.1:8000/products/?categoryId=1')
+                const response = await fetch(`http://127.0.0.1:8000/products?categoryId=${categoryId}`)
                 const data = await response.json()
-
+                
                 if (response.status === 500) {
                     setError("There is a problem with the server. Please try again later.")
                 } else if (response.status === 404) {
@@ -36,5 +36,6 @@ export function useProducts() {
         }
         getProducts()
     }, [])
-    return { products, loading, error }
+
+    return { allProducts, loading, error }
 }

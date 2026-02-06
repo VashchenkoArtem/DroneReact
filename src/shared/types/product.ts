@@ -7,3 +7,8 @@ export interface IProduct {
     description: string;
     count: number;
 }
+export interface ICategory {
+    id: number;
+    title: string;
+    image: string;
+}
