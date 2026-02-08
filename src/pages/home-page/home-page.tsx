@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ICONS, IMAGES, IProduct } from "../../shared";
 import styles from "./home-page.module.css"
-import { useProductsNew, useProductsPopular } from "../../hooks";
+import { useProductsNew, useProductsPopular, useScrollToStartPage } from "../../hooks";
 import { useEffect, useState } from "react";
 
 
@@ -9,9 +9,11 @@ export function HomePage(){
     const { newProducts } = useProductsNew()
     const [ limitOfPosts, setLimitOfPosts ] = useState<number>(4)
     const { popularProducts, fetchPopularProducts } = useProductsPopular(limitOfPosts)
+    useScrollToStartPage()
     useEffect(() => {
         fetchPopularProducts()
     }, [limitOfPosts])
+
     return (
         <main>
             <img src={IMAGES.headerBG} className={styles.headerImage} alt="Header Background" />

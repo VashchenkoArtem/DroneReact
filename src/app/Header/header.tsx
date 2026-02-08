@@ -27,7 +27,7 @@ export function Header(){
     return (
         <header className={styles.header}>
             <div className={styles.urls}>
-                <Link to = "">
+                <Link to = "/catalog">
                     <h1 className={styles.url}>КАТАЛОГ</h1>
                 </Link>
                 <Link to = "/about">

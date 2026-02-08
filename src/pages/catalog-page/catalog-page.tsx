@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useProducts } from "../../hooks";
+import { useProducts, useScrollToStartPage } from "../../hooks";
 import { useEffect, useState } from "react";
 import styles from "./catalog-page.module.css";
 import { ICONS, IMAGES, IProduct } from "../../shared";
@@ -13,6 +13,7 @@ export function CatalogPage() {
     const { categories } = useCategories()
     const { allProducts } = useProducts()
     const { products, error, loading, fetchProductsToPage } = useProductsToPage()
+    const { scrollToTop } = useScrollToStartPage()
     useEffect(() => {
         fetchProductsToPage(offset)
     }, [offset])
@@ -46,8 +47,8 @@ export function CatalogPage() {
                 <button>Всі</button>
                 { categories?.map((category)=>{
                     return (
-                        <button key = {category.id} onClick={() => fetchProductsToPage(offset, category.id)}>
-                            <img src={category.image} className={styles.droneBtnCategory} alt="" />
+                        <button key = {category.id} className={styles.droneBtnCategory} onClick={() => fetchProductsToPage(offset, category.id)}>
+                            <img src={category.image} className={styles.droneImgCategory} alt="" />
                         </button>
                     )
                 })}
@@ -98,7 +99,10 @@ export function CatalogPage() {
                 {pageNumbers.map((page) => (
                     <button
                         key={page}
-                        onClick={() => goToPage(page)}
+                        onClick={() => {
+                            scrollToTop()
+                            goToPage(page)
+                        }}
                         className={`${styles.buttonToPage} ${                     
                             page === currentPage
                                 ? styles.activePage

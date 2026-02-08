@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useProductById, useProductsSimilar } from "../../hooks";
+import { useProductById, useProductsSimilar, useScrollToStartPage } from "../../hooks";
 import { useEffect, useState } from "react";
 import styles from "./one-product-page.module.css";
 import { ICONS, IMAGES, IProduct } from "../../shared";
@@ -10,6 +10,7 @@ export function OneProductPage(){
     const { id } = useParams()
     const { product, error, loading } = useProductById(Number(id))
     const { similarProducts } = useProductsSimilar(Number(id))
+    useScrollToStartPage()
     if (!product) return null
     if (error || !product){
 		return (
