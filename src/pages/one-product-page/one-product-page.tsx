@@ -22,40 +22,46 @@ export function OneProductPage(){
             <img src={IMAGES.headerBG} className={styles.headerImage} alt="Header Background" />
 
             <div className={styles.droneContainer}>
-                <h1>{product.name}</h1>
-                <p>{product.description}</p>
-            
-
                 <div className={styles.droneActions}>
-                    <ICONS.droneImage className={styles.droneImage} />
-
-                    <div className={styles.droneInfo}>
-                        <p className={styles.droneDescription}>{product.name}</p>
-
-                        {product.discount ?
-                                <div className={styles.productPrices}>
-                                    <p className={styles.productPriceWithoutDiscount}>${product.price}</p>
-                                    <p className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}>${product.price - product.price * product.discount / 100}</p>
-                                </div>
-                            :
-                            <div className = {styles.productPrices}>
-                                <p className={styles.productPrice}>${product.price}</p>
-                            </div>
-                            }
-
-
-                        <div className={styles.buttonsDrone}>
-                            <button className={styles.droneButtonOne}> 
-                                <ICONS.cartImage className={styles.newProductButtonArrow} />
-                            </button>
-
-
-                            <button className={styles.droneButton}>ЗАМОВИТИ 
-                                <ICONS.newProductsArrow className={styles.newProductButtonArrow} />
-                            </button>
-                        </div>
-
+                    <div className={styles.droneInfoWithImage}>
+                        <h1>{product.name}</h1>
+                        <p className = {styles.productDescription}>{product.description}</p>
                     </div>
+                    <img src = {product.image} className={styles.droneImage} />
+                </div>
+                <div className={styles.droneInfo}>
+                    <div className={styles.droneNameAndImage}>
+                        <img className={styles.imageInfo} src = {product.image} alt="" />
+                        <div className={styles.dronePriceAndName}>
+                            <p className={styles.droneDescription}>{product.name}</p>
+                            {product.discount ?
+                                        <div className={styles.productPrices}>
+                                            <p className={styles.productPriceWithoutDiscount}>${product.price}</p>
+                                            <p className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}>${product.price - product.price * product.discount / 100}</p>
+                                        </div>
+                                    :
+                                    <div className = {styles.productPrices}>
+                                        <p className={styles.productPrice}>${product.price}</p>
+                                    </div>
+                                    }
+
+                        </div>
+                    </div>
+
+  
+
+
+                    <div className={styles.buttonsDrone}>
+                        <button className={styles.droneButtonOne}> 
+                            <ICONS.cartImage className={styles.newProductButtonArrow} />
+                        </button>
+
+
+                        <button className={styles.droneButton}>ЗАМОВИТИ 
+                            <ICONS.newProductsArrow className={styles.newProductButtonArrow} />
+                        </button>
+                    </div>
+
                 </div>
             </div>
 
