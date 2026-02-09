@@ -18,8 +18,7 @@ export function HomePage(){
         <main>
             <img src={IMAGES.headerBG} className={styles.headerImage} alt="Header Background" />
             <div className={styles.droneContainer}>
-                <h1>ТЕХНОЛОГІЇ</h1>
-                <h1>ЯКІ ЗМІНЮЮТЬ РЕАЛЬНІСТЬ</h1>
+                <h1 className={styles.titleArticle}>ТЕХНОЛОГІЇ <br/>ЯКІ ЗМІНЮЮТЬ РЕАЛЬНІСТЬ</h1>
 
 
                 <div className={styles.droneActions}>
@@ -38,16 +37,16 @@ export function HomePage(){
 
 
             <div className={styles.aboutUsContainer}>
-                <h1>ПРО НАС</h1>
+                <h1 className={styles.titleArticleGrey}>ПРО НАС</h1>
                 <p>Ми — команда, що об'єднує технології та надійність.</p>
                 <p>Пропонуємо дрони й тепловізори, перевірені у найскладніших умовах.</p>
                 <p>Обираємо тільки те, чому довіряємо самі.</p>
 
-                <button className={styles.aboutUsButton}>ЧИТАТИ БІЛЬШЕ <ICONS.buttonArrow /></button>
+                <button className={styles.aboutUsButton}><Link to="/about">ЧИТАТИ БІЛЬШЕ </Link><ICONS.buttonArrow /></button>
             </div>
 
             <div className={styles.newProductsContainer}>
-                <h1>НОВЕ НА САЙТІ</h1>
+                <h1 className={styles.titleArticleGrey}>НОВЕ НА САЙТІ</h1>
 
                 <div className={styles.newProductsList}>
                     {   newProducts?.map((product: IProduct) => {
@@ -75,7 +74,7 @@ export function HomePage(){
             </div>
 
             <div className={styles.CatalogContainer}>
-                <h1>КАТАЛОГ</h1>
+                <h1 className={styles.titleArticleGrey}>КАТАЛОГ</h1>
 
                 <div className={styles.productsList}>
                     { popularProducts?.map((product: IProduct) => {

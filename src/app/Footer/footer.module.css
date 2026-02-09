@@ -49,6 +49,9 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: clamp(20px, 2vw, 30px);
+    /* margin-top:  clamp(25px, 2vw, 35px); */
+    
+    margin-top:  clamp(40px, 2.5vw, 65px);
 
     /* padding: clamp(10px, 1vw, 16px); */
 }
