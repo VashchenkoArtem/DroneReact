@@ -1,0 +1,187 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    width: 447px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #1a1a2e;
+    line-height: 1;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+}
+
+.active {
+    color: #1a1a2e;
+}
+
+.separator {
+    color: #1a1a2e;
+    font-weight: 400;
+    margin: 0 8px;
+}
+
+.inactive {
+    color: #A4ABB6;
+    font-weight: 400;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.inputGroup {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a1a2e;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #E2E5EB;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    color: #1a1a2e;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.inputGroup input:focus {
+    border-color: #1a1a2e;
+}
+
+.inputGroup input::placeholder {
+    color: #A4ABB6;
+}
+
+.passwordWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: transparent !important;
+}
+
+.eyeIcon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+    color: #A4ABB6;
+    background: transparent !important;
+}
+
+.forgotPass {
+    display: inline-block;
+    font-size: 13px;
+    color: #A4ABB6;
+    text-decoration: underline;
+    margin-bottom: 24px;
+    margin-top: 4px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+}
+
+.forgotPass:hover {
+    color: #1a1a2e;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.cancelBtn, 
+.submitBtn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: inherit;
+}
+
+.cancelBtn {
+    background: white;
+    border: 1.5px solid #1a1a2e;
+    color: #1a1a2e;
+}
+
+.cancelBtn:hover {
+    background: #f8f9fa;
+}
+
+.submitBtn {
+    background: #11142D;
+    color: white;
+    border: 1.5px solid #11142D;
+}
+
+.submitBtn:hover {
+    background: #1a1a2e;
+}
+
+.errorText {
+    color: #ff4d4f;
+    font-size: 12px;
+    margin-bottom: 12px;
+    text-align: left;
+}
