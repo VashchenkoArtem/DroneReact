@@ -5,6 +5,8 @@ import styles from "./header.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/AuthRegContext";
 import { AuthModal } from "../../components/authForm";
+import { Modal } from "../../shared/modal";
+import { RegistrationForm } from "../../pages/registration";
 
 const Logo = ICONS.headerLogo;
 const Orders = ICONS.headerOrders;

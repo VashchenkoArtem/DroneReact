@@ -1,0 +1,162 @@
+.registerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    /* padding: clamp(5px, 2vh, 20px); */
+    border-radius: 20px;
+    max-width: 450px;
+    /* max-height: 570px; */
+    width: 100%;
+}
+
+.formUpperActions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.formLinks {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    width: 100%;
+}
+
+.closeModalBtn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0C122A;
+}
+
+.authLink {
+    color: #9EA0AA;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.regLink {
+    color: #0C122A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.inputLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1rem;
+    color: #0C122A;
+}
+
+.inputForm {
+    width: 100%;
+    border: 1px solid #CED0D4;
+    box-shadow: 0 0 0 0.5px #CED0D4;
+    background-color: white;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #0C122A;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+.inputForm::placeholder {
+    color: #9EA0AA;
+}
+
+.inputForm:focus {
+    border: 1px solid #abadb1;
+}
+
+.error {
+    font-size: 0.9rem;
+    color: #B62D11;
+}
+
+.inputError {
+    border: 1px solid #B62D11;
+    box-shadow: 0 0 0 0.5px #B62D11;
+}
+
+
+.authInfoLink {
+    font-size: 1rem;
+    color: #9EA0AA;
+    text-decoration: underline;
+    text-underline-offset: 4.5px;
+}
+
+.authInfoLink span a {
+    color: #9EA0AA;
+    text-decoration: underline;
+}
+
+.formButtonActions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 70%;
+}
+
+.registerButton {
+    background-color: #0C122A;
+    text-align: center;
+    color: #ffffff;
+    border: 2px solid rgba(12, 18, 42, 1);
+    border-radius: 50px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.cancelRegisterButton {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(12, 18, 42, 1);
+    border: 2px solid rgba(12, 18, 42, 1);
+    border-radius: 50px;
+    padding: 12px 16px;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registerButton:active {
+    transform: translateY(0);
+    opacity: 0.9;
+}
+
+.regPiblicInfo {
+    font-size: 1rem;
+    text-align: left;
+    color: #9EA0AA;
+    line-height: 1.4;
+}
+
+.regPiblicInfo span {
+    color: #B62D11;
+    cursor: pointer;
+}
