@@ -48,6 +48,89 @@
 .logo{
     width: clamp(115px, 2vw, 130px);
 }
+
+.profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.profileWrapper:hover {
+    opacity: 0.8;
+}
+
+
+
+
+/* Стили модального окна профиля */
+/* Только для тестирования, позже удалить */
+
+.profileContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 15px);
+    right: -18px; 
+    
+    background: white;
+    border: 1px solid #E2E5EB;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    min-width: 160px;
+    z-index: 100;
+}
+
+.dropdown::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 22px; 
+    
+    width: 10px;
+    height: 10px;
+    background: white;
+    transform: rotate(45deg);
+    border-left: 1px solid #E2E5EB;
+    border-top: 1px solid #E2E5EB;
+}
+
+.dropdownItem {
+    width: 100%;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a2e;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+
+.dropdownItem:hover {
+    background: #f8f9fa;
+}
+
+.divider {
+    height: 1px;
+    background: #E2E5EB;
+    margin: 4px 0;
+}
+
+.logoutBtn {
+    color: #ff4d4f;
+}
+
+/* конец стилей модалки */
+
 @media (max-width: 767px){
     .header{
         grid-template-columns: 1fr 1fr ;
