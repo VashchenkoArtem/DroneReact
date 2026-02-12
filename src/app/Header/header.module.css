@@ -48,6 +48,14 @@
 .logo{
     width: clamp(115px, 2vw, 130px);
 }
+
+.openTagForm {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
 @media (max-width: 767px){
     .header{
         grid-template-columns: 1fr 1fr ;
