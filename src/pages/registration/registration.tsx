@@ -18,8 +18,9 @@ export function RegistrationForm({ onClose }: RegistrationFormProps) {
 
     function onSubmit(data: IRegForm){
         registration({
-            ...data,
-
+            firstName: data.firstName,
+            email: data.email,
+            password: data.password,
             lastName: "",
             patronymic: "",
             birthDate: new Date().toISOString(),
@@ -152,7 +153,7 @@ export function RegistrationForm({ onClose }: RegistrationFormProps) {
                 <label htmlFor="password" className={styles.inputLabel}>
                     Підтвердження пароля
                     <input 
-                        type="text" 
+                        type="password" 
                         placeholder="Повторіть пароль" 
                         className={`${styles.inputForm} ${passwordConfirmationError ? styles.inputError : ''}`}
                         {...register('passwordConfirmation', {
