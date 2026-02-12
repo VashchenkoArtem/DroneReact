@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { useUserContext } from "../../context/user-context"
 import { IRegForm, RegistrationFormProps } from "./registration.types"
 
-export function RegistrationForm({ onClose }: RegistrationFormProps) {
+export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormProps) {
     const { handleSubmit, register, getValues, formState: {errors}} = useForm<IRegForm>()
     const { registration } = useUserContext()
 
@@ -34,7 +34,11 @@ export function RegistrationForm({ onClose }: RegistrationFormProps) {
         <div className={styles.registerContainer}>
             <div className={styles.formUpperActions}>
                 <div className={styles.formLinks}>
-                    <Link to='/login' className={styles.authLink}>Авторизація</Link>
+                    <Link to='/login' className={styles.authLink} onClick={()=>{
+                        onOpenAuthForm()
+                        onClose()
+                    }
+                    }>Авторизація</Link>
                     <p>/</p>
                     <Link to='/registration' className={styles.regLink}>Реєстрація</Link>
                 </div>

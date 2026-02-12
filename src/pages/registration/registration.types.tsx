@@ -6,5 +6,6 @@ export interface IRegForm {
 }
 
 export interface RegistrationFormProps {
-    onClose: () => void
+    onClose: () => void,
+    onOpenAuthForm: () => void
 }
