@@ -30,7 +30,7 @@
         <ul>
             <li>about.module.css</li>
             <li>about.tsx</li>
-            <li>index.tsx</li>
+            <li>index.ts</li>
         </ul>
         </details>
         <details>
@@ -38,6 +38,30 @@
         <ul>
             <li>home-page.module.css</li>
             <li>home-page.tsx</li>
+            <li>index.ts</li>
+        </ul>
+        </details>
+        <details>
+        <summary><strong> Catalog - Сторінка каталогу товарів | Catalog page </strong></summary>
+        <ul>
+            <li>catalog-page.module.css</li>
+            <li>catalog-page.tsx</li>
+            <li>index.ts</li>
+        </ul>
+        </details>
+        <details>
+        <summary><strong> OneProduct - Сторінка одного товару | Single Product page </strong></summary>
+        <ul>
+            <li>one-product-page.module.css</li>
+            <li>one-product-page.tsx</li>
+            <li>index.ts</li>
+        </ul>
+        </details>
+        <details>
+        <summary><strong> Profile - Сторінка профілю користувача | User Profile page </strong></summary>
+        <ul>
+            <li>profile-page.module.css</li>
+            <li>profile-page.tsx</li>
             <li>index.tsx</li>
         </ul>
         </details>
