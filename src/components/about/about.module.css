@@ -4,14 +4,15 @@
 }
 .aboutUs{
     display: grid;
-    justify-content: center;
+    justify-content: center;    
     gap: clamp(100px,2vw,160px);
+    margin-top: 90px;
+    padding: clamp(20px, 3vw, 40px) 0;
 }
 .titleBlock{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 90px; 
     gap: clamp(30px, 2vw, 70px);
 }
 .titleInfoBlock{

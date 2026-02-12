@@ -38,7 +38,7 @@ export function Header(){
             <Logo className={styles.logo} />
             <div className={styles.buttons}>
                 <Orders className={`${styles.orders} ${styles.hatImageUrl}`} />
-                <Profile className={`${styles.profile} ${styles.hatImageUrl}`} />
+                <Link to="/profileInformation"><Profile className={`${styles.profile} ${styles.hatImageUrl}`} /></Link>
             </div>
         </header>
     )

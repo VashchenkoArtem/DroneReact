@@ -1,0 +1,52 @@
+.informationContainer, .inputs{
+    display: flex;
+    flex-direction: column;
+}
+.informationContainer{
+    width: 40%;
+    align-items: flex-start;
+    gap: clamp(18px, 2vw, 24px);
+}
+.inputs{
+    gap: clamp(10px, 2vw, 16px);
+    width: 100%;
+}
+.informationTitle{
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 400;
+    letter-spacing: 3%;
+    color: rgba(12, 18, 42, 1);
+}
+.inputLabel{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(6px, 2vw, 10px);
+    font-size: clamp(8px, 2vw, 14px);
+    font-weight: 400;
+    color: rgba(12, 18, 42, 1);
+}
+.input{
+    width: 100%;
+    height: clamp(30px, 2vw, 40px);
+    padding-left: clamp(10px, 2vw, 16px);
+    padding-right: clamp(10px, 2vw, 16px);
+    color: rgba(158, 160, 170, 1);
+    border: 1px rgba(206, 208, 212, 1) solid;
+    border-radius: 4px;
+}
+input::-webkit-calendar-picker-indicator {
+                opacity: 0;
+            }
+.input::placeholder{
+    color: rgba(158, 160, 170, 1);
+}
+.buttonSave{
+    padding: clamp(8px, 2vw, 12px) clamp(10px, 2vw, 16px);
+    font-size: clamp(8px, 2vw, 14px);
+    color: rgba(158, 160, 170, 1);
+    letter-spacing: 9%;
+    font-weight: 500;
+    border: 1px rgba(158, 160, 170, 1) solid;
+    background-color: white;
+    border-radius: 100px;
+}

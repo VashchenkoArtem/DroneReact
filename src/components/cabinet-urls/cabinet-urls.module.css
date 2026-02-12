@@ -1,0 +1,20 @@
+.urlsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 4vw, 44px);
+}
+.urlsTitle{
+    font-size: clamp(24px, 2vw, 30px);
+    color: rgba(12, 18, 42, 1);   
+    font-weight: 400;
+}
+.url{
+    font-size: clamp(10px, 2vw, 14px);
+    color: rgba(158, 160, 170, 1);
+    font-weight: 500;
+}
+.urlLine{
+    width: 100%;
+    height: 1px;
+    border: 1px rgba(205, 213, 221, 1) solid;
+}

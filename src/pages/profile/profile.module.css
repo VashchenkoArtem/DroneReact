@@ -1,0 +1,6 @@
+.profileContainer{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 150px;
+    gap: clamp(200px, 6vw, 250px);
+}

@@ -13,14 +13,13 @@
     text-align: center;
     font-size: clamp(40px, 2vw, 58px);
     font-weight: 900;
-    margin: clamp(50px, 3vh, 70px) 0; 
 }
 
 .categoryContainer {
     display: flex;
     flex-wrap: wrap;
     gap: clamp(8px, 1vw, 12px);
-    padding: 0 clamp(10px, 3vw, 40px);
+    padding: 0 clamp(40px, 3vw, 160px);
     justify-content: flex-start;
     width: 100%;
     align-items: center;
@@ -54,6 +53,8 @@
     align-items: center;
     padding: clamp(20px, 3vw, 40px) 0; 
     background-color: white;
+    /* margin-left: 50px; */
+    margin-top: 90px;
 }
 
 .newProductsList {
@@ -71,7 +72,7 @@
     justify-content: flex-start;
     width: 20%;
     border-radius: 24px;
-    padding: clamp(15px, 1.5vw, 20px);
+    padding: 0px clamp(15px, 1.5vw, 20px);
     background: transparent; 
     margin-bottom: clamp(15px, 3vh, 25px);
 }
