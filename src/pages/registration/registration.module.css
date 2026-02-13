@@ -40,12 +40,14 @@
     color: #9EA0AA;
     font-weight: 500;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .regLink {
     color: #0C122A;
     font-weight: 600;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .registerForm {

@@ -9,12 +9,14 @@ const PasswordEye = ICONS.passwordEye;
 interface AuthModalProps {
     isOpen: boolean;
     onClose: () => void;
+    onOpenRegistrationForm: () => void;
 }
 
-export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
+export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onOpenRegistrationForm }) => {
     const { login } = useUserContext();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [onCloseRegistration, setOnCloseRegistration] = useState(() => () => {});
     
     // Стан для помилок валідації
     const [emailError, setEmailError] = useState('');
@@ -67,9 +69,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                 <button className={styles.closeBtn} onClick={onClose}>&times;</button>
                 
                 <h2 className={styles.title}>
-                    <span className={styles.active}>Авторизація</span> 
+                    <span className={styles.active} >Авторизація</span> 
                     <span className={styles.separator}>/</span> 
-                    <span className={styles.inactive}>Реєстрація</span>
+                    <span className={styles.inactive} onClick={() => {
+                        onOpenRegistrationForm()
+                        onClose()
+                    }}>Реєстрація</span>
                 </h2>
 
                 <form onSubmit={handleSubmit} className={styles.form} noValidate>

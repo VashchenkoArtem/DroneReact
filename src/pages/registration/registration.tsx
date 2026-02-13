@@ -42,13 +42,13 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
         <div className={styles.registerContainer}>
             <div className={styles.formUpperActions}>
                 <div className={styles.formLinks}>
-                    <Link to='/login' className={styles.authLink} onClick={()=>{
+                    <p className={styles.authLink} onClick={()=>{
                         onOpenAuthForm()
                         onClose()
                     }
-                    }>Авторизація</Link>
+                    }>Авторизація</p>
                     <p>/</p>
-                    <Link to='/registration' className={styles.regLink}>Реєстрація</Link>
+                    <p className={styles.regLink}>Реєстрація</p>
                 </div>
 
                 <button
@@ -207,9 +207,12 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
                     {passwordConfirmationError && <p className={styles.error}>{passwordConfirmationError}</p>}
                 </label>
     
-                <p className={styles.authInfoLink}>Вже є акаунт? 
+                <p className={styles.authInfoLink} onClick={()=>{
+                        onOpenAuthForm()
+                        onClose()
+                    }}>Вже є акаунт? 
                     <span>
-                        <Link to='/login' className={styles.signUpInfoLink}> Увійти</Link>
+                        <Link to='/' className={styles.signUpInfoLink} > Увійти</Link>
                     </span>
                 </p>
     

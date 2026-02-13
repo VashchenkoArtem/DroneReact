@@ -10,7 +10,7 @@
     align-items: center;
     height: 7vh;
     width: 95%;
-    grid-template-columns: 4fr 1fr 4fr;
+    grid-template-columns: 4fr auto 4fr;
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(228, 228, 231, 1);
     padding: 0 clamp(40px, 2vw, 50px);
@@ -20,6 +20,7 @@
     left: 50%;
     transform: translate(-50%, 50%);
     z-index: 1000;
+    opacity: 70%;
 }
 
 .urls{
@@ -46,6 +47,7 @@
     width: clamp(17px, 2vw, 31px);
 }
 .logo{
+    text-align: center;
     width: clamp(115px, 2vw, 130px);
 }
 

@@ -62,7 +62,7 @@ export function Header(){
                 </Link>
                 <h1 className={styles.url}>КОНТАКТИ</h1>
             </div>
-            <Logo className={styles.logo} />
+            <Link to = "/"><Logo className={styles.logo} /></Link>
             <div className={styles.buttons}>
                 <Orders className={`${styles.orders} ${styles.hatImageUrl}`} />
                 { user ?
@@ -82,6 +82,7 @@ export function Header(){
                             <RegistrationForm onClose={() => setisRegistrationFormOpen(false)} onOpenAuthForm={() => setIsAuthModalOpen(!isAuthModalOpen)} />
                         </Modal>
                         <AuthModal 
+                            onOpenRegistrationForm ={() => setisRegistrationFormOpen(!isRegistrationFormOpen)}
                             isOpen={isAuthModalOpen} 
                             onClose={() => setIsAuthModalOpen(false)} 
                         />
