@@ -49,4 +49,5 @@ input::-webkit-calendar-picker-indicator {
     border: 1px rgba(158, 160, 170, 1) solid;
     background-color: white;
     border-radius: 100px;
+    cursor: pointer;
 }

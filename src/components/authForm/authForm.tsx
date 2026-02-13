@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useUserContext } from '../../context/AuthRegContext';
+import { useUserContext } from '../../context/user-context';
 import { ICONS } from '../../shared';
 import styles from './authForm.module.css';
 
