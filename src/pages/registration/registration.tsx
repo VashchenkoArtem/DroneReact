@@ -4,10 +4,16 @@ import { ICONS } from "../../shared"
 import { Link } from "react-router-dom"
 import { useUserContext } from "../../context/user-context"
 import { IRegForm, RegistrationFormProps } from "./registration.types"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 
 export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormProps) {
     const { handleSubmit, register, getValues, formState: {errors}} = useForm<IRegForm>()
+    const [successfulRegistration, setSuccessfulRegistration] = useState(false)
     const { registration } = useUserContext()
+    const navigate = useNavigate()
+
 
     const usernameError = errors.firstName?.message
     const emailError = errors.email?.message
@@ -26,6 +32,8 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
             birthDate: new Date().toISOString(),
             phoneNumber: ""
         })
+
+        setSuccessfulRegistration(true)
     }
 
 
@@ -49,8 +57,6 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
                     onClick={onClose}
                 >✕</button>
             </div>
-            
-
 
             <form  noValidate className={styles.registerForm} onSubmit={ handleSubmit(onSubmit) }>
                 <label htmlFor="name" className={styles.inputLabel}>
@@ -215,6 +221,30 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
 
                 <p className={styles.regPiblicInfo}>При вході або реєстрації, я підтверджую згоду з умовами <span>публічного договору</span> </p>
             </form>
+
+            {successfulRegistration && (
+                <div className={styles.overlay}>
+                    <div className={styles.successfulRegModal}>
+                        <div className={styles.formUpperActions}>
+                            <div className={styles.formLinks}>
+                                <Link to='/registration' className={styles.regLink}>Реєстрація</Link>
+                            </div>
+
+                            <button
+                                type="button"
+                                className={styles.closeModalBtn}
+                                onClick={onClose}
+                            >✕</button>
+                        </div>
+                        <p>Акаунт успішно створено!</p>
+                        <button className={styles.successfulRegistrationButton} onClick={() => navigate('/')}>ПЕРЕЙТИ НА САЙТ
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            
+
         </div>
     )
 }
