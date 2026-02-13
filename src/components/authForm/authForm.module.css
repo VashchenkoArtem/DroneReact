@@ -56,7 +56,6 @@
 .inactive {
     color: #A4ABB6;
     font-weight: 400;
-    margin-left: 8px;
     cursor: pointer;
 }
 
@@ -184,4 +183,14 @@
     font-size: 12px;
     margin-bottom: 12px;
     text-align: left;
+}
+
+.inputError {
+    border-color: #ff4d4f !important;
+}
+
+.errorLabel {
+    color: #ff4d4f;
+    font-size: 11px;
+    margin-top: 4px;
 }
