@@ -3,6 +3,7 @@ import { Layout } from "./Layout"
 import { HomePage, AboutUsPage, PageUndefined, CatalogPage } from "../pages"
 import { OneProductPage } from "../pages/one-product-page/one-product-page"
 import { ProfilePage } from "../pages/profile"
+import { OrdersPage } from "../pages/my_orders"
 
 
 export function AppRouter() {
@@ -15,6 +16,7 @@ export function AppRouter() {
           <Route path="/catalog" element = {<CatalogPage/>}/>
           <Route path="/about" element = {<AboutUsPage/>} />
           <Route path="/profileInformation" element = {<ProfilePage/>}/>
+          <Route path="/orders" element={<OrdersPage/>}/>
           <Route path="*" element = {<PageUndefined/>}/>
         </Route>
       </Routes>

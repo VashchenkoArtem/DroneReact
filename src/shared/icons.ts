@@ -12,6 +12,7 @@ import { ReactComponent as cartImage } from "../assets/icons/cartImage.svg"
 import { ReactComponent as passwordEye } from "../assets/icons/passwordEye.svg"
 import { ReactComponent as nextPage } from "../assets/icons/SkipNextFilled.svg"
 import { ReactComponent as previousPage } from "../assets/icons/SkipPreviousFilled.svg"
+import { ReactComponent as arrowOrder } from "../assets/icons/arrow.svg"
 
 export const ICONS = { 
     headerLogo, 
@@ -27,5 +28,6 @@ export const ICONS = {
     cartImage, 
     passwordEye,
     nextPage, 
-    previousPage 
+    previousPage,
+    arrowOrder
 }
