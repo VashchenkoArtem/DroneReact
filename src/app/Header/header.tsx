@@ -60,7 +60,9 @@ export function Header(){
                 <Link to = "/about">
                     <h1 className={styles.url}>ПРО НАС</h1>
                 </Link>
-                <h1 className={styles.url}>КОНТАКТИ</h1>
+                <Link to = "/contacts">
+                    <h1 className={styles.url}>КОНТАКТИ</h1>
+                </Link>
             </div>
             <Link to = "/"><Logo className={styles.logo} /></Link>
             <div className={styles.buttons}>

@@ -55,11 +55,19 @@ export function Footer(){
                 </div>
             </div>
             <div className={styles.urls}>
-                <h1 className={styles.url}>КАТАЛОГ</h1>
-                <h1 className={styles.url}>ПРО НАС</h1>
-                <h1 className={styles.url}>КОНТАКТИ</h1>
+                <Link to = "/about">
+                    <h1 className={styles.url}>ПРО НАС</h1>
+                </Link>
+                <Link to = "/catalog">
+                    <h1 className={styles.url}>КАТАЛОГ</h1>
+                </Link>
+                <Link to = "/contacts">
+                    <h1 className={styles.url}>КОНТАКТИ</h1>
+                </Link>
                 <h1 className={styles.url}>КОШИК</h1>
-                <h1 className={styles.url}>КАБІНЕТ</h1>
+                <Link to = "/profileInformation">
+                    <h1 className={styles.url}>КАБІНЕТ</h1>
+                </Link>
             </div>
         </footer>
     )

@@ -31,7 +31,7 @@
 .url{
     display: flex;
     flex-wrap: nowrap;
-    font-size: clamp(8px, 1.6vw, 14px);
+    font-size: clamp(10px, 2vw, 16px);
     font-family: "medium walsheim", sans-serif;
     font-weight: 500;
     color: rgba(12, 18, 42, 1);

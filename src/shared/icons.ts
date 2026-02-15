@@ -13,6 +13,13 @@ import { ReactComponent as passwordEye } from "../assets/icons/passwordEye.svg"
 import { ReactComponent as nextPage } from "../assets/icons/SkipNextFilled.svg"
 import { ReactComponent as previousPage } from "../assets/icons/SkipPreviousFilled.svg"
 import { ReactComponent as arrowOrder } from "../assets/icons/arrow.svg"
+import { ReactComponent as numberIcon } from "../assets/icons/timelabelIcon.svg"
+import { ReactComponent as emailIcon } from "../assets/icons/emailIcon.svg"
+import { ReactComponent as placeIcon } from "../assets/icons/placeIcon.svg"
+import { ReactComponent as timelabelIcon } from "../assets/icons/timelabelIcon.svg"
+import { ReactComponent as facebookIcon } from "../assets/icons/facebookIcon.svg"
+import { ReactComponent as instagramIcon } from "../assets/icons/instagramIcon.svg"
+import { ReactComponent as telegramIcon } from "../assets/icons/telegramIcon.svg"
 
 export const ICONS = { 
     headerLogo, 
@@ -29,5 +36,12 @@ export const ICONS = {
     passwordEye,
     nextPage, 
     previousPage,
-    arrowOrder
+    arrowOrder,
+    emailIcon,
+    timelabelIcon,
+    numberIcon,
+    placeIcon,
+    facebookIcon,
+    instagramIcon,
+    telegramIcon
 }
