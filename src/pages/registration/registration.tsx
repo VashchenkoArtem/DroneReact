@@ -14,6 +14,11 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
     const { registration } = useUserContext()
     const navigate = useNavigate()
 
+    function closeSuccessfulRegistrationModal() {
+        setSuccessfulRegistration(false)
+        // navigate("/")
+    }
+
 
     const usernameError = errors.firstName?.message
     const emailError = errors.email?.message
@@ -236,11 +241,11 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
                             <button
                                 type="button"
                                 className={styles.closeModalBtn}
-                                onClick={onClose}
+                                onClick={closeSuccessfulRegistrationModal}
                             >✕</button>
                         </div>
                         <p>Акаунт успішно створено!</p>
-                        <button className={styles.successfulRegistrationButton} onClick={onClose}>ПЕРЕЙТИ НА САЙТ
+                        <button className={styles.successfulRegistrationButton} onClick={closeSuccessfulRegistrationModal}>ПЕРЕЙТИ НА САЙТ
                         </button>
                     </div>
                 </div>
