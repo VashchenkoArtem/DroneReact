@@ -10,7 +10,7 @@ interface IUserContext {
     login: (userData: ILogUser) => Promise<void | string>
 }
 
-const UserContext = createContext<IUserContext | null>(null)
+export const UserContext = createContext<IUserContext | null>(null)
 
 export function useUserContext() {
     const context = useContext(UserContext)

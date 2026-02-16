@@ -26,3 +26,10 @@ export interface IUpdateUser {
     birthDate?: Date | string;
     phoneNumber?: string;
 }
+
+export interface ContactForm {
+    userName: string,
+    email: string,
+    phoneNumber: string,
+    message: string
+}

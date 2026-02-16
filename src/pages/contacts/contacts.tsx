@@ -1,5 +1,10 @@
+import { useContext, useState } from "react"
+import { useSendMessage } from "../../hooks/use-send-message"
 import { ICONS } from "../../shared"
 import styles from "./contacts.module.css"
+import { UserContext } from "../../context/user-context"
+import { useForm } from "react-hook-form"
+import { ContactForm } from "../../shared/types/user"
 
 const NumberIcon = ICONS.numberIcon
 const EmailIcon = ICONS.emailIcon
@@ -10,6 +15,14 @@ const InstagramIcon = ICONS.instagramIcon
 const TelegramIcon = ICONS.telegramIcon
 
 export function ContactsPage(){
+    const { sendMessage } = useSendMessage()
+    const userContext = useContext(UserContext)
+    const [ message, setMessage ] = useState<string>()
+    const { register, handleSubmit} = useForm<ContactForm>()
+    if (!userContext) return null
+    function onSubmit(data: ContactForm){
+        sendMessage(data)
+    }
     return (
         <div className={styles.pageWrapper}>
             <div className={styles.wrapper}>
@@ -47,16 +60,18 @@ export function ContactsPage(){
                         </div>
                     </div>
 
-                    <div className={styles.formBlock}>
+                    <form onSubmit={ handleSubmit(onSubmit) } noValidate className={styles.formBlock}>
                         <h2 className={styles.subtitle}>Зв'язатися з нами</h2>
 
-                        <div className={styles.formGroup}>
+                        <div className={styles.formGroup} >
                             <label className={styles.label}>
                                 Ім'я
                                 <input 
                                     type="text" 
                                     placeholder="Ваше ім'я"
                                     className={styles.input}
+                                    defaultValue={userContext.user?.firstName}
+                                    { ...register("userName")}
                                 />
                             </label>
                             <label className={styles.label}>
@@ -64,8 +79,9 @@ export function ContactsPage(){
                                 <input 
                                     type="tel" 
                                     placeholder="+38 0"
-                                    defaultValue={"+38 0"}
+                                    defaultValue={userContext.user?.phoneNumber}
                                     className={styles.input}
+                                    { ...register("phoneNumber")}
                                 />
                             </label>
                             <label className={styles.label}>
@@ -74,6 +90,8 @@ export function ContactsPage(){
                                     type="text" 
                                     placeholder="Ваше E-mail"
                                     className={styles.input}
+                                    defaultValue={userContext.user?.email}
+                                    { ...register("email")}
                                 />
                             </label>
 
@@ -82,14 +100,19 @@ export function ContactsPage(){
                                 <textarea 
                                     placeholder="Ваше повідомлення"
                                     className={styles.textarea}
+                                    { ...register("message")}
+                                    onChange={(event) => {
+                                        const data = event.target.value
+                                        setMessage(data)
+                                    }}
                                 />
                             </label>
                         </div>
 
-                        <button className={styles.button}>
+                        <button className={styles.button} type="submit">
                             НАДІСЛАТИ
                         </button>
-                    </div>
+                    </form>
 
                 </div>
             </div>
