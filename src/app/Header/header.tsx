@@ -67,29 +67,29 @@ export function Header(){
             <Link to = "/"><Logo className={styles.logo} /></Link>
             <div className={styles.buttons}>
                 <Orders className={`${styles.orders} ${styles.hatImageUrl}`} />
-                {/* { user ? */}
-                    // <Link to="/profileInformation"><Profile className={`${styles.profile} ${styles.hatImageUrl}`} /></Link>
-                    {/* : */}
+                { user ?
+                    <Link to="/profileInformation"><Profile className={`${styles.profile} ${styles.hatImageUrl}`} /></Link>
+                    :
                     <div>
                         <button className={styles.openTagForm} onClick={() => setisRegistrationFormOpen(true)}> 
                             <Profile className={`${styles.profile} ${styles.hatImageUrl}`} />
                         </button>
-    
-                        <Modal
-                            isOpen={isRegistrationFormOpen}
-                            onClose={() => setisRegistrationFormOpen(false)}
-                            className={styles.createPostModal}
-                            doCloseOnOutsideClick
-                        >
-                            <RegistrationForm onClose={() => setisRegistrationFormOpen(false)} onOpenAuthForm={() => setIsAuthModalOpen(!isAuthModalOpen)} />
-                        </Modal>
-                        <AuthModal 
-                            onOpenRegistrationForm ={() => setisRegistrationFormOpen(!isRegistrationFormOpen)}
-                            isOpen={isAuthModalOpen} 
-                            onClose={() => setIsAuthModalOpen(false)} 
-                        />
                     </div>
-                {/* } */}
+                }
+                
+                <Modal
+                    isOpen={isRegistrationFormOpen}
+                    onClose={() => setisRegistrationFormOpen(false)}
+                    className={styles.createPostModal}
+                    doCloseOnOutsideClick
+                >
+                    <RegistrationForm onClose={() => setisRegistrationFormOpen(false)} onOpenAuthForm={() => setIsAuthModalOpen(!isAuthModalOpen)} />
+                </Modal>
+                <AuthModal 
+                    onOpenRegistrationForm ={() => setisRegistrationFormOpen(!isRegistrationFormOpen)}
+                    isOpen={isAuthModalOpen} 
+                    onClose={() => setIsAuthModalOpen(false)} 
+                />
 
             </div>
         </header>

@@ -245,7 +245,7 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
                             >✕</button>
                         </div>
                         <p>Акаунт успішно створено!</p>
-                        <button className={styles.successfulRegistrationButton} onClick={closeSuccessfulRegistrationModal}>ПЕРЕЙТИ НА САЙТ
+                        <button className={styles.successfulRegistrationButton} onClick={onClose}>ПЕРЕЙТИ НА САЙТ
                         </button>
                     </div>
                 </div>

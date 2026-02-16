@@ -8,9 +8,10 @@ interface IUserContext {
     user: IRegUser | null
     registration: (userData: IRegUser) => Promise<void | string>
     login: (userData: ILogUser) => Promise<void | string>
+    setUserFunction: (user: IRegUser | null) => Promise<void>
 }
 
-const UserContext = createContext<IUserContext | null>(null)
+export const UserContext = createContext<IUserContext | null>(null)
 
 export function useUserContext() {
     const context = useContext(UserContext)
@@ -31,6 +32,8 @@ export function UserContextProvider(props: UserContextProviderProps) {
 
     const [token, setToken] = useState<string>("")
     const [user, setUser] = useState<IRegUser | null>(null)
+    const setUserFunction = async (user: IRegUser | null) => setUser(user)
+    
     useEffect(() => {
         fetchMe();
     }, [token]);
@@ -94,7 +97,7 @@ export function UserContextProvider(props: UserContextProviderProps) {
     }
 
     return (
-        <UserContext value={{ token, user, registration, login }}>
+        <UserContext value={{ token, user, registration, login, setUserFunction }}>
             { children }
         </UserContext>
     );
