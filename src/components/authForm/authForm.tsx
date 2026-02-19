@@ -3,6 +3,9 @@ import { useUserContext } from '../../context/user-context';
 import { ICONS } from '../../shared';
 import styles from './authForm.module.css';
 import { createPortal } from 'react-dom';
+import { Modal } from '../../shared/modal';
+import { UpdatePasswordForm } from '../updatePasswordForm';
+import { ChangePasswordForm } from '../changePasswordForm';
 
 const PasswordEye = ICONS.passwordEye;
 
@@ -16,15 +19,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onOpenReg
     const { login } = useUserContext();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [onCloseRegistration, setOnCloseRegistration] = useState(() => () => {});
-    
     // Стан для помилок валідації
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [serverError, setServerError] = useState<string | null>(null);
-
+    const [ isUpdatePasswordFormOpen, setUpdatePasswordFormOpen] = useState<boolean>(false)
     const [showPassword, setShowPassword] = useState(false);
-
+    const setIsUpdatePasswordFormOpen = () => setUpdatePasswordFormOpen(false)
     if (!isOpen) return null;
 
     const validate = () => {
@@ -107,7 +108,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onOpenReg
                         {passwordError && <span className={styles.errorLabel}>{passwordError}</span>}
                     </div>
 
-                    <button type="button" className={styles.forgotPass}>Забули пароль?</button>
+                    <button type="button" className={styles.forgotPass} onClick={() => {setUpdatePasswordFormOpen(true)}}>
+                        Забули пароль?</button>
 
                     {serverError && <p className={styles.errorText}>{serverError}</p>}
 
@@ -116,6 +118,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onOpenReg
                         <button type="submit" className={styles.submitBtn}>УВІЙТИ</button>
                     </div>
                 </form>
+            <ChangePasswordForm></ChangePasswordForm>
+            <UpdatePasswordForm     isUpdatePasswordFormOpen={isUpdatePasswordFormOpen}
+                                    setIsUpdatePasswordFormOpen={setIsUpdatePasswordFormOpen}
+  />
             </div>
         </div>,
         document.body

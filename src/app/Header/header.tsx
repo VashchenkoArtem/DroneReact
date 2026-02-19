@@ -17,6 +17,7 @@ export function Header(){
     const { user } = useUserContext();
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
     const dropdownRef = useRef<HTMLDivElement>(null);
     const isPhone = useMediaQuery({
         query: '(max-width: 767px)'
