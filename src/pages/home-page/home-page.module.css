@@ -2,14 +2,15 @@
     font-family: "bold walsheim";
     src: local("bold walsheim"), url(../../shared/fonts/GTWalsheimPro-Bold.ttf);
 }
-*{
+
+* {
     scrollbar-width: none;
 }
+
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* gap: calc(15vw + 20vh); */
     margin-top: auto;
     padding: 0px;
     position: relative;
@@ -38,8 +39,6 @@ h1 {
     transform: translate(calc(8vw + 20px), -30vh);
 }
 
-
-/* Drone Container */
 .droneContainer {
     display: flex;
     flex-direction: column;
@@ -48,56 +47,44 @@ h1 {
     padding: 0px clamp(20px, 2vw, 40px);
     background-color: transparent;
     width: 100%;
-    /* height: 100vh; */
     position: relative;
 }
-.titleArticle{
+
+.titleArticle {
     font-family: "ultra bold walsheim", sans-serif;
     text-align: center;
     font-size: clamp(47px, 2vw, 61px);
     font-weight: 900;
 }
-.titleArticleGrey{
+
+.titleArticleGrey {
     font-family: "ultra bold walsheim", sans-serif;
     color: rgba(205, 213, 221, 1);
     text-align: center;
     font-size: clamp(40px, 2vw, 58px);
     font-weight: 900;
 }
+
 .droneInfo {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
     gap: clamp(10px, 1vw, 15px);
-
-    /* background-color: powderblue; */
-
-    
     font-family: "GT Walsheim Pro", sans-serif;
     font-size: 1.2rem;
     font-weight: 400;
-
     transform: translate(0, -55vh);
-
 }
-
 
 .droneActions {
     display: flex;
     flex-direction: row;
-    /* align-items: flex-end; */
-    /* height: fit-content; */
     color: rgba(12, 18, 42, 1);
-    
-    /* background-color: red; */
-
     font-family: "GT Walsheim Pro", sans-serif;
     font-size: 1.2rem;
     font-weight: 400;
 }
-
-
 
 .droneButton, .CatalogButton {
     background-color: rgba(12, 18, 42, 1);
@@ -114,12 +101,10 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-
 .droneContainer h1:first-child {
     margin-top: clamp(180px, 10vh, 230px);
 }
 
-/* About Us Container */
 .aboutUsContainer {
     display: flex;
     flex-direction: column;
@@ -129,24 +114,20 @@ h1 {
     background-color: white;
 }
 
-.aboutUsContainer h1{
+.aboutUsContainer h1 {
     color: rgba(205, 213, 221, 1);
 }
 
 .aboutUsButton {
     background-color: rgba(255, 255, 255, 1);
     color: rgba(12, 18, 42, 1);
-
     border: 2px solid rgba(12, 18, 42, 1);
     border-radius: 50px;
-
     margin-top: clamp(30px, 1vw, 40px);
     padding: clamp(18px, 1vw, 20px) clamp(40px, 2vw, 45px);
-
     display: flex;
     align-items: center;
     gap: clamp(10px, 1vw, 15px);
-
     font-family: "GT Walsheim Pro", sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
@@ -155,7 +136,6 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-/* New Products Container */
 .newProductsContainer {
     width: 100%;
     padding: clamp(40px, 6vw, 120px) clamp(20px, 6vw, 120px);
@@ -170,7 +150,6 @@ h1 {
     font-weight: 800;
     color: #c5cbd3;
     margin-bottom: clamp(80px, 6vh, 120px);
-    /* letter-spacing: 0.1em; */
 }
 
 .newProductsList {
@@ -178,60 +157,49 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(5px, 1vw, 38px);
-
 }
 
 .newProductCard {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
     position: relative;
-    height: auto;
-    border-radius: 24px;
-    /* overflow: hidden; */
+    height: 437px;
+    border-radius: 15px;
     z-index: 10;
-    padding: clamp(180px, 2vw, 200px) clamp(20px, 2vw, 40px) clamp(20px, 2vw, 40px);
-}
-
-.newProductCard:nth-child(1) {
-    background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0) 0%,
-        rgba(236,188,77,0.95) 100%
-    );
-}
-
-.newProductCard:nth-child(2) {
-    background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0) 0%,
-        rgba(104,173,186,0.95) 100%
-    );
-}
-
-.newProductCard:nth-child(3) {
-    background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0) 0%,
-        rgb(14, 185, 157) 100%
-
-    );
+    padding: 30px 40px;
 }
 
 .newProductImage {
     position: absolute;
-    z-index: 3;
-    top: clamp(-230px, 4vw, -320px);
+    z-index: 234;
+    top: -150px;
     left: 50%;
     transform: translateX(-50%);
-    width: clamp(240px, 24vw, 350px);
+    width: 280px;
     height: auto;
-    pointer-events: none;
 }
 
+.cardBgLayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    border-radius: 15px;
+}
+
+.newProductCard:nth-child(1),
+.newProductCard:nth-child(2),
+.newProductCard:nth-child(3) {
+    background: none; 
+}
+
+
 .newProductDescription {
-    /* position: absolute; */
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -276,19 +244,15 @@ h1 {
     cursor: pointer;
 }
 
-
 @media (max-width: 900px) {
     .newProductsList {
         grid-template-columns: 1fr;
     }
-
     .newProductCard {
         height: 420px;
     }
 }
 
-
-/* Catalog Container */
 .CatalogContainer {
     width: 100%;
     display: flex;
@@ -299,7 +263,7 @@ h1 {
     background-color: white;
 }
 
-.CatalogContainer h1{
+.CatalogContainer h1 {
     font-size: 2.75rem;
     color: rgba(205, 213, 221, 1);
 }
@@ -329,13 +293,8 @@ h1 {
 }
 
 .productImage {
-    /* width: clamp(200px, 12vw, 220px); */
-    /* height: auto; */
-    margin-bottom: 10px;
-
     width: 100%;
     margin-bottom: 10px;
-
 }
 
 .productTitle {
@@ -355,7 +314,6 @@ h1 {
     margin-top: 5px;
 }
 
-/*  */
 .newProductMore {
     background-color: rgba(12, 18, 42, 1);
     color: rgba(255, 255, 255, 1);
@@ -370,24 +328,6 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-.droneBG{
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: 135%;
-    z-index: 0;
-    opacity: 60%;
-    border-radius: 24px;
-    background-size: cover;
-    cursor: pointer;
-    transition: 
-        opacity 0.4s ease;
-    transform: scale(1);
-}
-.droneBG:hover{
-    opacity:80%;
-}
 
 .productPrices {
     display: flex;
@@ -401,6 +341,7 @@ h1 {
 .productPriceWithoutDiscount {
     text-decoration: line-through;
 }
-.productPriceWithDiscount{
+
+.productPriceWithDiscount {
     color: rgb(125, 53, 53);
 }

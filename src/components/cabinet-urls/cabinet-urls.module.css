@@ -1,20 +1,83 @@
-.urlsContainer{
+.urlsContainer {
     display: flex;
     flex-direction: column;
-    gap: clamp(28px, 4vw, 44px);
+    gap: 12px;
+    width: 100%;
+    max-width: clamp(250px, 30vw, 380px);
+    padding: 0 15px;
+    box-sizing: border-box;
 }
-.urlsTitle{
-    font-size: clamp(24px, 2vw, 30px);
-    color: rgba(12, 18, 42, 1);   
+
+@media (max-width: 768px) {
+    .urlsContainer {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+}
+
+.urlsTitle {
+    font-size: clamp(24px, 5vw, 30px); 
     font-weight: 400;
+    color: #0C122A;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: clamp(20px, 4vw, 30px);
+    font-family: 'GT Walsheim Pro', sans-serif;
 }
-.url{
-    font-size: clamp(10px, 2vw, 14px);
-    color: rgba(158, 160, 170, 1);
+
+.linkWrapper {
+    text-decoration: none !important;
+    display: block;
+    width: fit-content;
+}
+
+.url {
+    margin: 0;
+    padding: 10px 0;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none !important;
+    display: inline-block;
+}
+
+.url h2 {
+    font-size: clamp(13px, 2vw, 14px);
+    font-weight: 500;
+    color: #9EA0AA;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    line-height: 100%;
+    margin: 0;
+    transition: color 0.2s ease;
+    text-decoration: none !important;
+}
+
+.linkWrapper:hover .url h2 {
+    color: #0C122A;
+}
+
+.url.active h2 {
+    color: #0C122A;
     font-weight: 500;
 }
-.urlLine{
-    width: 100%;
+
+.url.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 25px;
+    height: 2px;
+    background-color: #0C122A;
+}
+
+.urlLine {
     height: 1px;
-    border: 1px rgba(205, 213, 221, 1) solid;
+    background-color: #E5E5E5;
+    margin: 15px 0;
+    width: 100%;
+}
+
+:global(.linkWrapper), :global(.linkWrapper *) {
+    text-decoration: none !important;
 }
