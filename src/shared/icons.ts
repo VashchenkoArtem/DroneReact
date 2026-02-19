@@ -20,6 +20,8 @@ import { ReactComponent as timelabelIcon } from "../assets/icons/timelabelIcon.s
 import { ReactComponent as facebookIcon } from "../assets/icons/facebookIcon.svg"
 import { ReactComponent as instagramIcon } from "../assets/icons/instagramIcon.svg"
 import { ReactComponent as telegramIcon } from "../assets/icons/telegramIcon.svg"
+import { ReactComponent as productHoverCart } from "../assets/icons/productHoverCart.svg"
+
 
 export const ICONS = { 
     headerLogo, 
@@ -43,5 +45,6 @@ export const ICONS = {
     placeIcon,
     facebookIcon,
     instagramIcon,
-    telegramIcon
+    telegramIcon,
+    productHoverCart
 }
