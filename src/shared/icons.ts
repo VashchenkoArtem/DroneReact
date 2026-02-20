@@ -22,6 +22,8 @@ import { ReactComponent as instagramIcon } from "../assets/icons/instagramIcon.s
 import { ReactComponent as telegramIcon } from "../assets/icons/telegramIcon.svg"
 import { ReactComponent as darkbluePencil } from "../assets/icons/darkbluePencil.svg"
 import { ReactComponent as lightgreyPencil } from "../assets/icons/lightgreyPencil.svg"
+import { ReactComponent as productHoverCart } from "../assets/icons/productHoverCart.svg"
+
 
 export const ICONS = { 
     headerLogo, 
@@ -47,5 +49,6 @@ export const ICONS = {
     instagramIcon,
     telegramIcon,
     darkbluePencil,
-    lightgreyPencil
+    lightgreyPencil,
+    productHoverCart
 }

@@ -3,6 +3,7 @@ import { ICONS, IMAGES, IProduct } from "../../shared";
 import styles from "./home-page.module.css"
 import { useProductsNew, useProductsPopular, useScrollToStartPage } from "../../hooks";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 
 export function HomePage(){
@@ -100,6 +101,10 @@ export function HomePage(){
                                     <p className={styles.productPrice}>${product.price}</p>
                                 </div>
                                 }
+
+                                <button className={styles.productHoverBtn}>
+                                    <ICONS.productHoverCart />
+                                </button>
                             </div>)
                         })}
                 </div>
@@ -111,8 +116,6 @@ export function HomePage(){
                     }}
                     >ДИВИТИСЬ ВСІ <ICONS.newProductsArrow /></button>
             </div>
-
-
         </main>
     )
 }
