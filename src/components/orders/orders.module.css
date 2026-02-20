@@ -1,121 +1,88 @@
-.ordersPage{
+.orderCard {
+    border: 1px solid #E5E5E5;
+    background: #FFF;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.orderHeader {
     display: flex;
-    flex-direction: column;
-    gap: clamp(18px, 2vw, 24px);
-    width: 50%;
-    align-items: flex-start;
-}
-.ordersTitle{
-    font-size: clamp(18px, 2vw, 24px);
-    color: rgba(12, 18, 42, 1);
-    font-weight: 400;
-}
-.ordersContainer{
-    display: flex;
-    flex-direction: column;
-    gap: clamp(22px, 2vw, 30px);
-    border: 1px rgba(231, 231, 234, 1) solid;
-    justify-content: center;
-    padding: clamp(5px, 2vw, 10px);
-}
-.orderCard{
-    width: 100%;
-    justify-content: flex-end;
-    gap: clamp(18px, 2vw, 24px);
-}
-.orderDescription, .orderMyInfo{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: clamp(18px, 2vw, 24px);
-}
-.orderDescriptionTitle{
-    font-size: clamp(10px, 2vw, 14px);
-    font-weight: 400;
-    color: rgba(158, 160, 170, 1);
-}
-.orderDelivery{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: clamp(5px, 2vw, 9px);
-}
-.orderDeliveryDescription{
-    font-size: clamp(10px, 2vw, 14px);
-    font-weight: 400;
-    color: rgba(12, 18, 42, 1);
-    max-width: 274px;
-    text-align: start;
-}
-.orderLine{
-    height: 100%;
-    background-color: rgba(206, 208, 212, 1);
-    width: 1px;
-}
-.orderInfo{
-    display: flex;
-    gap: clamp(18px, 2vw, 24px);
-}
-.orderInfoProductCard{
-    display: flex;
-    justify-content: space-evenly;
-    min-width: 500px;
-}
-.orderInfoProduct{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: clamp(18px, 2vw, 24px);
-}
-.orderProductCardPartTitle{
-    font-weight: 400;
-    font-size: clamp(8px, 2vw, 12px);
-    color: rgba(109, 113, 127, 1);
-}
-.orderProductCardPartDescription{
-    font-weight: 400;
-    font-size: clamp(8px, 2vw, 12px);
-    color: rgba(12, 18, 42, 1);
-}
-.resultInfoOrder{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: clamp(5px, 2vw, 5px);
-}
-.resultInfoContainer{
-    display: flex;
-    gap: clamp(5px, 2vw, 9px);
-}
-.resultInfoTitle{
-    font-weight: 400;
-    font-size: clamp(10px, 2vw, 14px);
-    color: rgba(158, 160, 170, 1);
-}
-.resultInfoDescription{
-    font-weight: 400;
-    font-size: clamp(10px, 2vw, 14px);
-    color: rgba(12, 18, 42, 1);
-}
-.cancelButton{
-    background-color: white;
-    border-radius: 100px;
-    border: 1px rgba(12, 18, 42, 1) solid;
-    font-size: clamp(10px, 2vw, 14px);
-    color: rgba(12, 18, 42, 1);
-    padding: clamp(8px, 2vw, 12.5px) clamp(10px, 2vw, 15px);
-    cursor: pointer;
-}
-.cardIcon{
-    width: 50px;
-    height: 50px;
-}
-.cardMiniIcon{
-    width: 24px;
-    height: 24px;
-}
-.orderCard{
-    display: flex;
-    gap: clamp(18px, 2vw, 24px);
+    justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #F0F0F0;
+    padding-bottom: 15px;
+}
+
+.orderId {
+    font-weight: 700;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.orderStatus {
+    color: #8E92A4;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.progressSection {
+    margin: 40px 0;
+}
+
+.progressLine {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Сіра лінія на фоні */
+.progressLine::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #E5E5E5;
+    z-index: 1;
+}
+
+.point {
+    background: #FFF;
+    padding: 0 10px;
+    z-index: 2;
+    font-size: 13px;
+    color: #8E92A4;
+}
+
+.point.active {
+    color: #0C122A;
+    font-weight: 700;
+}
+
+.orderContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.deliveryInfo h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.cancelBtn {
+    background: none;
+    border: 1px solid #0C122A;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cancelBtn:hover {
+    background: #0C122A;
+    color: #FFF;
 }

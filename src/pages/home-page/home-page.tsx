@@ -9,6 +9,7 @@ export function HomePage(){
     const { newProducts } = useProductsNew()
     const [ limitOfPosts, setLimitOfPosts ] = useState<number>(4)
     const { popularProducts, fetchPopularProducts } = useProductsPopular(limitOfPosts)
+    const cardBackgrounds = [IMAGES.bgimgone, IMAGES.bgimgtwo, IMAGES.bgimgthree];
     useScrollToStartPage()
     useEffect(() => {
         fetchPopularProducts()
@@ -49,10 +50,16 @@ export function HomePage(){
                 <h1 className={styles.titleArticleGrey}>НОВЕ НА САЙТІ</h1>
 
                 <div className={styles.newProductsList}>
-                    {   newProducts?.map((product: IProduct) => {
+                    {   newProducts?.map((product: IProduct, index: number) => {
+                        const currentBG = cardBackgrounds[index % cardBackgrounds.length];
                         return (
                             <div key = {product.id} className={styles.newProductCard}>
-                                <div className = {styles.droneBG}/>
+                                <div className={styles.cardBackgroundWrapper}>
+                                    <div 
+                                        className={styles.cardBgLayer} 
+                                        style={{ backgroundImage: `url(${currentBG})` }}
+                                    />
+                                </div>
                                 <ICONS.droneImage className = {styles.newProductImage} />
                                 <div className={styles.newProductDescription}>
                                     <h2 className={styles.newProductTitle}>{product.name}</h2>

@@ -81,7 +81,7 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
                             message: "Ім'я користувача повинно складатись принаймні з 5 символів."
                         },
 
-                        validate: (value) => {
+                        validate: (value: string | string[]) => {
                             if (value.includes("!") && value.includes(".")){
                                 return "Ім'я користувача не може складатись зі спец. символів."
                             }
@@ -109,7 +109,7 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
                             message: "Ел. пошта повинна складатись принаймні з 5 символів."
                         },
 
-                        validate: (value) => {
+                        validate: (value: string | string[]) => {
                             if (!value.includes(".") && !value.includes("@")){
                                 return "Ел. пошта повинна мати символи '.' та '@'"
                             }
@@ -138,7 +138,7 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
                             message: "Пароль повинен складатись принаймні з 5 символів."
                         },
 
-                        validate: (value) => {
+                        validate: (value: string) => {
                             if (/\s/.test(value)) {
                                 return "Пароль не може містити пробілів."
                             }
@@ -182,7 +182,7 @@ export function RegistrationForm({ onClose, onOpenAuthForm }: RegistrationFormPr
                             message: "Пароль повинен складатись принаймні з 5 символів."
                         },
 
-                        validate: (value) => {
+                        validate: (value: string) => {
                             if (value !== getValues('password')) {
                                 return "Паролі не співпадають. Повторіть спробу";
                             }
