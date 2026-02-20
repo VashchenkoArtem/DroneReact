@@ -3,7 +3,7 @@ import { Modal } from "../../shared/modal";
 import styles from "../updatePasswordForm/updatePasswordForm.module.css"
 import { useForm } from "react-hook-form";
 import { useChangePassword } from "../../hooks/use-change-password";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export function ChangePasswordForm(){
     const [ isModalClose, setIsCloseModal ] = useState<boolean>(false)
@@ -12,12 +12,14 @@ export function ChangePasswordForm(){
     const { changePassword } = useChangePassword()
     const [searchParams] = useSearchParams();
     const code = searchParams.get("code"); 
+    const navigate = useNavigate()
     function onSubmit(data: {password: string, confirmPassword: string}){
         changePassword(data.password, code)
+        console.log(data.password)
     }
     useEffect(() => {
         if (code) {
-        setIsCloseModal(true);
+            setIsCloseModal(true);
         }
     }, [code]);
     return (
@@ -51,6 +53,9 @@ export function ChangePasswordForm(){
                                 СКАСУВАТИ
                             </button>
                             <button className={`${styles.modalButton} ${styles.black}`}
+                                onClick={() => {
+                                    setIsSuccessModalClose(true)
+                                }}
                                 type="submit">
                                 ЗБЕРЕГТИ НОВИЙ ПАРОЛЬ
                             </button>
@@ -70,14 +75,22 @@ export function ChangePasswordForm(){
                         <button
                             type="button"
                             className={styles.closeModalBtn}
-                            onClick={() => setIsSuccessModalClose(false)}
+                            onClick={() => {
+                                setIsSuccessModalClose(false)
+                                setIsCloseModal(false)
+                            }}
                         >✕</button>
                     </div>
                     <div className={styles.passwordForm}>
                         <h1 className={styles.passwordSuccessText}>Пароль успішно змінено!<br/>Тепер ви можете увійти з новим паролем.</h1>
                         <div className = {styles.buttons}>
                             <button className={`${styles.modalButton} ${styles.black}`}
-                                type="submit">
+                                type="submit"
+                                onClick={() => {
+                                    navigate("/")
+                                    setIsSuccessModalClose(false)
+                                    setIsCloseModal(false)
+                                }}>
                                 УВІЙТИ
                             </button>
                         </div>

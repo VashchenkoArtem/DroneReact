@@ -9,43 +9,75 @@ export interface UpdatePasswordForm{
 }
 export function UpdatePasswordForm(props: {isUpdatePasswordFormOpen: boolean; setIsUpdatePasswordFormOpen: () => void}){
     const { handleSubmit, register, getValues, formState: {errors}} = useForm<UpdatePasswordForm>()
+    const [ isSuccessSent, setIsSuccessSent ] = useState<boolean>(false) 
     const { isUpdatePasswordFormOpen, setIsUpdatePasswordFormOpen} = props
     const { sendUrlToEmail } = useSendToEmail()
     function onSubmit(content: UpdatePasswordForm){
         sendUrlToEmail(content)
+        setIsUpdatePasswordFormOpen()
+        setIsSuccessSent(true)
     }
     return (
-        <Modal
-            isOpen = {isUpdatePasswordFormOpen}
-            onClose = { setIsUpdatePasswordFormOpen}
-            className = {styles.modalPostCreate}
-            doCloseOnOutsideClick
-        >
-            <div className={styles.updatePasswordModal}>
-                <div className={styles.updatePasswordContainer}>
-                    <h1 className={styles.updatePasswordTitle}>Відновлення пароля</h1>
-                    <button
-                        type="button"
-                        className={styles.closeModalBtn}
-                        onClick={() => setIsUpdatePasswordFormOpen}
-                    >✕</button>
+        <div>
+            <Modal
+                isOpen = {isUpdatePasswordFormOpen}
+                onClose = { setIsUpdatePasswordFormOpen}
+                className = {styles.modalPostCreate}
+                doCloseOnOutsideClick
+            >
+                <div className={styles.updatePasswordModal}>
+                    <div className={styles.updatePasswordContainer}>
+                        <h1 className={styles.updatePasswordTitle}>Відновлення пароля</h1>
+                        <button
+                            type="button"
+                            className={styles.closeModalBtn}
+                            onClick={() => {
+                                setIsUpdatePasswordFormOpen()
+                            }}
+                        >✕</button>
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)} noValidate className={styles.passwordForm}>
+                        <label className={styles.emailLabel}>
+                            E-mail
+                            <input {...register("email")} className={styles.emailInput} type="email" placeholder="Введіть e-mail"/>
+                        </label>
+                        <div className = {styles.buttons}>
+                            <button className={`${styles.modalButton} ${styles.white}`} type="button" onClick={() => setIsUpdatePasswordFormOpen()}>
+                                СКАСУВАТИ
+                            </button>
+                            <button className={`${styles.modalButton} ${styles.black}`}
+                                type="submit">
+                                НАДІСЛАТИ ЛИСТ
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)} noValidate className={styles.passwordForm}>
-                    <label className={styles.emailLabel}>
-                        E-mail
-                        <input {...register("email")} className={styles.emailInput} type="email" placeholder="Введіть e-mail"/>
-                    </label>
-                    <div className = {styles.buttons}>
-                        <button className={`${styles.modalButton} ${styles.white}`}>
-                            СКАСУВАТИ
-                        </button>
-                        <button className={`${styles.modalButton} ${styles.black}`}
-                            type="submit">
-                            НАДІСЛАТИ ЛИСТ
+            </Modal>
+            <Modal
+                isOpen = {isSuccessSent}
+                onClose = { () => {setIsSuccessSent(false)}}
+                className = {styles.modalPostCreate}
+                doCloseOnOutsideClick
+            >
+                <div className={styles.updatePasswordModal}>
+                    <div className={styles.updatePasswordContainer}>
+                        <h1 className={styles.updatePasswordTitle}>Відправка на пошту</h1>
+                        <button
+                            type="button"
+                            className={styles.closeModalBtn}
+                            onClick={() => {
+                                setIsSuccessSent(false)
+                            }}
+                        >✕</button>
+                    </div>
+                    <h1 className={styles.successEmailText}>Лист з посиланням успішно відправлено на пошту.</h1>
+                    <div>
+                        <button className={`${styles.modalButton} ${styles.white}`} type="button" onClick={() => setIsSuccessSent(false)}>
+                            ЗАКРИТИ
                         </button>
                     </div>
-                </form>
-            </div>
-        </Modal>
+                </div>
+            </Modal>
+        </div>
     )
 }
