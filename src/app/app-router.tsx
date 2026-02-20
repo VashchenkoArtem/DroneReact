@@ -6,11 +6,12 @@ import { ProfilePage } from "../pages/profile"
 import { OrdersPage } from "../pages/my_orders"
 import { ContactsPage } from "../pages/contacts"
 import { AddressesPage } from "../pages/addresses"
-
+import { ScrollToTop } from "../components/scrollToTop"
 
 export function AppRouter() {
   return (
     <BrowserRouter>
+      <ScrollToTop/>
       <Routes>
         <Route path = "/" element = {<Layout/>}>
           <Route path="/" element = {<HomePage/>}/>

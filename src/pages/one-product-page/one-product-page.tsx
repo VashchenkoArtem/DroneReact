@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
-import { useProductById, useProductsSimilar, useScrollToStartPage } from "../../hooks";
+import { useProductById, useProductsSimilar } from "../../hooks";
 import { useState } from "react";
 import styles from "./one-product-page.module.css";
 import { ICONS, IMAGES, IProduct } from "../../shared";
+
+
 
 export function OneProductPage() {
     const { id } = useParams();
     const { product, error, loading } = useProductById(Number(id));
     const [limitOfPosts, setLimitOfPosts] = useState<number>(4);
     const { similarProducts } = useProductsSimilar(Number(id));
-    
-    useScrollToStartPage();
 
     if (loading) return <h1>Завантаження...</h1>;
     if (error) return <h1>{error}</h1>;
@@ -19,6 +19,7 @@ export function OneProductPage() {
     return (
         <div className={styles.productCart}>
             <img src={IMAGES.headerBG} className={styles.headerImage} alt="Header Background" />
+            <div id="topMarker"></div>
 
             <div className={styles.droneContainer}>
                 <div className={styles.droneActions}>
@@ -89,24 +90,26 @@ export function OneProductPage() {
                 <div className={styles.productsList}>
                     {similarProducts?.slice(0, limitOfPosts).map((item: IProduct) => {
                         return (
-                            <div key={item.id} className={styles.productCard}>
-                                <img src={item.image} className={styles.productImage} alt={item.name} />
-                                <h2 className={styles.productTitle}>{item.name}</h2>
-                                <div className={styles.productPrices}>
-                                    {item.discount ? (
-                                        <>
-                                            <p className={styles.productPriceWithoutDiscount}>${item.price}</p>
-                                            <p className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}>
-                                                ${item.price - (item.price * item.discount) / 100}
-                                            </p>
-                                        </>
-                                    ) : (
-                                        <p className={styles.productPrice}>${item.price}</p>
-                                    )}
+                            <div key = {product.id} className={styles.productCard}>
+                                <ICONS.newDroneOne className={styles.productImage} />
+                                
+                                <h2 className={styles.productTitle}>{product.name}</h2>
+                                {product.discount ?
+                                    <div className={styles.productPrices}>
+                                        <p className={styles.productPriceWithoutDiscount}>${product.price}</p>
+                                        <p className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}>${product.price - product.price * product.discount / 100}</p>
+                                    </div>
+                                :
+                                <div className = {styles.productPrices}>
+                                    <p className={styles.productPrice}>${product.price}</p>
                                 </div>
-                            </div>
-                        );
-                    })}
+                                }
+
+                                <button className={styles.productHoverBtn}>
+                                    <ICONS.productHoverCart />
+                                </button>
+                            </div>)
+                        })}
                 </div>
                 
                 {similarProducts && similarProducts.length > limitOfPosts && (

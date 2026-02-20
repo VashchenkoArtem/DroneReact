@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ICONS, IMAGES, IProduct } from "../../shared";
 import styles from "./home-page.module.css"
-import { useProductsNew, useProductsPopular, useScrollToStartPage } from "../../hooks";
+import { useProductsNew, useProductsPopular } from "../../hooks";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
@@ -11,16 +11,16 @@ export function HomePage(){
     const [ limitOfPosts, setLimitOfPosts ] = useState<number>(4)
     const { popularProducts, fetchPopularProducts } = useProductsPopular(limitOfPosts)
     const cardBackgrounds = [IMAGES.bgimgone, IMAGES.bgimgtwo, IMAGES.bgimgthree];
-    useScrollToStartPage()
     useEffect(() => {
         fetchPopularProducts()
     }, [limitOfPosts])
 
     return (
         <main>
+            <div id="topMarker"></div>
             <img src={IMAGES.headerBG} className={styles.headerImage} alt="Header Background" />
             <div className={styles.droneContainer}>
-                <h1 className={styles.titleArticle}>ТЕХНОЛОГІЇ <br/>ЯКІ ЗМІНЮЮТЬ РЕАЛЬНІСТЬ</h1>
+                <h1 className={styles.titleArticle} >ТЕХНОЛОГІЇ <br/>ЯКІ ЗМІНЮЮТЬ РЕАЛЬНІСТЬ</h1>
 
 
                 <div className={styles.droneActions}>
@@ -87,7 +87,7 @@ export function HomePage(){
                 <div className={styles.productsList}>
                     { popularProducts?.map((product: IProduct) => {
                         return (
-                            <div key = {product.id} className={styles.productCard}>
+                            <Link to = {`/product/${product.id}`} key = {product.id} className={styles.productCard} >
                                 <ICONS.newDroneOne className={styles.productImage} />
                                 
                                 <h2 className={styles.productTitle}>{product.name}</h2>
@@ -105,7 +105,7 @@ export function HomePage(){
                                 <button className={styles.productHoverBtn}>
                                     <ICONS.productHoverCart />
                                 </button>
-                            </div>)
+                            </Link>)
                         })}
                 </div>
 

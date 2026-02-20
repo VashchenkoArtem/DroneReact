@@ -153,6 +153,7 @@ h1 {
     padding: clamp(8px, 2vw, 16px) clamp(7px, 2vw, 14px);
     border-radius: 10px;
     box-shadow: 2px 2px rgba(133, 133, 133, 0.051), -2px -2px rgba(133, 133, 133, 0.051);
+    z-index: 1000;
 }
 
 .droneInfoWithImage{
@@ -609,4 +610,57 @@ h1 {
         order: 1;
         width: 100%;
     }
+}
+.productHoverBtn {
+    position: absolute;
+    bottom: 1.1rem;
+    right: 1rem;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+    border: 2px solid rgba(12, 18, 42, 1);
+    background-color: transparent;
+    color: transparent;
+    cursor: pointer;
+    opacity: 0;
+    /* transform: scale(0.7); */
+    transition: all 0.3s ease;
+}
+
+.productCard:hover .productHoverBtn {
+    opacity: 1;
+    transform: scale(1);
+}
+.productCard {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+    gap: clamp(10px, 1vw, 15px);
+
+    width: 355px;
+    min-height: 300px;
+
+    padding: clamp(8px, 1vw, 14px);
+    background-color: white;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.productCard::after {
+    position: absolute;
+    content: "";
+    background: rgba(0, 0, 0, 0);
+    inset: 0;
+    transition: 0.3s ease;
+    border-radius: 1rem;
+
+    pointer-events: none;
+}
+
+.productCard:hover {
+    background: rgba(244, 244, 244, 0.8);
 }

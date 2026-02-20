@@ -120,6 +120,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onOpenReg
                 </form>
             <UpdatePasswordForm     isUpdatePasswordFormOpen={isUpdatePasswordFormOpen}
                                     setIsUpdatePasswordFormOpen={() => {setUpdatePasswordFormOpen(false)}}
+                                    onClose={onClose}
   />
             </div>
         </div>,

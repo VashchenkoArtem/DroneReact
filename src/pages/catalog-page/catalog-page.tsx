@@ -1,5 +1,5 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useProducts, useScrollToStartPage } from "../../hooks";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useProducts } from "../../hooks";
 import { useEffect, useState } from "react";
 import styles from "./catalog-page.module.css";
 import { ICONS, IMAGES, IProduct } from "../../shared";
@@ -13,13 +13,15 @@ export function CatalogPage() {
     const { categories } = useCategories()
     const { allProducts } = useProducts()
     const { products, error, loading, fetchProductsToPage } = useProductsToPage()
-    const { scrollToTop } = useScrollToStartPage()
+    const navigate = useNavigate()
     useEffect(() => {
         fetchProductsToPage(offset)
     }, [offset])
     if (error || !products || !allProducts) {
         return <h1>{error}</h1>
     }
+
+
 
     const pages = Math.ceil(allProducts.length / 8)
 
@@ -41,6 +43,8 @@ export function CatalogPage() {
     const pageNumbers = Array.from({ length: pages }, (_, i) => i + 1)
     return (
         <div className={styles.productCart}>
+            <div id="topMarker"></div>
+
             <h1 className={styles.catalogTxt}>КАТАЛОГ</h1>
 
             <div className={styles.categoryContainer}>
@@ -57,35 +61,28 @@ export function CatalogPage() {
             </div>
 
             <div className={styles.newProductsList}>
-                {products.map((product: IProduct) => {return(
-                    <div key={product.id} className={styles.productCard}>
-                        <ICONS.newDroneOne className={styles.productImage} />
+                {products.map((product: IProduct) => {
+                    return (
+                            <Link to = {`/product/${product.id}`} key = {product.id} className={styles.productCard} >
+                                <ICONS.newDroneOne className={styles.productImage} />
+                                
+                                <h2 className={styles.productTitle}>{product.name}</h2>
+                                {product.discount ?
+                                    <div className={styles.productPrices}>
+                                        <p className={styles.productPriceWithoutDiscount}>${product.price}</p>
+                                        <p className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}>${product.price - product.price * product.discount / 100}</p>
+                                    </div>
+                                :
+                                <div className = {styles.productPrices}>
+                                    <p className={styles.productPrice}>${product.price}</p>
+                                </div>
+                                }
 
-                        <h2 className={styles.productTitle}>{product.name}</h2>
-
-                        {product.discount ? (
-                            <div className={styles.productPrices}>
-                                <p className={styles.productPriceWithoutDiscount}>
-                                    ${product.price}
-                                </p>
-                                <p
-                                    className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}
-                                >
-                                    $
-                                    {product.price -
-                                        (product.price * product.discount) /
-                                            100}
-                                </p>
-                            </div>
-                        ) : (
-                            <div className={styles.productPrices}>
-                                <p className={styles.productPrice}>
-                                    ${product.price}
-                                </p>
-                            </div>
-                        )}
-                    </div>
-                )})}
+                                <button className={styles.productHoverBtn}>
+                                    <ICONS.productHoverCart />
+                                </button>
+                            </Link>)
+                        })}
             </div>
 
             <div className={styles.pagination}>
@@ -100,7 +97,6 @@ export function CatalogPage() {
                     <button
                         key={page}
                         onClick={() => {
-                            scrollToTop()
                             goToPage(page)
                         }}
                         className={`${styles.buttonToPage} ${                     

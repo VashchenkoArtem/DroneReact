@@ -7,10 +7,10 @@ import { useSendToEmail } from "../../hooks/use-send-email";
 export interface UpdatePasswordForm{
     email: string
 }
-export function UpdatePasswordForm(props: {isUpdatePasswordFormOpen: boolean; setIsUpdatePasswordFormOpen: () => void}){
+export function UpdatePasswordForm(props: {isUpdatePasswordFormOpen: boolean; setIsUpdatePasswordFormOpen: () => void, onClose: () => void}){
     const { handleSubmit, register, getValues, formState: {errors}} = useForm<UpdatePasswordForm>()
     const [ isSuccessSent, setIsSuccessSent ] = useState<boolean>(false) 
-    const { isUpdatePasswordFormOpen, setIsUpdatePasswordFormOpen} = props
+    const { isUpdatePasswordFormOpen, setIsUpdatePasswordFormOpen, onClose} = props
     const { sendUrlToEmail } = useSendToEmail()
     function onSubmit(content: UpdatePasswordForm){
         sendUrlToEmail(content)
@@ -66,13 +66,16 @@ export function UpdatePasswordForm(props: {isUpdatePasswordFormOpen: boolean; se
                             type="button"
                             className={styles.closeModalBtn}
                             onClick={() => {
-                                setIsSuccessSent(false)
+                                 setIsSuccessSent(false)
+                                    onClose()
                             }}
                         >✕</button>
                     </div>
                     <h1 className={styles.successEmailText}>Лист з посиланням успішно відправлено на пошту.</h1>
                     <div>
-                        <button className={`${styles.modalButton} ${styles.white}`} type="button" onClick={() => setIsSuccessSent(false)}>
+                        <button className={`${styles.modalButton} ${styles.white}`} type="button" onClick={() => {
+                            setIsSuccessSent(false)
+                            onClose()}}>
                             ЗАКРИТИ
                         </button>
                     </div>
