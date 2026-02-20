@@ -118,7 +118,6 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onOpenReg
                         <button type="submit" className={styles.submitBtn}>УВІЙТИ</button>
                     </div>
                 </form>
-            <ChangePasswordForm></ChangePasswordForm>
             <UpdatePasswordForm     isUpdatePasswordFormOpen={isUpdatePasswordFormOpen}
                                     setIsUpdatePasswordFormOpen={setIsUpdatePasswordFormOpen}
   />

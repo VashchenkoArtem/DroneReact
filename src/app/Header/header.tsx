@@ -7,6 +7,7 @@ import { RegistrationForm } from "../../pages/registration";
 import { useEffect, useRef, useState } from "react";
 import { useUserContext } from "../../context/user-context";
 import { AuthModal } from "../../components/authForm";
+import { ChangePasswordForm } from "../../components/changePasswordForm";
 
 const Logo = ICONS.headerLogo
 const Orders = ICONS.headerOrders
@@ -91,6 +92,7 @@ export function Header(){
                     isOpen={isAuthModalOpen} 
                     onClose={() => setIsAuthModalOpen(false)} 
                 />
+                <ChangePasswordForm></ChangePasswordForm>
 
             </div>
         </header>

@@ -1,12 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "../../shared/modal";
 import styles from "../updatePasswordForm/updatePasswordForm.module.css"
 import { useForm } from "react-hook-form";
+import { useChangePassword } from "../../hooks/use-change-password";
+import { useSearchParams } from "react-router-dom";
 
 export function ChangePasswordForm(){
     const [ isModalClose, setIsCloseModal ] = useState<boolean>(false)
     const [ isSuccessModalClose, setIsSuccessModalClose ] = useState<boolean>(false)
     const { handleSubmit, register, getValues, formState: {errors}} = useForm<{password: string, confirmPassword: string}>()
+    const { changePassword } = useChangePassword()
+    const [searchParams] = useSearchParams();
+    const code = searchParams.get("code"); 
+    function onSubmit(data: {password: string, confirmPassword: string}){
+        changePassword(data.password, code)
+    }
+    useEffect(() => {
+        if (code) {
+        setIsCloseModal(true);
+        }
+    }, [code]);
     return (
         <div>
             <Modal
@@ -24,14 +37,14 @@ export function ChangePasswordForm(){
                             onClick={() => setIsCloseModal(false)}
                         >✕</button>
                     </div>
-                    <form noValidate className={styles.passwordForm}>
+                    <form noValidate className={styles.passwordForm} onSubmit={handleSubmit(onSubmit)}>
                         <label className={styles.emailLabel}>
                             Пароль
-                            <input {...register("password")} className={styles.emailInput} type="password" placeholder="Введіть e-mail"/>
+                            <input {...register("password")} className={styles.emailInput} type="password" placeholder="Введіть пароль"/>
                         </label>
                         <label className={styles.emailLabel}>
                             Підтвердження пароля
-                            <input {...register("confirmPassword")} className={styles.emailInput} type="password" placeholder="Введіть e-mail"/>
+                            <input {...register("confirmPassword")} className={styles.emailInput} type="password" placeholder="Введіть пароль"/>
                         </label>
                         <div className = {styles.buttons}>
                             <button className={`${styles.modalButton} ${styles.white}`}>
