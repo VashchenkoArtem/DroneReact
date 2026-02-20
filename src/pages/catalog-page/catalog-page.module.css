@@ -57,21 +57,21 @@
     margin-top: 90px;
 }
 
-/* .newProductsList {
+.newProductsList {
     display: flex;
     flex-wrap: wrap; 
     width: 100%;
     gap: clamp(115px, 3vw, 300px);
     padding: 0 clamp(40px, 3vw, 160px); 
-} */
+}
 
-.productsList {
+/* .productsList {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 24px;
     width: 100%;
-}
+} */
 
 
 .productCard {
