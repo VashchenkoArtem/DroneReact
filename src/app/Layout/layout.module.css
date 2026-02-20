@@ -35,9 +35,11 @@ a{
 } */
 @media (max-width: 767px){
     .layout{
-        padding-top: clamp(5px, 2vw, 12px);
+        /* padding-top: clamp(5px, 2vw, 12px); */
+        padding: 0;
     }
     .mainContent{
-        padding: 0px clamp(7px, 2vw, 15px);
+        /* padding: 0px clamp(7px, 2vw, 15px); */
+        padding: 0;
     }
 }
