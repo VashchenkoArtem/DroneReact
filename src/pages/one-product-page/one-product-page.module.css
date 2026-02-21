@@ -58,9 +58,9 @@ h1 {
 }
 
 .droneImage {
-    width: 643px;
-    height: 643px;
-    transform: translateY(-20vh);
+    width: 1000px;
+    height: 1000px;
+    transform: translateY(-35vh);
 }
 
 

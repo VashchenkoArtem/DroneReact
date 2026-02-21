@@ -36,7 +36,9 @@ h1 {
 }
 
 .droneImage {
-    transform: translate(calc(8vw + 20px), -30vh);
+    transform: translate(calc(8vw + 20px), -29vh);
+    width: 1000px;
+    height: 1000px;
 }
 
 .droneContainer {
@@ -53,7 +55,7 @@ h1 {
 .titleArticle {
     font-family: "ultra bold walsheim", sans-serif;
     text-align: center;
-    font-size: clamp(47px, 2vw, 61px);
+    font-size: clamp(47px, 4vw, 61px);
     font-weight: 900;
 }
 
@@ -84,6 +86,7 @@ h1 {
     color: rgba(12, 18, 42, 1);
     font-family: "GT Walsheim Pro", sans-serif;
     font-size: 1.2rem;
+    gap: 14px;
     font-weight: 400;
 }
 
@@ -106,7 +109,7 @@ h1 {
 }
 
 .droneContainer h1:first-child {
-    margin-top: clamp(180px, 10vh, 230px);
+    margin-top: clamp(230px, 10vh, 230px);
 }
 
 .aboutUsContainer {
