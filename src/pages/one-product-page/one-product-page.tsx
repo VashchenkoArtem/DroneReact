@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useProductById, useProductsSimilar } from "../../hooks";
 import { useState } from "react";
 import styles from "./one-product-page.module.css";
@@ -90,8 +90,8 @@ export function OneProductPage() {
                 <div className={styles.productsList}>
                     {similarProducts?.slice(0, limitOfPosts).map((item: IProduct) => {
                         return (
-                            <div key = {product.id} className={styles.productCard}>
-                                <ICONS.newDroneOne className={styles.productImage} />
+                            <Link to ={`/product/${product.id}`} key = {product.id} className={styles.productCard}>
+                                <img src={product.image} className={styles.productImage} />
                                 
                                 <h2 className={styles.productTitle}>{product.name}</h2>
                                 {product.discount ?
@@ -108,7 +108,7 @@ export function OneProductPage() {
                                 <button className={styles.productHoverBtn}>
                                     <ICONS.productHoverCart />
                                 </button>
-                            </div>)
+                            </Link>)
                         })}
                 </div>
                 

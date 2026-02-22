@@ -64,7 +64,7 @@ export function CatalogPage() {
                 {products.map((product: IProduct) => {
                     return (
                             <Link to = {`/product/${product.id}`} key = {product.id} className={styles.productCard} >
-                                <ICONS.newDroneOne className={styles.productImage} />
+                                <img src={product.image} className={styles.productImage} />
                                 
                                 <h2 className={styles.productTitle}>{product.name}</h2>
                                 {product.discount ?

@@ -436,6 +436,7 @@ h1 {
     font-weight: 400;
     font-size: clamp(14px, 1.2vw, 16px);
     text-align: left;
+    text-decoration: none;
     margin-top: 5px;
 }
 
@@ -484,6 +485,7 @@ h1 {
 
 .productPriceWithoutDiscount {
     text-decoration: line-through;
+    color: #0C122A;
 }
 .productPriceWithDiscount{
     color: rgb(125, 53, 53);
