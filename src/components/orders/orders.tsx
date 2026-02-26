@@ -1,13 +1,29 @@
+import { useEffect, useState } from "react";
 import { useOrders } from "../../hooks/use-orders";
 import { ICONS, IMAGES } from "../../shared";
 import styles from "./orders.module.css";
+import { IOrder, IProductOnOrder } from "../../shared/types/product";
 
 export function MyOrders() {
     const { orders, loading } = useOrders();
-
+    const [ totalPrice, setTotalPrice ] = useState<number>(0)
     if (loading) return <div>Завантаження замовлень...</div>;
     if (orders.length === 0) return <div>У вас ще немає замовлень.</div>;
-
+    function getSumOrder(order: IOrder){
+        let totalSum = 0
+        order.products.map((product) => {
+            const productSum = product.product.price * product.product.count
+            totalSum = totalSum + productSum
+        })
+        return totalSum
+    }
+    function getSumProduct(product: IProductOnOrder){
+        let totalSum = 0
+        for (let count = 0; product.product.count > count; count ++){
+            totalSum = totalSum + product.product.price
+        }
+        return totalSum
+    }
     return (
         <div className={styles.ordersPage}>
             <h1 className={styles.ordersTitle}>Мої замовлення</h1>
@@ -26,7 +42,7 @@ export function MyOrders() {
                                 </div>
                                 <div>
                                     <h1 className={styles.orderDescriptionTitle}>Сума замовлення</h1>
-                                    <h1 className={styles.orderDeliveryDescription}>25 830.00</h1>
+                                    <h1 className={styles.orderDeliveryDescription}>{getSumOrder(order)} $</h1>
                                 </div>
                             </div>
                             <div className={styles.orderInfoHeader}>
@@ -68,11 +84,11 @@ export function MyOrders() {
                                                 </div>
                                                 <div className={styles.orderProductCardPart}>
                                                     <h1 className={styles.orderProductCardPartTitle}>Кількість</h1>
-                                                    <h1 className={styles.orderProductCardPartDescription}>1</h1>
+                                                    <h1 className={styles.orderProductCardPartDescription}>{product.product.count}</h1>
                                                 </div>
                                                 <div className={styles.orderProductCardPart}>
                                                     <h1 className={styles.orderProductCardPartTitle}>Сума</h1>
-                                                    <h1 className={styles.orderProductCardPartDescription}>29 990</h1>
+                                                    <h1 className={styles.orderProductCardPartDescription}>{getSumProduct(product)}</h1>
                                                 </div>
                                             </div>
                                         )
@@ -88,7 +104,7 @@ export function MyOrders() {
                                         </div>
                                         <div className={styles.resultInfoContainer}>
                                             <h1 className={styles.resultInfoTitle}>Загальна сума</h1>
-                                            <h1 className={styles.resultInfoDescription}>29 990</h1>
+                                            <h1 className={styles.resultInfoDescription}>{getSumOrder(order)} $</h1>
                                         </div>
                                         <div className={styles.resultInfoContainer}>
                                             <h1 className={styles.resultInfoTitle}>Заощаджено</h1>
@@ -96,7 +112,7 @@ export function MyOrders() {
                                         </div>
                                         <div className={styles.resultInfoContainer}>
                                             <h1 className={styles.resultInfoTitle}>Разом</h1>
-                                            <h1 className={styles.resultInfoDescription}>29 990</h1>
+                                            <h1 className={styles.resultInfoDescription}>{getSumOrder(order)} $</h1>
                                         </div>
                                     </div>
                                     <button className={styles.cancelButton}>

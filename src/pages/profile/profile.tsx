@@ -7,7 +7,6 @@ import styles from "./profile.module.css"
 export function ProfilePage(){
     return (
         <div className={styles.profileContainer}>
-            <div id="topMarker"></div>
             <CabinetUrls></CabinetUrls>
             <ProfileInformation></ProfileInformation>
         </div>

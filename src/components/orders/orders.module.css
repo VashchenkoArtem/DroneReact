@@ -89,6 +89,8 @@
 }
 .resultInfoTitle{
     font-weight: 400;
+    text-align: start;
+    width: 100px;
     font-size: clamp(10px, 2vw, 14px);
     color: rgba(158, 160, 170, 1);
 }
