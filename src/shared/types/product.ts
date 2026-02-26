@@ -34,7 +34,15 @@ export interface IProductOnOrder {
     blockId: number;
     product: IProduct;
 }
-
+interface IAddresOrder{
+    city: string;
+    street: string;
+    numberOfHouse: number;
+    numberOfFlat: number;
+    entrance: number;
+    status: string;
+    userId: number
+}
 export interface IOrder {
     id: number;
     firstName: string;
@@ -46,4 +54,6 @@ export interface IOrder {
     paymentMethod: string;
     userId: number;
     products: IProductOnOrder[];
+    address: IAddresOrder
+    ttnNumber: string
 }
