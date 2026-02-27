@@ -1,9 +1,9 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useProductById, useProductsSimilar } from "../../hooks";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./one-product-page.module.css";
 import { ICONS, IMAGES, IProduct } from "../../shared";
-import { useOrderContext } from '../../context/order-context';
+import { CartContext } from "../../context/cart-context";
 
 
 
@@ -13,11 +13,33 @@ export function OneProductPage() {
     const { product, error, loading } = useProductById(Number(id));
     const [limitOfPosts, setLimitOfPosts] = useState<number>(4);
     const { similarProducts } = useProductsSimilar(Number(id));
-    const { addProduct } = useOrderContext();
+    const context = useContext(CartContext);
 
     if (loading) return <h1>Завантаження...</h1>;
     if (error) return <h1>{error}</h1>;
     if (!product) return null;
+	
+	// useEffect(() => {
+	// 	if (Number.isNaN(Number(id))) {
+	// 		navigate("/")
+	// 	}
+	// }, [id, navigate])
+
+	if (!product) {
+		return null
+	}
+
+	const productInCart = {
+		...product,
+		count: 1
+	}
+	
+	function addToCartFunc() {
+		if (!productInCart) {
+			return null
+		}
+		context?.addItemToCart(productInCart)
+	}
 
     return (
         <div className={styles.productCart}>
@@ -57,12 +79,7 @@ export function OneProductPage() {
                         <button className={styles.droneButtonOne}>
                             <ICONS.cartImage className={styles.newProductButtonArrow} />
                         </button>
-                        <button 
-                            className={styles.droneButton} 
-                            onClick={() => {
-                                addProduct(product);
-                                navigate('/checkoutOrder')} }
-                        >
+                        <button className={styles.droneButton} onClick={addToCartFunc}>
                             ЗАМОВИТИ
                             <ICONS.newProductsArrow className={styles.newProductButtonArrow} />
                         </button>

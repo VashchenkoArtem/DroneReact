@@ -15,6 +15,110 @@ export function HomePage(){
         fetchPopularProducts()
     }, [limitOfPosts])
 
+    const isPhone = useMediaQuery({
+        query: '(max-width: 767px)'
+    })
+    
+    if (isPhone){
+        return (
+            <main>
+                <img src={IMAGES.headerBGPhone} className={styles.headerImage} alt="Header Background" />
+
+                <div className={styles.droneContainer}>
+                    <h1 className={styles.titleArticle}>ТЕХНОЛОГІЇ <br/>ЯКІ ЗМІНЮЮТЬ РЕАЛЬНІСТЬ</h1>
+
+
+                    <div className={styles.droneActions}>
+                        <ICONS.droneImagePhone className={styles.droneImage} />
+
+                        <div className={styles.droneInfo}>
+                            <p className={styles.droneDescription}>Передові технології в одному місці. </p>
+                            <p className={styles.droneDescription}>Обирай найкраще для найважливішого.</p>
+
+                            <Link to='/catalog'>
+                                <button className={styles.droneButton}>ДО КАТАЛОГУ <ICONS.newProductsArrow /></button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className={styles.aboutUsContainer}>
+                    <h1 className={styles.titleArticleGrey}>ПРО НАС</h1>
+                    <p>Ми — команда, що об'єднує технології та надійність.</p>
+                    <p>Пропонуємо дрони й тепловізори, перевірені у найскладніших умовах.</p>
+                    <p>Обираємо тільки те, чому довіряємо самі.</p>
+
+                    <button className={styles.aboutUsButton}><Link to="/about">ЧИТАТИ БІЛЬШЕ </Link><ICONS.buttonArrow /></button>
+                </div>
+
+                <div className={styles.newProductsContainer}>
+                    <h1 className={styles.titleArticleGrey}>НОВЕ НА САЙТІ</h1>
+
+                    <div className={styles.newProductsList}>
+                        {   newProducts?.map((product: IProduct) => {
+                            return (
+                                <div key = {product.id} className={styles.newProductCard}>
+                                    <div className = {styles.droneBG}/>
+                                    <ICONS.droneImage className = {styles.newProductImage} />
+                                    <div className={styles.newProductDescription}>
+                                        <h2 className={styles.newProductTitle}>{product.name}</h2>
+                                        <p className={styles.newProductDescription}>{product.description}</p>
+                                    </div>
+
+                                    <div className={styles.newProductToBuy}>
+                                        <p className={styles.newProductPrice}>from {product.price}$</p>
+                                        <Link to={`/product/${product.id}`}>
+                                            <button className={styles.newProductButton}>КУПИТИ 
+                                                <ICONS.newProductsArrow className={styles.newProductButtonArrow} />
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+
+                <div className={styles.CatalogContainer}>
+                    <h1 className={styles.titleArticleGrey}>КАТАЛОГ</h1>
+
+                    <div className={styles.productsList}>
+                        { popularProducts?.map((product: IProduct) => {
+                            return (
+                                <div key = {product.id} className={styles.productCard}>
+                                    <ICONS.newDroneOne className={styles.productImage} />
+                                    
+                                    <h2 className={styles.productTitle}>{product.name}</h2>
+                                    {product.discount ?
+                                        <div className={styles.productPrices}>
+                                            <p className={styles.productPriceWithoutDiscount}>${product.price}</p>
+                                            <p className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}>${product.price - product.price * product.discount / 100}</p>
+                                        </div>
+                                    :
+                                    <div className = {styles.productPrices}>
+                                        <p className={styles.productPrice}>${product.price}</p>
+                                    </div>
+                                    }
+
+                                    <button className={styles.productHoverBtn}>
+                                        <ICONS.productHoverCart />
+                                    </button>
+                                </div>)
+                            })}
+                    </div>
+
+                    <button
+                        className={styles.CatalogButton}
+                        onClick={()=>{
+                            setLimitOfPosts(limitOfPosts + 4)
+                        }}
+                        >ДИВИТИСЬ ВСІ <ICONS.newProductsArrow /></button>
+                </div>
+            </main>
+        )
+    }
+
     return (
         <main>
             <div id="topMarker"></div>

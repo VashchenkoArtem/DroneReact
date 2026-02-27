@@ -70,3 +70,9 @@ export interface INPWarehouse {
     Ref: string;
     Number: string;
 }
+export interface CartItem extends IProduct{
+    count: number
+}
+export interface IProductInCart {
+    productInCart: CartItem 
+}

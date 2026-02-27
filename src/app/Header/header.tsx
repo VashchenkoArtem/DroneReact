@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { useUserContext } from "../../context/user-context";
 import { AuthModal } from "../../components/authForm";
 import { ChangePasswordForm } from "../../components/changePasswordForm";
+import { CartPage } from "../../pages/cart-page";
 
 const Logo = ICONS.headerLogo
 const Orders = ICONS.headerOrders
@@ -18,7 +19,9 @@ export function Header(){
     const { user } = useUserContext();
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isCartOpen, setIsCartOpen] = useState(false)
     const dropdownRef = useRef<HTMLDivElement>(null);
+
     const isPhone = useMediaQuery({
         query: '(max-width: 767px)'
     })
@@ -67,7 +70,11 @@ export function Header(){
             </div>
             <Link to = "/" ><Logo className={styles.logo} /></Link>
             <div className={styles.buttons}>
-                <Orders className={`${styles.orders} ${styles.hatImageUrl}`} />
+                <Orders 
+                    className={`${styles.orders} ${styles.hatImageUrl}`} 
+                    onClick={() => setIsCartOpen(true)}
+                />                
+
                 { user ?
                     <Link to="/profileInformation"><Profile className={`${styles.profile} ${styles.hatImageUrl}`} /></Link>
                     :
@@ -86,11 +93,24 @@ export function Header(){
                 >
                     <RegistrationForm onClose={() => setisRegistrationFormOpen(false)} onOpenAuthForm={() => setIsAuthModalOpen(!isAuthModalOpen)} />
                 </Modal>
+
+
+                
                 <AuthModal 
                     onOpenRegistrationForm ={() => setisRegistrationFormOpen(!isRegistrationFormOpen)}
                     isOpen={isAuthModalOpen} 
                     onClose={() => setIsAuthModalOpen(false)} 
                 />
+
+                    <Modal
+                        variant="dropdown"
+                        className={styles.cartModal}
+                        isOpen={isCartOpen}
+                        onClose={() => setIsCartOpen(false)}
+                    >
+                        <CartPage onClose={() => setIsCartOpen(false)} />
+                    </Modal>
+
                 <ChangePasswordForm></ChangePasswordForm>
 
             </div>

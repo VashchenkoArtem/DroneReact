@@ -4,6 +4,7 @@ import ourTeam from "../assets/images/aboutUsTeam.png"
 import footerBG from "../assets/images/footer.png"
 import footerBGPhone from "../assets/images/footerPhone.png"
 import headerBG from "../assets/images/header.png"
+import headerBGPhone from "../assets/images/headerBGPhone.png"
 import droneTestIcon from "../assets/images/drone_icon.png"
 import droneBtnCategory from "../assets/images/droneBtnCategory.png"
 import binocularBtnCategory from "../assets/images/binocularBtnCategory.png"
@@ -17,5 +18,23 @@ import deliveryArriving from "../assets/images/delivery_arriving.png"
 import deliveryReceiving from "../assets/images/delivery_receiving.png"
 
 export const IMAGES = {
-    aboutUsSkyscraper, ourMission, ourTeam, footerBG, headerBG, droneBtnCategory, binocularBtnCategory, droneTestIcon, bgimgone, bgimgtwo, bgimgthree, footerBGPhone, deliveryCreating, deliveryCollecting, deliveryPending, deliveryArriving, deliveryReceiving
+    aboutUsSkyscraper, 
+    ourMission, 
+    ourTeam, 
+    footerBG, 
+    headerBG, 
+    droneBtnCategory, 
+    binocularBtnCategory, 
+    droneTestIcon, 
+    footerBGPhone,
+    bgimgone,
+    bgimgtwo,
+    bgimgthree,
+    headerBGPhone,
+    deliveryCreating,
+    deliveryCollecting,
+    deliveryPending,
+    deliveryArriving,
+    deliveryReceiving
+
 }

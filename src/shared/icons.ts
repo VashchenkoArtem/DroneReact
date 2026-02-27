@@ -3,6 +3,7 @@ import { ReactComponent as headerOrders} from "../assets/icons/headerOrders.svg"
 import { ReactComponent as headerProfile} from "../assets/icons/headerProfile.svg"
 import { ReactComponent as headerBurgerMenu} from "../assets/icons/headerBurgerMenu.svg"
 import { ReactComponent as droneImage } from "../assets/icons/droneImage.svg"
+import { ReactComponent as droneImagePhone } from "../assets/icons/droneImagePhone.svg"
 import { ReactComponent as buttonArrow } from "../assets/icons/aboutUsButtonArrow.svg"
 import { ReactComponent as newDroneOne } from "../assets/icons/newProductDroneOne.svg"
 import { ReactComponent as newDroneTwo } from "../assets/icons/newProductDroneTwo.svg"
@@ -28,6 +29,7 @@ import { ReactComponent as Visa } from "../assets/icons/Visa.svg"
 import { ReactComponent as MasterCard } from "../assets/icons/Mastercard.svg"
 import { ReactComponent as ApplePay } from "../assets/icons/ApplePay.svg"
 import { ReactComponent as GooglePay } from "../assets/icons/GooglePay.svg"
+import { ReactComponent as cartBtn } from "../assets/icons/cart-btn.svg"
 
 
 export const ICONS = { 
@@ -53,12 +55,14 @@ export const ICONS = {
     facebookIcon,
     instagramIcon,
     telegramIcon,
+    productHoverCart,
     darkbluePencil,
     lightgreyPencil,
-    productHoverCart,
     newpost,
     Visa,
     MasterCard,
     ApplePay,
-    GooglePay
-};
+    GooglePay,
+    droneImagePhone,
+    cartBtn
+}

@@ -1,0 +1,154 @@
+.formUpperActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 700;
+    font-size: 18px;         
+    padding-bottom: 12px;     
+}
+
+.closeModalBtn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;        
+    color: #0C122A;
+}
+
+.emptyCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 1.5px solid rgba(206, 208, 212, 1);   
+    border-bottom: 1.5px solid rgba(206, 208, 212, 1);
+
+    text-align: center;
+    color: rgba(109, 113, 127, 1);
+    padding: 18px 0;          
+    height: 190px;            
+    font-size: 16px;        
+    gap: 6px;                
+}
+
+.continueShoppingBtn, .toCartBtn, .orderBtn {
+    background-color: #fff;
+    color: #0C122A;
+    border: 1.5px solid #0C122A;  
+    border-radius: 40px;          
+
+    padding: 8px 26px;            
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-size: 13px;            
+    font-weight: 600;
+    letter-spacing: 0.08rem;      
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.orderBtn {
+    background-color: rgba(12, 18, 42, 1);
+    color: white;
+}
+
+.continueShoppingBtn a, .toCartBtn a, .orderBtn a {
+    color: #0C122A;
+    text-decoration: none;
+    font-size: 0.8rem;           
+    font-weight: 5600;
+    letter-spacing: 0.08rem;
+}
+
+.orderBtn a {
+    color: white;
+}
+
+.cartFooter {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 12px;          
+
+    border-top: 2px solid rgba(206, 208, 212, 1);   
+    border-bottom: 2px solid rgba(206, 208, 212, 1);
+
+}
+
+.cartFooterPriceAndActions {
+    width: 100%;               
+    display: flex;
+    flex-direction: column;    
+    gap: 6px;                  
+    padding: 16px 0;           
+}
+
+.cartRow {
+    display: flex;            
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 16px;
+    letter-spacing: 0.03rem;
+    font-weight: 500;
+    color: #0c122a;
+}
+
+
+
+.totalPrice {
+    color: rgba(12, 18, 42, 1);
+    text-decoration: line-through;
+}
+
+.discountPrice {
+    color: rgba(158, 160, 170, 1);
+}
+
+.finalPrice {
+    color: rgba(182, 45, 17, 1);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cartSecondFooter {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 12px; 
+    gap: 10px;         
+}
+
+.toCartBtn {
+    background-color: #fff;
+    color: #0C122A;
+    border: 1.5px solid #0C122A;  
+    border-radius: 40px;          
+
+    padding: 8px 26px;            
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-size: 13px;            
+    font-weight: 600;
+    letter-spacing: 0.08rem;      
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.continueShoppingBtn a {
+    color: #0C122A;
+    text-decoration: none;
+    font-size: 0.8rem;           
+    font-weight: 5600;
+    letter-spacing: 0.08rem;
+}

@@ -420,6 +420,129 @@ h1 {
 }
 
 @media (max-width: 767px) {
+    main {
+        width: 100%;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .headerImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+        transform: none;      
+    }
+
+    /* .droneContainer {
+        padding: 120px 20px 60px;
+        gap: 30px;
+        text-align: center;
+    } */
+
+    .titleArticle {
+        font-size: 3.1rem;
+        line-height: 1.3;
+    }
+
+    .droneActions {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .droneImage {
+        width: 450px;
+        height: auto;
+        transform: translateY(-26vh);
+    }
+
+    .droneInfo {
+        display: flex;
+        transform: none;       
+        width: 100%;
+        /* align-items: center; */
+        text-align: left;
+        justify-content: flex-start;
+        gap: 5px;
+        font-size: 16px;
+    }
+
+    .droneButton {
+        margin-top: 10px;
+        align-items: center;
+        display: flex;
+        gap: 10px;
+    }
+
+    .aboutUsContainer {
+        padding: 60px 20px;
+        /* gap: 9px; */
+        text-align: center;
+    }
+
+    .titleArticleGrey {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    .aboutUsButton {
+        margin-top: 20px;
+        /* padding: 12px 28px; */
+    }
+
+    /*  */
+    .newProductsContainer {
+        padding: 60px 20px;
+        gap: 60px;
+    }
+
+    .newProductsList {
+        grid-template-columns: 1fr;
+        gap: 180px;
+    }
+
+    .newProductCard {
+        padding: 140px 20px 20px;
+        border-radius: 20px;
+    }
+
+    .newProductImage {
+        top: -180px;
+        width: 380px;
+    }
+
+    .newProductTitle {
+        font-size: 20px;
+    }
+
+    .newProductPrice {
+        font-size: 14px;
+    }
+
+    .productsList {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .productCard {
+        width: 100%;
+        max-width: 340px;
+        padding: 20px;
+    }
+
+    .productTitle {
+        font-size: 18px;
+    }
+
+    .CatalogButton {
+        margin-bottom: 60px;
+    }
+
+
+    /*  */
     .CatalogContainer {
         width: 100%;
         display: flex;
@@ -445,10 +568,10 @@ h1 {
     }
         
     .productCard {
-        width: 360px;
+        width: 380px;
         min-height: 300px;
 
-        padding: clamp(35px, 2vw, 40px);
+        /* padding: clamp(35px, 2vw, 40px); */
         background-color: white;
         border-radius: 1rem;
     }
