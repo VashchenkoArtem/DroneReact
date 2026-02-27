@@ -100,9 +100,9 @@ export function MyOrders() {
                 <div className={styles.orderMyInfo}>
                   <div className={styles.orderDelivery}>
                     <h1 className={styles.orderDescriptionTitle}>Адреса доставки</h1>
-                    <h1 className={styles.orderDeliveryDescription}>Доставка кур'єром</h1>
+                    <h1 className={styles.orderDeliveryDescription}>Нова Пошта до відділення</h1>
                     <h1 className={styles.orderDeliveryDescription}>
-                      {order.address.city}, вулиця {order.address.street} {order.address.numberOfHouse}, {order.address.entrance} під'їзд, квартира {order.address.numberOfFlat}
+                      Відділення №3 (до 30 кг на одне місце): вул. Слобоожанська,13
                     </h1>
                   </div>
                   <div className={styles.orderDelivery}>

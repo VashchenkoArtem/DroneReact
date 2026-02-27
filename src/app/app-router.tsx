@@ -7,6 +7,7 @@ import { OrdersPage } from "../pages/my_orders"
 import { ContactsPage } from "../pages/contacts"
 import { AddressesPage } from "../pages/addresses"
 import { ScrollToTop } from "../components/scrollToTop"
+import { CheckoutPage } from "../pages/create-order-page"
 
 export function AppRouter() {
   return (
@@ -23,6 +24,7 @@ export function AppRouter() {
           <Route path="/contacts" element={<ContactsPage/>}/>
           <Route path="/addresses" element={<AddressesPage />} />
           <Route path="*" element = {<PageUndefined/>}/>
+          <Route path="/checkoutOrder" element={<CheckoutPage />} />
         </Route>
       </Routes>
     </BrowserRouter>  

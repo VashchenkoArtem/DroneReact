@@ -59,15 +59,24 @@ export function UserContextProvider(props: UserContextProviderProps) {
         }
     }
     async function fetchMe() {
+        const storedToken = localStorage.getItem("token");
+        
+        if (!storedToken || storedToken === "undefined") return;
+
         try {
-            
             const response = await fetch(`http://localhost:8000/users/me`, {
-                headers: { Authorization: `Bearer ${localStorage.getItem("Token")}` },
+                headers: {
+                    Authorization: `Bearer ${storedToken.replace(/"/g, '')}` 
+                },
             });
+            
             const result = await response.json();
-            console.log(result)
+            
             if (response.ok) {
                 setUser(result);
+            } else {
+                localStorage.removeItem("token");
+                setUser(null);
             }
         } catch {
             console.error("Auth sync failed");
@@ -90,7 +99,7 @@ export function UserContextProvider(props: UserContextProviderProps) {
             }
 
             setToken(result.token)
-            localStorage.setItem("Token", result.token)
+            localStorage.setItem("token", result.token)
         } catch {
             return "Unknown error! Try again later."
         }

@@ -19,6 +19,7 @@ export interface IProduct {
     categoryId: number;
     blocks?: IProductBlock[];
     category?: ICategory;
+    originalPrice?: number;
 }
 
 export interface ICategory {
@@ -56,4 +57,16 @@ export interface IOrder {
     products: IProductOnOrder[];
     address: IAddresOrder
     ttnNumber: string
+}
+
+export interface INPCity {
+    Present: string;
+    DeliveryCity: string;
+    MainDescription: string;
+}
+
+export interface INPWarehouse {
+    Description: string;
+    Ref: string;
+    Number: string;
 }

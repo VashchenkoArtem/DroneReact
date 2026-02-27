@@ -1,0 +1,1 @@
+export { CheckoutPage } from './create-order-page';
