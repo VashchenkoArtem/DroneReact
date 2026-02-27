@@ -21,7 +21,10 @@ import { ReactComponent as timelabelIcon } from "../assets/icons/timelabelIcon.s
 import { ReactComponent as facebookIcon } from "../assets/icons/facebookIcon.svg"
 import { ReactComponent as instagramIcon } from "../assets/icons/instagramIcon.svg"
 import { ReactComponent as telegramIcon } from "../assets/icons/telegramIcon.svg"
+import { ReactComponent as darkbluePencil } from "../assets/icons/darkbluePencil.svg"
+import { ReactComponent as lightgreyPencil } from "../assets/icons/lightgreyPencil.svg"
 import { ReactComponent as productHoverCart } from "../assets/icons/productHoverCart.svg"
+import { ReactComponent as cartBtn } from "../assets/icons/cart-btn.svg"
 
 
 export const ICONS = { 
@@ -48,5 +51,8 @@ export const ICONS = {
     instagramIcon,
     telegramIcon,
     productHoverCart,
-    droneImagePhone
+    darkbluePencil,
+    lightgreyPencil,
+    droneImagePhone,
+    cartBtn
 }

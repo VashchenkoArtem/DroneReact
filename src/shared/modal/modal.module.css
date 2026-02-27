@@ -22,3 +22,26 @@
 	padding: 24px;
 	z-index: 9999;
 }
+
+.dropdown {
+    position: absolute;
+	top: 0;
+	right: 0;
+
+	margin: 75px 165px 0 0;
+	/* padding: 16px 24px; */
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 16px;
+	width: auto;
+
+	/* right: 6px; */
+    /* margin-top: 8px; */
+    /* width: 400px; */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transform: none;
+}

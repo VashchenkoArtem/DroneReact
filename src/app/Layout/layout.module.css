@@ -33,6 +33,12 @@ a{
 /* .mainContent{
     padding: 0px clamp(20px, 2vw, 40px);
 } */
+#topMarker{
+    position: absolute;
+    display:none;
+    top: 0px;
+    left: 0px;
+}
 @media (max-width: 767px){
     .layout{
         /* padding-top: clamp(5px, 2vw, 12px); */

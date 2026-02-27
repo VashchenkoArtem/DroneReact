@@ -23,8 +23,11 @@ export function ContactsPage(){
     function onSubmit(data: ContactForm){
         sendMessage(data)
     }
+
+
     return (
         <div className={styles.pageWrapper}>
+            <div id="topMarker"></div>
             <div className={styles.wrapper}>
                 <h1 className={styles.title}>КОНТАКТИ</h1>
 

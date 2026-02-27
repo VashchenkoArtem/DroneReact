@@ -4,12 +4,20 @@ import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 export function Modal(props: IModalProps) {
-    const { isOpen, onClose, children, className, doCloseOnOutsideClick, container } = props
+    const { 
+        isOpen, 
+        onClose, 
+        children, 
+        className, 
+        doCloseOnOutsideClick,
+        container,
+        variant = "center"
+    } = props
 
     const modalRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-	    if (!doCloseOnOutsideClick) return
+        if (!doCloseOnOutsideClick) return
 
         function clickOutside(event: MouseEvent) {
             const target = event.target as Node
@@ -18,6 +26,7 @@ export function Modal(props: IModalProps) {
                 onClose()
             }
         }
+
         document.addEventListener("mousedown", clickOutside)
 
         return () => {
@@ -28,15 +37,22 @@ export function Modal(props: IModalProps) {
     if (!isOpen) return null
 
     return createPortal(
-        <div className={styles.overlay}>
-            <div className={`${className} ${styles.modal}`} ref={modalRef}>
+        <>
+            {variant === "center" && (
+                <div className={styles.overlay} />
+            )}
+
+            <div
+                ref={modalRef}
+                className={`
+                    ${styles.modal}
+                    ${variant === "dropdown" ? styles.dropdown : ""}
+                    ${className ?? ""}
+                `}
+            >
                 {children}
             </div>
-        </div>,
+        </>,
         container ?? document.body
     )
-
-
 }
-
-

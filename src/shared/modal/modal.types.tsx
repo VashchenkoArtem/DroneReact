@@ -9,4 +9,5 @@ export interface IModalProps {
     doCloseOnOutsideClick?: boolean
     
     container?: HTMLDivElement
+    variant?: "center" | "dropdown"
 }

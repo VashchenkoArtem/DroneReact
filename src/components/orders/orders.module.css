@@ -75,6 +75,9 @@
 .orderProductCardPartDescription{
     font-weight: 400;
     font-size: clamp(8px, 2vw, 12px);
+    height: 80%;
+    display: flex;
+    align-items: center;
     color: rgba(12, 18, 42, 1);
 }
 .resultInfoOrder{
@@ -87,12 +90,19 @@
     display: flex;
     gap: clamp(5px, 2vw, 9px);
 }
-.resultInfoTitle{
+.resultInfoTitle, .orderTtnNumber{
     font-weight: 400;
+    text-align: start;
+    width: 100px;
     font-size: clamp(10px, 2vw, 14px);
     color: rgba(158, 160, 170, 1);
 }
-.resultInfoDescription{
+.orderTtnNumber{
+    display: flex;
+    gap: clamp(5px, 2vw, 9px);
+    width: 300px !important;
+}
+.resultInfoDescription, .numberTtn{
     font-weight: 400;
     font-size: clamp(10px, 2vw, 14px);
     color: rgba(12, 18, 42, 1);
@@ -116,6 +126,45 @@
 }
 .orderCard{
     display: flex;
-    gap: clamp(18px, 2vw, 24px);
+    justify-content: space-between;
     align-items: center;
+}
+.orderProductCardPhoto{
+    width: 50px;
+    height: 50px;
+}
+.orderInfoHeader{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+.orderDeliveryInfo{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 2vw, 11px);
+}
+.orderDeliveryImage{
+    width: 100%;
+}
+.orderStatuses{
+    display: flex;
+    justify-content: space-between;
+}
+.orderStatus{
+    font-size: clamp(8px, 2vw, 14px);
+    color: rgba(158, 160, 170, 1);
+    font-weight: 400;
+}
+.activeStatus{
+    color: rgba(12, 18, 42, 1);
+}
+.orderDeliveryStatus{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 2vw, 11px);
+}
+.order{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 2vw, 30px);
 }
