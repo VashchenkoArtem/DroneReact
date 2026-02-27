@@ -17,9 +17,9 @@ export function useOrders() {
             }
 
             try {
-                const response = await fetch(`http://localhost:8000/users/orders/${email}`, {
+                const response = await fetch(`http://localhost:8000/users/orders`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        'Authorization': `Bearer ${localStorage.getItem('Token')}`
                     }
                 });
 
