@@ -23,6 +23,11 @@ import { ReactComponent as telegramIcon } from "../assets/icons/telegramIcon.svg
 import { ReactComponent as darkbluePencil } from "../assets/icons/darkbluePencil.svg"
 import { ReactComponent as lightgreyPencil } from "../assets/icons/lightgreyPencil.svg"
 import { ReactComponent as productHoverCart } from "../assets/icons/productHoverCart.svg"
+import { ReactComponent as newpost } from "../assets/icons/newpost.svg"
+import { ReactComponent as Visa } from "../assets/icons/Visa.svg"
+import { ReactComponent as MasterCard } from "../assets/icons/Mastercard.svg"
+import { ReactComponent as ApplePay } from "../assets/icons/ApplePay.svg"
+import { ReactComponent as GooglePay } from "../assets/icons/GooglePay.svg"
 
 
 export const ICONS = { 
@@ -50,5 +55,10 @@ export const ICONS = {
     telegramIcon,
     darkbluePencil,
     lightgreyPencil,
-    productHoverCart
-}
+    productHoverCart,
+    newpost,
+    Visa,
+    MasterCard,
+    ApplePay,
+    GooglePay
+};

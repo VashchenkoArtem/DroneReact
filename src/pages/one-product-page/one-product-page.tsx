@@ -1,16 +1,19 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useProductById, useProductsSimilar } from "../../hooks";
 import { useState } from "react";
 import styles from "./one-product-page.module.css";
 import { ICONS, IMAGES, IProduct } from "../../shared";
+import { useOrderContext } from '../../context/order-context';
 
 
 
 export function OneProductPage() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const { product, error, loading } = useProductById(Number(id));
     const [limitOfPosts, setLimitOfPosts] = useState<number>(4);
     const { similarProducts } = useProductsSimilar(Number(id));
+    const { addProduct } = useOrderContext();
 
     if (loading) return <h1>Завантаження...</h1>;
     if (error) return <h1>{error}</h1>;
@@ -54,7 +57,12 @@ export function OneProductPage() {
                         <button className={styles.droneButtonOne}>
                             <ICONS.cartImage className={styles.newProductButtonArrow} />
                         </button>
-                        <button className={styles.droneButton}>
+                        <button 
+                            className={styles.droneButton} 
+                            onClick={() => {
+                                addProduct(product);
+                                navigate('/checkoutOrder')} }
+                        >
                             ЗАМОВИТИ
                             <ICONS.newProductsArrow className={styles.newProductButtonArrow} />
                         </button>

@@ -1,0 +1,466 @@
+@font-face {
+    font-family: "GT Walsheim Pro";
+    src: local("GT Walsheim Pro"), url(../../shared/fonts/GTWalsheimPro-Regular.ttf);
+}
+
+* {
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    max-width: 100%;
+    padding: 0 clamp(20px, 4vw, 40px) clamp(60px, 10vh, 100px);
+    font-family: "GT Walsheim Pro", sans-serif;
+    color: #0C122A;
+    background-color: #fff;
+}
+
+.topNav {
+    padding: clamp(20px, 4vh, 40px) 0;
+    font-size: clamp(10px, 1vw, 12px);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.topNav:hover {
+    opacity: 1;
+}
+
+.layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: clamp(20px, 4vw, 44px);
+    width: 100%;
+}
+
+.formContainer {
+    width: 100%;
+    max-width: 668px;
+    flex-shrink: 1;
+}
+
+.mainTitle {
+    font-size: clamp(24px, 3.5vw, 30px);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: clamp(30px, 5vh, 44px);
+}
+
+.section {
+    margin-bottom: clamp(30px, 5vh, 44px);
+}
+
+.sectionTitle {
+    font-size: clamp(18px, 2vw, 20px);
+    font-weight: 400;
+    margin-bottom: clamp(18px, 3vh, 24px);
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 1.5vh, 16px);
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputWrapper label {
+    font-size: clamp(10px, 1vw, 11px);
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+.baseInput, .baseTextarea {
+    width: 100%;
+    height: clamp(38px, 4.5vh, 42px);
+    border: 1px solid #CED0D4;
+    border-radius: 4px;
+    padding: 0 16px;
+    font-size: clamp(13px, 1.2vw, 14px);
+    color: #0C122A;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.baseTextarea {
+    height: clamp(80px, 10vh, 120px);
+    padding: 12px 16px;
+    resize: none;
+}
+
+.baseInput:focus, .baseTextarea:focus {
+    border-color: #0C122A;
+}
+
+.choiceList {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1.2vh, 12px);
+}
+
+.choiceOption {
+    border: 1px solid #CED0D4;
+    border-radius: 4px;
+    padding: clamp(14px, 2vh, 18px) clamp(16px, 2vw, 20px);
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.active {
+    border-color: #0C122A;
+    background-color: #fafafa;
+}
+
+.radioLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.radioLabel input[type="radio"] {
+    width: clamp(16px, 1.5vw, 18px);
+    height: clamp(16px, 1.5vw, 18px);
+    margin-right: clamp(10px, 1.2vw, 14px);
+    accent-color: #0C122A;
+}
+
+.optionText {
+    font-size: clamp(13px, 1.2vw, 14px);
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.onlineHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.payIconsGroup {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1vw, 12px);
+}
+
+.payIconsGroup svg, .payIconsGroup img {
+    height: clamp(14px, 1.8vh, 18px);
+    width: auto;
+    object-fit: contain;
+}
+
+.subFields, .paymentSubList {
+    margin-top: 16px;
+    padding-left: clamp(24px, 3.5vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.2vh, 14px);
+}
+
+.paymentSubList {
+    border-top: 1px solid #F0F2F5;
+    padding-top: 16px;
+}
+
+.subRadio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: clamp(12px, 1.1vw, 14px);
+    cursor: pointer;
+}
+
+.svgInLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.summaryCard {
+    width: 100%;
+    max-width: 440px;
+    border: 1px solid #F0F2F5;
+    border-radius: 12px;
+    padding: clamp(20px, 3vw, 32px);
+    position: sticky;
+    top: 20px;
+    background: #fff;
+    flex-shrink: 0;
+}
+
+.summaryHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(20px, 3vh, 30px);
+}
+
+.summaryHeader h3 {
+    font-size: clamp(18px, 2.2vw, 20px);
+    font-weight: 700;
+}
+
+.orderScroll {
+    max-height: clamp(250px, 40vh, 350px);
+    overflow-y: auto;
+    margin-bottom: 24px;
+    padding-right: 5px;
+}
+
+.orderItem {
+    display: flex;
+    gap: clamp(12px, 1.5vw, 16px);
+    margin-bottom: clamp(16px, 2vh, 24px);
+    align-items: center;
+}
+
+.orderItem img {
+    width: clamp(60px, 6vw, 72px);
+    height: clamp(60px, 6vw, 72px);
+    object-fit: contain;
+    background: #F9FAFB;
+    border-radius: 8px;
+}
+
+.itemMeta p {
+    font-size: clamp(12px, 1.1vw, 14px);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.priceRow {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.old {
+    font-size: clamp(10px, 0.9vw, 12px);
+    text-decoration: line-through;
+    color: #8E949F;
+}
+
+.current {
+    font-size: clamp(12px, 1.1vw, 14px);
+    font-weight: 700;
+    color: #FF3B30;
+}
+
+.totals {
+    border-top: 1px solid #F0F2F5;
+    padding-top: clamp(16px, 2.5vh, 24px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.5vh, 14px);
+}
+
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: clamp(12px, 1.1vw, 14px);
+    font-weight: 500;
+}
+
+.grandTotal {
+    margin-top: 8px;
+    padding-top: clamp(16px, 2.5vh, 20px);
+    border-top: 1px solid #0C122A;
+}
+
+.grandTotal span:last-child {
+    font-size: clamp(22px, 2.8vw, 28px);
+    font-weight: 800;
+    color: #FF3B30;
+}
+
+.btnSubmit {
+    width: 100%;
+    height: clamp(48px, 6vh, 56px);
+    background: #0C122A;
+    color: #fff;
+    border-radius: 100px;
+    border: none;
+    font-size: clamp(12px, 1vw, 14px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: clamp(24px, 4vh, 32px);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btnSubmit:hover {
+    background: #1a2340;
+}
+
+.btnSubmit:active {
+    transform: scale(0.98);
+}
+
+.btnReturn {
+    background: transparent;
+    border: 1px solid #0C122A;
+    color: #0C122A;
+    padding: clamp(10px, 1.5vh, 12px) clamp(25px, 3vw, 35px);
+    border-radius: 100px;
+    font-size: clamp(11px, 1vw, 13px);
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: clamp(30px, 5vh, 40px);
+    transition: all 0.3s ease;
+}
+
+.btnReturn:hover {
+    background: #0C122A;
+    color: #fff;
+}
+
+.popularCities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.cityLink {
+    background: none;
+    border: none;
+    padding: 0;
+    
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 100%;
+    letter-spacing: 0.04em;
+    color: #0C122A;
+    text-decoration: underline;
+    
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.cityLink:hover {
+    opacity: 0.6;
+}
+
+.baseInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.activeCity {
+    color: #8E949F;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.autocompleteWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.cityDropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.cityDropdown li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.cityDropdown li:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdownResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.resultItem {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.resultItem:hover {
+    background-color: #f5f5f5;
+}
+
+@media (max-width: 1150px) {
+    .layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+    .formContainer, .summaryCard {
+        max-width: 668px;
+        position: static;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        padding: 0 16px 60px;
+    }
+    .onlineHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .payIconsGroup {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .subFields, .paymentSubList {
+        padding-left: 15px;
+    }
+}
