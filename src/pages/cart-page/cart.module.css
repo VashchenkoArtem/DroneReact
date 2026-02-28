@@ -77,9 +77,6 @@
     justify-content: flex-end;
     padding-top: 12px;          
 
-    border-top: 2px solid rgba(206, 208, 212, 1);   
-    border-bottom: 2px solid rgba(206, 208, 212, 1);
-
 }
 
 .cartFooterPriceAndActions {
