@@ -50,6 +50,7 @@
     font-size: 13px;            
     font-weight: 600;
     letter-spacing: 0.08rem;      
+    text-align: center;
 
     cursor: pointer;
     transition: all 0.2s ease;
@@ -63,6 +64,7 @@
 .continueShoppingBtn a, .toCartBtn a, .orderBtn a {
     color: #0C122A;
     text-decoration: none;
+    text-align: center;
     font-size: 0.8rem;           
     font-weight: 5600;
     letter-spacing: 0.08rem;
@@ -72,14 +74,52 @@
     color: white;
 }
 
+.cartProductList {
+    max-height: 260px;
+    min-height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(61, 65, 85, 0.8) transparent;
+}
+
+.cartProductList::-webkit-scrollbar {
+    width: 6px; 
+}
+
+.cartProductList::-webkit-scrollbar-track {
+    background: rgba(205, 213, 221, 1);
+    border-radius: 10px;
+}
+
+.cartProductList::-webkit-scrollbar-thumb {
+    background: rgba(61, 65, 85, 0.8); 
+    border-radius: 10px;
+}
+
+.cartProductList::-webkit-scrollbar-thumb:hover {
+    background: rgba(40, 45, 60, 1);
+}
+
+.cartProductList::-webkit-scrollbar-button {
+    display: none;
+}
+
+.listOfProducts {
+    margin-bottom: 35px;
+}
+
 .cartFooter {
     display: flex;
     justify-content: flex-end;
     padding-top: 12px;          
-
-    border-top: 2px solid rgba(206, 208, 212, 1);   
-    border-bottom: 2px solid rgba(206, 208, 212, 1);
-
 }
 
 .cartFooterPriceAndActions {
@@ -88,6 +128,9 @@
     flex-direction: column;    
     gap: 6px;                  
     padding: 16px 0;           
+
+    border-top: 2px solid rgba(206, 208, 212, 1);   
+    border-bottom: 2px solid rgba(206, 208, 212, 1);
 }
 
 .cartRow {

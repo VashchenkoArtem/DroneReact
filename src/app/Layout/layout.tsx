@@ -3,14 +3,18 @@ import { Header } from "../Header";
 import styles from "./layout.module.css"
 import { Footer } from "../Footer";
 
-export function Layout(){
+interface LayoutProps {
+    variant?: 'default' | 'fullscreen';
+}
+
+export function Layout({variant = "default" }: LayoutProps) {
     return (
-        <div className={styles.layout}>
-            <Header/>
-            <div className = {styles.mainContent}>
-                <Outlet/>
+        <div className={`${styles.layout} ${styles[variant]}`}>
+            <Header variant={variant} />
+            <div className={styles.mainContent}>
+                <Outlet />
             </div>
-            <Footer/>
+            <Footer variant={variant} />
         </div>
-    )
+    );
 }

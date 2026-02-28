@@ -9,22 +9,32 @@ import { useUserContext } from "../../context/user-context";
 import { AuthModal } from "../../components/authForm";
 import { ChangePasswordForm } from "../../components/changePasswordForm";
 import { CartPage } from "../../pages/cart-page";
+import { useContext } from "react";
+import { CartContext } from "../../context/cart-context";
 
 const Logo = ICONS.headerLogo
 const Orders = ICONS.headerOrders
 const Profile = ICONS.headerProfile
 const BurgerMenu = ICONS.headerBurgerMenu
 
-export function Header(){
+interface HeaderProps {
+    variant?: 'default' | 'fullscreen';
+}
+
+
+export function Header({ variant = 'default'}: HeaderProps){
     const { user } = useUserContext();
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false)
     const dropdownRef = useRef<HTMLDivElement>(null);
+    
+    const cartContext = useContext(CartContext)
 
     const isPhone = useMediaQuery({
         query: '(max-width: 767px)'
     })
+
     const handleProfileClick = () => {
         if (user) {
             setIsDropdownOpen(!isDropdownOpen);
@@ -43,6 +53,9 @@ export function Header(){
     }, []);
     const [isRegistrationFormOpen, setisRegistrationFormOpen] = useState(false)
 
+    if (!cartContext) return null
+    const totalItemsCount = cartContext ? cartContext.items.reduce((sum, item) => sum + item.count, 0) : 0
+
     if (isPhone){
         return (
             <header className={styles.header}>
@@ -55,8 +68,23 @@ export function Header(){
             </header>            
         )        
     }
+
+
+    if (variant === "fullscreen") {
+        return (
+            <header className={`${styles.header} ${styles.fullscreen}`}>
+                <div className={styles.urls}>
+                    <Link to = "/">
+                        <h1 className={styles.url} >ПРОДОВЖИТИ ПОКУПКИ</h1>
+                    </Link>
+                </div>
+                <Link to = "/" ><Logo className={styles.logo} /></Link>
+            </header>
+        );
+    }
+
     return (
-        <header className={styles.header}>
+        <header className={`${styles.header} ${styles[variant]}`}>
             <div className={styles.urls}>
                 <Link to = "/catalog">
                     <h1 className={styles.url} >КАТАЛОГ</h1>
@@ -69,11 +97,37 @@ export function Header(){
                 </Link>
             </div>
             <Link to = "/" ><Logo className={styles.logo} /></Link>
+
             <div className={styles.buttons}>
-                <Orders 
-                    className={`${styles.orders} ${styles.hatImageUrl}`} 
-                    onClick={() => setIsCartOpen(true)}
-                />                
+                <div className={styles.cartIconWrapper} onClick={() => {
+                    if (user) {
+                        setIsCartOpen(true);
+                    } else {
+                        setIsAuthModalOpen(true);
+                    }
+                }}>
+                    <Orders className={`${styles.orders} ${styles.hatImageUrl}`} />
+                    {totalItemsCount > 0 && (
+                        <span className={styles.cartBadge}>{totalItemsCount}</span>
+                    )}
+                </div>
+
+                {user && (
+                    <Modal
+                        variant="dropdown"
+                        className={styles.cartModal}
+                        isOpen={isCartOpen}
+                        onClose={() => setIsCartOpen(false)}
+                    >
+                        <CartPage onClose={() => setIsCartOpen(false)} />
+                    </Modal>
+                )}
+
+                <AuthModal 
+                    onOpenRegistrationForm={() => setisRegistrationFormOpen(true)}
+                    isOpen={isAuthModalOpen} 
+                    onClose={() => setIsAuthModalOpen(false)} 
+                />       
 
                 { user ?
                     <Link to="/profileInformation"><Profile className={`${styles.profile} ${styles.hatImageUrl}`} /></Link>
@@ -101,15 +155,6 @@ export function Header(){
                     isOpen={isAuthModalOpen} 
                     onClose={() => setIsAuthModalOpen(false)} 
                 />
-
-                    <Modal
-                        variant="dropdown"
-                        className={styles.cartModal}
-                        isOpen={isCartOpen}
-                        onClose={() => setIsCartOpen(false)}
-                    >
-                        <CartPage onClose={() => setIsCartOpen(false)} />
-                    </Modal>
 
                 <ChangePasswordForm></ChangePasswordForm>
 

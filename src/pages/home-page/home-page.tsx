@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { ICONS, IMAGES, IProduct } from "../../shared";
 import styles from "./home-page.module.css"
 import { useProductsNew, useProductsPopular } from "../../hooks";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { CartContext } from "../../context/cart-context";
 
 
 export function HomePage(){
@@ -11,6 +12,7 @@ export function HomePage(){
     const [ limitOfPosts, setLimitOfPosts ] = useState<number>(4)
     const { popularProducts, fetchPopularProducts } = useProductsPopular(limitOfPosts)
     const cardBackgrounds = [IMAGES.bgimgone, IMAGES.bgimgtwo, IMAGES.bgimgthree];
+    
     useEffect(() => {
         fetchPopularProducts()
     }, [limitOfPosts])
@@ -18,6 +20,7 @@ export function HomePage(){
     const isPhone = useMediaQuery({
         query: '(max-width: 767px)'
     })
+    
     
     if (isPhone){
         return (

@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "bold walsheim";
+    src: local("bold walsheim"), url(../../shared/fonts/GTWalsheimPro-Bold.ttf);
+}
+
+
+
+.wrapperContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* height: calc(100vh - 224px); */
+    height: 85vh;
+
+    gap: 10px;
+    text-align: center;
+    background-color: rgba(205, 213, 221, 1);
+}
+
+.wrapperContainer h2 {
+    font-family: "ultra bold walsheim", sans-serif;
+    text-align: center;
+    font-size: 3.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.wrapperContainer p {
+    color: rgba(61, 65, 85, 1);
+
+    font-family: "regular walsheim", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+}
+
+.toHomeBtn {
+    background-color: rgba(12, 18, 42, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 50px;
+    margin-top: clamp(30px, 1vw, 40px);
+    padding: clamp(18px, 1vw, 20px) clamp(40px, 2vw, 45px);
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toHomeBtn a {
+    color: white;
+    text-align: center;
+}

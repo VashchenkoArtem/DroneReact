@@ -1,0 +1,1 @@
+export { SuccessfulOrderPage } from './successful-order-page';

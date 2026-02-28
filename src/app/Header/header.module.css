@@ -23,6 +23,16 @@
     opacity: 70%;
 }
 
+/* .default { */
+    /* padding-top: clamp(30px, 2vw, 40px); */
+    /* background-color: blue; */
+/* } */
+
+.fullscreen {
+    padding-top: 0;
+    /* background-color: rgb(16, 237, 31); */
+}
+
 .urls{
     display: flex;
     gap: clamp(10px, 2vw, 24px);
@@ -141,10 +151,34 @@
 }
 
 
-/* .cartWrapper {
+.cartIconWrapper {
     position: relative;
-    display: inline-block;
-} */
+    cursor: pointer;
+}
+
+.cartBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; 
+    position: absolute;
+    top: -5.5px; 
+    right: -1px;
+
+    background-color: rgba(182, 45, 17, 1);
+    color: white;
+    padding: 9px;
+
+    font-size: 11.5px;
+    text-align: center;
+    font-weight: bold;
+
+    width: 17.5px;
+    height: 17.5px;
+    border-radius: 50%;
+}
+
+
 
 @media (max-width: 767px){
     .header{

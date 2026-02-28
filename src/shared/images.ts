@@ -3,6 +3,7 @@ import ourMission from "../assets/images/aboutUsOurMission.png"
 import ourTeam from "../assets/images/aboutUsTeam.png"
 import footerBG from "../assets/images/footer.png"
 import footerBGPhone from "../assets/images/footerPhone.png"
+import footerBGFullscreen from "../assets/images/fullscreenFooter.png"
 import headerBG from "../assets/images/header.png"
 import headerBGPhone from "../assets/images/headerBGPhone.png"
 import droneTestIcon from "../assets/images/drone_icon.png"
@@ -35,6 +36,6 @@ export const IMAGES = {
     deliveryCollecting,
     deliveryPending,
     deliveryArriving,
-    deliveryReceiving
-
+    deliveryReceiving,
+    footerBGFullscreen
 }

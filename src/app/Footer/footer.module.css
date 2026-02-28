@@ -12,6 +12,7 @@
     padding: 0px;
     height: 100%;
 }
+
 .footerBG{
     position: absolute;
     margin-top: clamp(-40px, 2vw, -100px);
@@ -20,7 +21,32 @@
     width: 100%;
     margin-left: -0%;
     z-index: -1;
+
+    width: 100%;
+    min-height: 850px; 
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.footerBGFullscreen {
+    width: 100%;
+    min-height: 210px; 
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .ourAchivements{
     display: flex;
     padding: 0px clamp(20px, 2vw, 40px);
@@ -62,6 +88,19 @@
     font-family: "medium walsheim", sans-serif;
     font-weight: 500;
 }
+
+
+.default {
+    padding-top: clamp(30px, 2vw, 40px);
+    /* background-color: rgb(176, 176, 220); */
+}
+
+.fullscreen {
+    padding-top: 0;
+    /* background-color: rgb(229, 191, 191); */
+}
+
+
 @media (max-width: 767px){
     .footer {
         padding: 40px 20px 30px;

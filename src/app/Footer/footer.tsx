@@ -3,7 +3,11 @@ import { IMAGES } from "../../shared";
 import styles from "./footer.module.css";
 import { Link } from "react-router-dom";
 
-export function Footer(){
+interface FooterProps {
+    variant?: 'default' | 'fullscreen';
+}
+
+export function Footer({ variant = 'default' }: FooterProps){
     const isPhone = useMediaQuery({
         query: '(max-width: 767px)'
     })
@@ -42,9 +46,21 @@ export function Footer(){
             </footer>
         )
     }
+
+
+    if (variant === "fullscreen") {
+        return (
+            <footer className={`${styles.footer} ${styles.fullscreen}`}>
+                <img src={IMAGES.footerBGFullscreen} className = {styles.footerBGFullscreen} />
+            </footer>
+        );
+    }
+
     return (
-        <footer className={styles.footer}>
+        <footer className={`${styles.footer} ${styles[variant]}`}>
             <img src={IMAGES.footerBG} className = {styles.footerBG} />
+
+
             <div className={styles.ourAchivements}>
                 <div className={styles.achivement}>
                     <h1 className={styles.titleAchivement}>1K+</h1>

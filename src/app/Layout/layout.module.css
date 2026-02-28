@@ -20,6 +20,7 @@
 a{
     text-decoration: none;
 }
+
 .layout{
     display: flex;
     flex: 1;
@@ -29,6 +30,22 @@ a{
     padding-top: clamp(30px, 2vw, 40px);
     justify-content:  center;
 }
+
+.default {
+    padding-top: clamp(30px, 2vw, 40px);
+}
+
+.fullscreen {
+    padding-top: 0;
+    gap: 0;
+}
+
+
+/* 
+
+.noPadding {
+    padding-top: 0;
+} */
 
 /* .mainContent{
     padding: 0px clamp(20px, 2vw, 40px);

@@ -4,13 +4,14 @@ import { CartContext } from "../../context/cart-context"
 import { ProductInCart } from "../../components/product-in-cart/product-in-cart" 
 import { CartPageProps } from "./cart.types"
 import { Link } from "react-router-dom"
+import { ICONS } from "../../shared"
 
 export function CartPage({ onClose }: CartPageProps) {
     const cartContext = useContext(CartContext)
 
     if (!cartContext) return null
 
-    const {items, getTotalPrice, removeAll, getTotalPriceAfterDiscount} = cartContext
+    const {items, getTotalPrice, getTotalPriceAfterDiscount} = cartContext
 
     return (
         <div className= {styles.cartContainer}>
@@ -25,18 +26,18 @@ export function CartPage({ onClose }: CartPageProps) {
             </div>
 
             <div className={styles.cartProductList}>
-                <div className = {styles.listOfProducts}>
                     {items.length === 0 ? (
                         <div className={styles.emptyCart}>
                             <p>Ваш кошик порожній.</p>
                             <p>Почніть вибирати товари, щоб вони з’явилися тут</p>
                         </div>
                     ) : (
-                        items.map((product) => (
-                            <ProductInCart key={product.id} productInCart={product}/>
-                        ))
+                        <div className={styles.listOfProducts}>
+                            {items.map((product) => (
+                                <ProductInCart key={product.id} productInCart={product} />
+                            ))}
+                        </div>
                     )}
-                </div>
             </div>
 
             <div className={styles.cartFooter}>
@@ -77,7 +78,7 @@ export function CartPage({ onClose }: CartPageProps) {
                     </button>
 
                 <button onClick={() => {}} className={styles.orderBtn}>
-                    <Link to="/cart">ОФОРМИТИ ЗАМОВЛЕННЯ</Link>
+                    <Link to="/cart">ОФОРМИТИ ЗАМОВЛЕННЯ <ICONS.newProductsArrow /></Link>
                 </button>
             </div>
             ) : null}

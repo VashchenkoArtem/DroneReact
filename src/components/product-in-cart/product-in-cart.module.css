@@ -70,6 +70,7 @@
 
 .countBtn:hover {
     background: rgba(12, 18, 42, 1);
+    border-color: rgba(12, 18, 42, 1);
     color: white;
 }
 
