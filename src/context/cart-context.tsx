@@ -52,7 +52,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
             return sum + itemTotalPrice
         }, 0)
 
-        return totalPrice
+        return Math.round(totalPrice)
     }
 
     function incrementCount(id: number) {
@@ -89,12 +89,14 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     function getTotalPriceAfterDiscount(): number {
         const totalPrice = items.reduce((sum, currentItem) => {
-            const discountedPrice = currentItem.price - (currentItem.price * currentItem.discount / 100)
+            const discountedPrice =
+                currentItem.price - (currentItem.price * currentItem.discount / 100)
+
             const itemTotalPrice = discountedPrice * currentItem.count
             return sum + itemTotalPrice
         }, 0)
 
-        return totalPrice
+        return Math.round(totalPrice)
     }
 
     return (

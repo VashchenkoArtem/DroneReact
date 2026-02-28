@@ -1,3 +1,4 @@
+
 .formUpperActions {
     display: flex;
     justify-content: space-between;
@@ -151,4 +152,8 @@
     font-size: 0.8rem;           
     font-weight: 5600;
     letter-spacing: 0.08rem;
+}
+
+.dropdown{
+    position: fixed !important;
 }
