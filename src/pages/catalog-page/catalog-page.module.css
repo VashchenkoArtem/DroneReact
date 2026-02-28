@@ -50,7 +50,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: clamp(20px, 3vw, 40px) 0; 
     background-color: white;
     /* margin-left: 50px; */
@@ -60,6 +59,7 @@
 .newProductsList {
     display: flex;
     flex-wrap: wrap; 
+    justify-content: space-evenly;
     width: 100%;
     gap: clamp(75px, 3vw, 250px);
     padding: 0px clamp(20px, 2vw, 40px);
@@ -74,7 +74,7 @@
 } */
 
 .productCard {
-    max-height: 120%;
+    min-height: 363px;
 }
 
 .productsList {
@@ -148,7 +148,6 @@
     gap: clamp(10px, 1vw, 15px);
 
     width: 355px;
-    min-height: 300px;
 
     padding: clamp(8px, 1vw, 14px);
     background-color: white;
@@ -195,7 +194,7 @@
 }
 
 .productCard {
-    height: 100%;
+
     cursor: pointer;
 }
 

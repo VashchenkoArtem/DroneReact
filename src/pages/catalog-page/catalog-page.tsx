@@ -1,11 +1,14 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useProducts } from "../../hooks";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./catalog-page.module.css";
 import { ICONS, IMAGES, IProduct } from "../../shared";
 import { useProductsToPage } from "../../hooks/use-products-to-page";
 import { off } from "process";
 import { useCategories } from "../../hooks/use-categories";
+import { CartContext } from "../../context/cart-context";
+import { IOrder } from "../../context/order-context";
+import { CartItem } from "../../shared/types/product";
 
 export function CatalogPage() {
     const [offset, setOffset] = useState<number>(0)
@@ -14,6 +17,7 @@ export function CatalogPage() {
     const { allProducts } = useProducts()
     const { products, error, loading, fetchProductsToPage } = useProductsToPage()
     const navigate = useNavigate()
+    const context = useContext(CartContext);
     useEffect(() => {
         fetchProductsToPage(offset)
     }, [offset])
@@ -39,7 +43,13 @@ export function CatalogPage() {
         setCurrentPage(page)
         setOffset((page - 1) * 8)
     }
-
+	function addToCartFunc(productInCart: CartItem) {
+		if (!productInCart) {
+			return null
+		}
+        productInCart.count = 1
+		context?.addItemToCart(productInCart)
+	}
     const pageNumbers = Array.from({ length: pages }, (_, i) => i + 1)
     return (
         <div className={styles.productCart}>
@@ -63,26 +73,28 @@ export function CatalogPage() {
             <div className={styles.newProductsList}>
                 {products.map((product: IProduct) => {
                     return (
-                            <Link to = {`/product/${product.id}`} key = {product.id} className={styles.productCard} >
-                                <img src={product.image} className={styles.productImage} />
-                                
-                                <h2 className={styles.productTitle}>{product.name}</h2>
-                                {product.discount ?
-                                    <div className={styles.productPrices}>
-                                        <p className={styles.productPriceWithoutDiscount}>${product.price}</p>
-                                        <p className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}>${product.price - product.price * product.discount / 100}</p>
-                                    </div>
-                                :
-                                <div className = {styles.productPrices}>
-                                    <p className={styles.productPrice}>${product.price}</p>
+                        <Link to = {`/product/${product.id}`} key = {product.id} className={styles.productCard} >
+                            <img src={product.image} className={styles.productImage} />
+                            
+                            <h2 className={styles.productTitle}>{product.name}</h2>
+                            {product.discount ?
+                                <div className={styles.productPrices}>
+                                    <p className={styles.productPriceWithoutDiscount}>${product.price}</p>
+                                    <p className={`${styles.productPriceWithDiscount} ${styles.productDiscount}`}>${product.price - product.price * product.discount / 100}</p>
                                 </div>
-                                }
+                            :
+                            <div className = {styles.productPrices}>
+                                <p className={styles.productPrice}>${product.price}</p>
+                            </div>
+                            }
 
-                                <button className={styles.productHoverBtn}>
-                                    <ICONS.productHoverCart />
-                                </button>
-                            </Link>)
-                        })}
+                            <button className={styles.productHoverBtn} onClick={() => {
+                                addToCartFunc(product)
+                            }}>
+                                <ICONS.productHoverCart />
+                            </button>
+                        </Link>)
+                    })}
             </div>
 
             <div className={styles.pagination}>

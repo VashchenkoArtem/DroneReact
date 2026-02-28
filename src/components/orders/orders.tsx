@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useOrders } from "../../hooks/use-orders";
 import { ICONS, IMAGES } from "../../shared";
 import styles from "./orders.module.css";
 import { IOrder, IProductOnOrder } from "../../shared/types/product";
 import { useTrackingDelivery } from "../../hooks/tracking";
+import { CartContext } from "../../context/cart-context";
 
 export function MyOrders() {
   const { orders, loading } = useOrders();
   const { trackDelivery } = useTrackingDelivery();
-
   // объект, где ключ = ttnNumber, значение = URL картинки
   const [images, setImages] = useState<Record<string, string>>({});
 
@@ -36,11 +36,11 @@ export function MyOrders() {
   if (orders.length === 0) return <div>У вас ще немає замовлень.</div>;
 
   function getSumOrder(order: IOrder) {
-    return order.products.reduce((sum, p) => sum + p.product.price * p.product.count, 0);
+    return order.products.reduce((sum, p) => sum + p.product.price * 1, 0);
   }
 
   function getSumProduct(product: IProductOnOrder) {
-    return product.product.price * product.product.count;
+    return product.product.price * 1;
   }
 
   return (
@@ -131,7 +131,7 @@ export function MyOrders() {
                       </div>
                       <div className={styles.orderProductCardPart}>
                         <h1 className={styles.orderProductCardPartTitle}>Кількість</h1>
-                        <h1 className={styles.orderProductCardPartDescription}>{product.product.count}</h1>
+                        <h1 className={styles.orderProductCardPartDescription}>1</h1>
                       </div>
                       <div className={styles.orderProductCardPart}>
                         <h1 className={styles.orderProductCardPartTitle}>Сума</h1>

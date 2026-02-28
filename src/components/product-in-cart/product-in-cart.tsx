@@ -35,7 +35,7 @@ export function ProductInCart(props: IProductInCart) {
                 alt={productInCart.name} 
                 className={styles.productImage} 
             /> */}
-            <ICONS.newDroneOne className={styles.productImage} />
+            <img src={productInCart.image} className={styles.productImage} />
 
             <div className={styles.infoAndPrice}>
                 <h3 className={styles.productName}>{productInCart.name}</h3>

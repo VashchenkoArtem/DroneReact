@@ -76,7 +76,7 @@ export function OneProductPage() {
                     </div>
 
                     <div className={styles.buttonsDrone}>
-                        <button className={styles.droneButtonOne}>
+                        <button className={styles.droneButtonOne} onClick={addToCartFunc}>
                             <ICONS.cartImage className={styles.newProductButtonArrow} />
                         </button>
                         <button className={styles.droneButton} onClick={addToCartFunc}>

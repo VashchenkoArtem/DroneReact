@@ -3,11 +3,13 @@ import { useContext } from "react"
 import { CartContext } from "../../context/cart-context" 
 import { ProductInCart } from "../../components/product-in-cart/product-in-cart" 
 import { CartPageProps } from "./cart.types"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useOrderContext } from "../../context/order-context"
 
 export function CartPage({ onClose }: CartPageProps) {
     const cartContext = useContext(CartContext)
-
+    const { addProduct } = useOrderContext();
+    const navigate = useNavigate()
     if (!cartContext) return null
 
     const {items, getTotalPrice, removeAll, getTotalPriceAfterDiscount} = cartContext
@@ -77,7 +79,12 @@ export function CartPage({ onClose }: CartPageProps) {
                     </button>
 
                 <button onClick={() => {}} className={styles.orderBtn}>
-                    <Link to="/cart">ОФОРМИТИ ЗАМОВЛЕННЯ</Link>
+                    <p onClick={() => {
+                        items.forEach(item => {
+                            addProduct(item);
+                        });
+                        navigate('/checkoutOrder')
+                    }}>ОФОРМИТИ ЗАМОВЛЕННЯ</p>
                 </button>
             </div>
             ) : null}
