@@ -1,7 +1,7 @@
 import { useMediaQuery } from "react-responsive";
 import { ICONS } from "../../shared";
 import styles from "./header.module.css"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Modal } from "../../shared/modal";
 import { RegistrationForm } from "../../pages/registration";
 import { useEffect, useRef, useState } from "react";
@@ -9,6 +9,8 @@ import { useUserContext } from "../../context/user-context";
 import { AuthModal } from "../../components/authForm";
 import { ChangePasswordForm } from "../../components/changePasswordForm";
 import { CartPage } from "../../pages/cart-page";
+
+
 
 const Logo = ICONS.headerLogo
 const Orders = ICONS.headerOrders
@@ -21,6 +23,11 @@ export function Header(){
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false)
     const dropdownRef = useRef<HTMLDivElement>(null);
+
+    const location = useLocation();
+    const isCheckoutPage = location.pathname === '/checkoutOrder';
+
+
 
     const isPhone = useMediaQuery({
         query: '(max-width: 767px)'
@@ -42,6 +49,17 @@ export function Header(){
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
     const [isRegistrationFormOpen, setisRegistrationFormOpen] = useState(false)
+
+    if (isCheckoutPage) {
+        return (
+            <header className={styles.header}>
+                <div className={styles.topNav} onClick={() => window.history.back()}>
+                    ПРОДОВЖИТИ ПОКУПКИ
+                </div>
+                <Link to = "/" ><Logo className={styles.logo} /></Link>
+            </header>
+        );
+    }
 
     if (isPhone){
         return (

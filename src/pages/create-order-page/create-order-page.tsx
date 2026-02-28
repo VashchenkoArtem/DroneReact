@@ -182,9 +182,6 @@ export function CheckoutPage() {
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.topNav} onClick={() => window.history.back()}>
-                ← ПРОДОВЖИТИ ПОКУПКИ
-            </div>
             
             <form onSubmit={handleSubmit(onSubmit)} className={styles.layout}>
                 <div className={styles.formContainer}>
