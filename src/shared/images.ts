@@ -2,6 +2,7 @@ import aboutUsSkyscraper from "../assets/images/aboutUsSkyscraper.png"
 import ourMission from "../assets/images/aboutUsOurMission.png"
 import ourTeam from "../assets/images/aboutUsTeam.png"
 import footerBG from "../assets/images/footer.png"
+import footerCRP from "../assets/images/footerCRP.png"
 import footerBGPhone from "../assets/images/footerPhone.png"
 import headerBG from "../assets/images/header.png"
 import headerBGPhone from "../assets/images/headerBGPhone.png"
@@ -27,6 +28,7 @@ export const IMAGES = {
     binocularBtnCategory, 
     droneTestIcon, 
     footerBGPhone,
+    footerCRP,
     bgimgone,
     bgimgtwo,
     bgimgthree,

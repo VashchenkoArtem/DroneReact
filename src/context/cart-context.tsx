@@ -13,6 +13,7 @@ interface ICartContext {
     decrementCount: (id: number) => void
     removeAll: () => void
     getTotalPriceAfterDiscount: () => number
+    totalCount: number
 }
 
 export const CartContext = createContext<ICartContext | null>(null)
@@ -23,7 +24,9 @@ interface CartContextProviderProps {
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
     const [items, setItems] = useState<CartItem[]>([])
-
+    const totalCount = items?.reduce((sum, item) => {
+        return sum + item.count;
+    }, 0) || 0;
     function addItemToCart(item: CartItem) {
         const isInCart = items.findIndex(
             (cartItem) => cartItem.id === item.id
@@ -109,7 +112,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
                 incrementCount,
                 decrementCount,
                 removeAll,
-                getTotalPriceAfterDiscount
+                getTotalPriceAfterDiscount,
+                totalCount
             }}
         >
             {children}

@@ -62,11 +62,11 @@ export function CartPage({ onClose }: CartPageProps) {
                             </div>
                             <div className={styles.cartRow}>
                                 <span>Заощаджено</span>
-                                <span className={styles.discountPrice}>- {getTotalPrice() - getTotalPriceAfterDiscount()} ₴</span>
+                                <span className={styles.discountPrice}>- {Math.round(getTotalPrice() - getTotalPriceAfterDiscount())} ₴</span>
                             </div>
                             <div className={styles.cartRow}>
                                 <span>Зі знижкою</span>
-                                <span className={styles.finalPrice}>{getTotalPriceAfterDiscount()} ₴</span>
+                                <span className={styles.finalPrice}>{Math.round(getTotalPriceAfterDiscount())} ₴</span>
                             </div>
                         </div>
                     )}

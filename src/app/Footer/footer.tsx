@@ -1,12 +1,25 @@
 import { useMediaQuery } from "react-responsive";
 import { IMAGES } from "../../shared";
 import styles from "./footer.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function Footer(){
+    const location = useLocation();
+    const isCheckoutPage = location.pathname === '/checkoutOrder';
+
     const isPhone = useMediaQuery({
         query: '(max-width: 767px)'
     })
+
+
+    if (isCheckoutPage) {
+            return (
+                <footer>
+                    <img src={IMAGES.footerCRP} className = {styles.footerCRPBG} /> 
+                </footer>
+            );
+        }
+
     if (isPhone){
         return (
             <footer className={styles.footer}>

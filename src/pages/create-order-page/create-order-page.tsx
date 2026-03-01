@@ -2,7 +2,7 @@ import Select from 'react-select';
 import { useForm, Controller } from 'react-hook-form';
 
 import React, { useContext, useState, useMemo, useEffect } from 'react';
-import { useOrderContext } from '../../context/order-context';
+import { CartContext } from "../../context/cart-context";
 import { UserContext } from "../../context/user-context";
 import { ICONS, IRegUser } from "../../shared";
 import styles from "./create-order-page.module.css";
@@ -58,7 +58,10 @@ export interface IFormValues {
 }
 
 export function CheckoutPage() {
-    const { productInOrder } = useOrderContext();
+    const cartContext = useContext(CartContext);
+
+    const items = cartContext?.items || [];
+    const totalPrice = cartContext?.getTotalPriceAfterDiscount() || 0;
     const userContext = useContext(UserContext);
     
     const [cityQuery, setCityQuery] = useState<string>("");
@@ -95,8 +98,6 @@ export function CheckoutPage() {
         selectedCity?.Ref || "", 
         deliveryFilter
     );
-
-    const totalPrice = productInOrder?.reduce((sum, item) => sum + (item.price || 0), 0) || 0;
 
     const handleCitySelection = (city: City) => {
         setSelectedCity(city);
@@ -142,8 +143,9 @@ export function CheckoutPage() {
             comment: data.comment || null,
             userId: currentUser.id,
             ttnNumber: "",
-            products: productInOrder.map(item => ({
-                productId: item.id 
+            products: items.map(item => ({
+                productId: item.id,
+                quantity: item.count
             }))
         };
 
@@ -166,6 +168,7 @@ export function CheckoutPage() {
             const result = await response.json();
             console.log("Замовлення успішно створено:", result);
             alert("Дякуємо за замовлення!");
+            cartContext?.removeAll();
             
         } catch (error) {
             console.error("Помилка:", error);
@@ -174,17 +177,14 @@ export function CheckoutPage() {
     };
 
     useEffect(() => {
-        console.log("Товари в замовленні:", productInOrder);
-    }, [productInOrder]);
+        console.log("Товари в замовленні:", items);
+    }, [items]);
 
     console.log("Warehouses Type:", typeof warehouses);
     console.log("Warehouses Data:", warehouses)
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.topNav} onClick={() => window.history.back()}>
-                ← ПРОДОВЖИТИ ПОКУПКИ
-            </div>
             
             <form onSubmit={handleSubmit(onSubmit)} className={styles.layout}>
                 <div className={styles.formContainer}>
@@ -375,13 +375,19 @@ export function CheckoutPage() {
                         <h3>Замовлення</h3>
                     </div>
                     <div className={styles.orderScroll}>
-                        {productInOrder?.map(p => (
+                        {items.map(p => (
                             <div key={p.id} className={styles.orderItem}>
                                 <img src={p.image} alt={p.name} />
                                 <div className={styles.itemMeta}>
                                     <p>{p.name}</p>
                                     <div className={styles.priceRow}>
-                                        <span className={styles.current}>{p.price} ₴</span>
+                                        <span className={styles.current}>
+                                            {p.discount
+                                                ? (p.price - (p.price * p.discount) / 100)
+                                                : p.price
+                                            } ₴
+                                        </span>
+                                        <span> × {p.count}</span>
                                     </div>
                                 </div>
                             </div>
