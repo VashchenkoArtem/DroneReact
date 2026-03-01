@@ -44,7 +44,7 @@ export function ProductInCart(props: IProductInCart) {
                         <>
                             <span className={styles.oldPrice}>{productInCart.price} ₴</span>
                             <span className={styles.newPrice}>
-                                {productInCart.price - productInCart.price * productInCart.discount / 100} ₴
+                                {Math.round(productInCart.price - productInCart.price * productInCart.discount / 100)} ₴
                             </span>
                         </>
                     ) : (

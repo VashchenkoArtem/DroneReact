@@ -88,8 +88,10 @@ export function CatalogPage() {
                             </div>
                             }
 
-                            <button className={styles.productHoverBtn} onClick={() => {
-                                addToCartFunc(product)
+                            <button className={styles.productHoverBtn} onClick={(e) => {
+                                        e.preventDefault(); 
+                                        e.stopPropagation(); 
+                                        addToCartFunc(product);
                             }}>
                                 <ICONS.productHoverCart />
                             </button>

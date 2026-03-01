@@ -45,6 +45,7 @@
 }
 .hatImageUrl{
     width: clamp(17px, 2vw, 31px);
+    cursor: pointer;
 }
 .logo{
     text-align: center;
@@ -145,6 +146,21 @@
     position: relative;
     display: inline-block;
 } */
+.totalCountContainer{
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background-color: rgba(182, 45, 17, 1);
+    border-radius: 123px;
+    color: white;
+    top: 15px;
+    margin-left: 15px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 
 @media (max-width: 767px){
     .header{
