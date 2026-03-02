@@ -8,6 +8,7 @@ import { ICONS, IRegUser } from "../../shared";
 import styles from "./create-order-page.module.css";
 import { useNewPost } from '../../hooks/useNewPost';
 import { useCitySearch, City } from '../../hooks/useCitySearch';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -85,7 +86,7 @@ export function CheckoutPage() {
     const selectedPayment = watch("paymentMethod");
 
     const { cities, isLoading: isCitiesLoading } = useCitySearch(cityQuery);
-    
+    const navigate = useNavigate()
     type DeliveryFilterType = 'branch' | 'postomat' | 'all';
 
     const deliveryFilter = useMemo((): DeliveryFilterType => {
@@ -103,6 +104,7 @@ export function CheckoutPage() {
         setSelectedCity(city);
         setCityQuery(city.Description);
         setValue("city", city.Description);
+
     };
 
     interface IOrderRequest {
@@ -167,8 +169,8 @@ export function CheckoutPage() {
 
             const result = await response.json();
             console.log("Замовлення успішно створено:", result);
-            alert("Дякуємо за замовлення!");
             cartContext?.removeAll();
+            navigate("/successOrder")
             
         } catch (error) {
             console.error("Помилка:", error);

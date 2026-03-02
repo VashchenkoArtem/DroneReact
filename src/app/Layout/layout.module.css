@@ -39,6 +39,9 @@ a{
     top: 0px;
     left: 0px;
 }
+.layoutGrey{
+    background-color: rgba(205, 213, 221, 1);
+}
 @media (max-width: 767px){
     .layout{
         /* padding-top: clamp(5px, 2vw, 12px); */

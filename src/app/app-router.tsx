@@ -8,6 +8,7 @@ import { ContactsPage } from "../pages/contacts"
 import { AddressesPage } from "../pages/addresses"
 import { ScrollToTop } from "../components/scrollToTop"
 import { CheckoutPage } from "../pages/create-order-page"
+import { SuccessOrder } from "../pages/successOrder"
 
 export function AppRouter() {
   return (
@@ -25,6 +26,7 @@ export function AppRouter() {
           <Route path="/addresses" element={<AddressesPage />} />
           <Route path="*" element = {<PageUndefined/>}/>
           <Route path="/checkoutOrder" element={<CheckoutPage />} />
+          <Route path="/successOrder" element={<SuccessOrder />}/>
         </Route>
       </Routes>
     </BrowserRouter>  

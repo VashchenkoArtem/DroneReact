@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export function Footer(){
     const location = useLocation();
-    const isCheckoutPage = location.pathname === '/checkoutOrder';
+    const isCheckoutPage = location.pathname === '/checkoutOrder' || location.pathname === "/successOrder";
 
     const isPhone = useMediaQuery({
         query: '(max-width: 767px)'
