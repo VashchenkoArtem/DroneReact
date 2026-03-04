@@ -132,24 +132,30 @@ export function CheckoutPage() {
             return;
         }
 
-        const orderData = {
-            firstName: data.firstName,
-            patronymic: data.middleName || "",
-            phoneNumber: data.phone,
-            email: data.email,
-            cityName: data.city || "",
-            paymentMethod: data.paymentMethod,
-            deliveryType: data.deliveryType,
-            warehouseRef: data.warehouse || null,
-            addressId: null, 
-            comment: data.comment || null,
-            userId: currentUser.id,
-            ttnNumber: "",
-            products: items.map(item => ({
-                productId: item.id,
-                quantity: item.count
-            }))
-        };
+// 🔥 находим выбранное отделение по Ref
+const selectedWarehouse = Array.isArray(warehouses)
+    ? warehouses.find((w: Warehouse) => w.Ref === data.warehouse)
+    : null;
+
+    const orderData = {
+        firstName: data.firstName,
+        patronymic: data.middleName || "",
+        phoneNumber: data.phone,
+        email: data.email,
+        cityName: data.city || "",
+        paymentMethod: data.paymentMethod,
+        deliveryType: data.deliveryType,
+        warehouseRef: data.warehouse || null,
+        warehouseDescription: selectedWarehouse?.Description || null,
+        addressId: null,
+        comment: data.comment || null,
+        userId: currentUser.id,
+        ttnNumber: "",
+        products: items.map(item => ({
+            productId: item.id,
+            quantity: item.count
+        }))
+    };
 
         const token = localStorage.getItem('token');
         
@@ -169,7 +175,7 @@ export function CheckoutPage() {
 
             const result = await response.json();
             console.log("Замовлення успішно створено:", result);
-            cartContext?.removeAll();
+            cartContext?.removeAll()
             navigate("/successOrder")
             
         } catch (error) {
@@ -375,6 +381,7 @@ export function CheckoutPage() {
                 <aside className={styles.summaryCard}>
                     <div className={styles.summaryHeader}>
                         <h3>Замовлення</h3>
+                        <ICONS.pencilBtn/>
                     </div>
                     <div className={styles.orderScroll}>
                         {items.map(p => (
@@ -382,14 +389,16 @@ export function CheckoutPage() {
                                 <img src={p.image} alt={p.name} />
                                 <div className={styles.itemMeta}>
                                     <p>{p.name}</p>
-                                    <div className={styles.priceRow}>
-                                        <span className={styles.current}>
-                                            {p.discount
-                                                ? (p.price - (p.price * p.discount) / 100)
-                                                : p.price
-                                            } ₴
-                                        </span>
-                                        <span> × {p.count}</span>
+                                    <div className={styles.itemPrices}>
+                                        {p.discount
+                                            ? 
+                                            <div className={styles.priceRow}>
+                                                <span className={styles.oldPrice}>{p.price} $</span>
+                                                <span className={styles.newPrice}>{Math.round(p.price - (p.price * p.discount) / 100)} $</span>
+                                            </div>
+                                            : p.price
+                                        }
+                                        <span className={styles.count}>{p.count}</span>
                                     </div>
                                 </div>
                             </div>

@@ -69,7 +69,7 @@ export function MyOrders() {
                 <ICONS.arrowOrder className={styles.cardMiniIcon}></ICONS.arrowOrder>
               </div>
             </div>
-
+          
             <div className={styles.orderDeliveryInfo}>
               <h1 className={styles.orderTtnNumber}>
                 Номер відправлення: <span className={styles.numberTtn}>{order.ttnNumber}</span>
@@ -102,7 +102,7 @@ export function MyOrders() {
                     <h1 className={styles.orderDescriptionTitle}>Адреса доставки</h1>
                     <h1 className={styles.orderDeliveryDescription}>Нова Пошта до відділення</h1>
                     <h1 className={styles.orderDeliveryDescription}>
-                      Відділення №3 (до 30 кг на одне місце): вул. Слобоожанська,13
+                      {order.warehouseDescription}
                     </h1>
                   </div>
                   <div className={styles.orderDelivery}>

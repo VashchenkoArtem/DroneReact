@@ -30,7 +30,7 @@ import { ReactComponent as MasterCard } from "../assets/icons/Mastercard.svg"
 import { ReactComponent as ApplePay } from "../assets/icons/ApplePay.svg"
 import { ReactComponent as GooglePay } from "../assets/icons/GooglePay.svg"
 import { ReactComponent as cartBtn } from "../assets/icons/cart-btn.svg"
-
+import { ReactComponent as pencilBtn } from "../assets/icons/pencil.svg"
 
 export const ICONS = { 
     headerLogo, 
@@ -64,5 +64,6 @@ export const ICONS = {
     ApplePay,
     GooglePay,
     droneImagePhone,
-    cartBtn
+    cartBtn,
+    pencilBtn
 }

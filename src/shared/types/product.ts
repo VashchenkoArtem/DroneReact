@@ -56,7 +56,8 @@ export interface IOrder {
     userId: number;
     products: IProductOnOrder[];
     address: IAddresOrder
-    ttnNumber: string
+    ttnNumber: string;
+    warehouseDescription: string
 }
 
 export interface INPCity {
