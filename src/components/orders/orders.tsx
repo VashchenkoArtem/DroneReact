@@ -36,11 +36,11 @@ export function MyOrders() {
   if (orders.length === 0) return <div>У вас ще немає замовлень.</div>;
 
   function getSumOrder(order: IOrder) {
-    return order.products.reduce((sum, p) => sum + p.product.price * 1, 0);
+    return order.products.reduce((sum, p) => sum + p.product.price * p.count, 0);
   }
 
   function getSumProduct(product: IProductOnOrder) {
-    return product.product.price * 1;
+    return product.product.price * product.count;
   }
 
   return (
@@ -131,7 +131,7 @@ export function MyOrders() {
                       </div>
                       <div className={styles.orderProductCardPart}>
                         <h1 className={styles.orderProductCardPartTitle}>Кількість</h1>
-                        <h1 className={styles.orderProductCardPartDescription}>1</h1>
+                        <h1 className={styles.orderProductCardPartDescription}>{product.count}</h1>
                       </div>
                       <div className={styles.orderProductCardPart}>
                         <h1 className={styles.orderProductCardPartTitle}>Сума</h1>

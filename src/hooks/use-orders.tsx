@@ -19,10 +19,10 @@ export function useOrders() {
             try {
                 const response = await fetch(`http://localhost:8000/users/orders`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('Token')}`
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
                     }
                 });
-
+                console.log(localStorage.getItem('Token'))
                 if (response.ok) {
                     const data: IOrder[] = await response.json();
                     setOrders(data);

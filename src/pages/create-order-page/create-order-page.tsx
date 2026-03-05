@@ -9,6 +9,8 @@ import styles from "./create-order-page.module.css";
 import { useNewPost } from '../../hooks/useNewPost';
 import { useCitySearch, City } from '../../hooks/useCitySearch';
 import { useNavigate } from 'react-router-dom';
+import { Modal } from '../../shared/modal';
+import { CartPage } from '../cart-page';
 
 
 
@@ -64,7 +66,7 @@ export function CheckoutPage() {
     const items = cartContext?.items || [];
     const totalPrice = cartContext?.getTotalPriceAfterDiscount() || 0;
     const userContext = useContext(UserContext);
-    
+    const [isCartModalOpen, setIsCartModalOpen] = useState(false);
     const [cityQuery, setCityQuery] = useState<string>("");
     const [selectedCity, setSelectedCity] = useState<City | null>(null);
 
@@ -132,7 +134,6 @@ export function CheckoutPage() {
             return;
         }
 
-// 🔥 находим выбранное отделение по Ref
 const selectedWarehouse = Array.isArray(warehouses)
     ? warehouses.find((w: Warehouse) => w.Ref === data.warehouse)
     : null;
@@ -193,7 +194,14 @@ const selectedWarehouse = Array.isArray(warehouses)
 
     return (
         <div className={styles.wrapper}>
-            
+            <Modal
+                variant="dropdown"
+                isOpen={isCartModalOpen}
+                className={styles.createPostModalOrder}
+                onClose={() => setIsCartModalOpen(false)}
+            >
+                <CartPage onClose={() => setIsCartModalOpen(false)} />
+            </Modal>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.layout}>
                 <div className={styles.formContainer}>
                     <h1 className={styles.mainTitle}>ОФОРМИТИ ЗАМОВЛЕННЯ</h1>
@@ -381,7 +389,7 @@ const selectedWarehouse = Array.isArray(warehouses)
                 <aside className={styles.summaryCard}>
                     <div className={styles.summaryHeader}>
                         <h3>Замовлення</h3>
-                        <ICONS.pencilBtn/>
+                        <ICONS.pencilBtn onClick={() => {setIsCartModalOpen(true)}}/>
                     </div>
                     <div className={styles.orderScroll}>
                         {items.map(p => (

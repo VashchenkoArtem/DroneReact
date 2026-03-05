@@ -34,6 +34,7 @@ export interface IProductOnOrder {
     productId: number;
     blockId: number;
     product: IProduct;
+    count: number
 }
 interface IAddresOrder{
     city: string;

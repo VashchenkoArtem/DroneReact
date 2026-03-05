@@ -460,6 +460,12 @@
     color: rgba(109, 113, 127, 1);
     font-weight: 400;
 }
+.createPostModalOrder{
+    width: 540px;
+    margin-left: 350px;
+    margin-top: 188px;
+    margin-right: 40px;
+}
 @media (max-width: 1150px) {
     .layout {
         flex-direction: column;
