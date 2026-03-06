@@ -126,7 +126,6 @@ export const DeliveryAddress: React.FC = () => {
                                 <div className={styles.inputGroup}><label>Під'їзд</label><input value={formData.entrance} onChange={e => setFormData({...formData, entrance: e.target.value})} /></div>
                             </div>
                             <button type="submit" className={styles.saveBtn}>ДОДАТИ</button>
-                            <button type="button" onClick={() => setIsCreating(false)} style={{border: 'none', background: 'none', marginTop: '10px', cursor: 'pointer'}}>Скасувати</button>
                         </form>
                      </div>
                 </div>

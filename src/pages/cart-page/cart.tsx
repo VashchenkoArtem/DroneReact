@@ -84,6 +84,7 @@ export function CartPage({ onClose }: CartPageProps) {
                             addProduct(item);
                         });
                         navigate('/checkoutOrder')
+                        onClose()
                     }}>ОФОРМИТИ ЗАМОВЛЕННЯ</p>
                 </button>
             </div>

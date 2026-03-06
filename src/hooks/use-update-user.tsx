@@ -2,7 +2,7 @@ import { IUpdateUser } from "../shared/types/user"
 
 
 export function useUpdateUser(){
-    const token = localStorage.getItem("Token")
+    const token = localStorage.getItem("token")
     console.log(token)
     async function updateUser(content: IUpdateUser){
         try{

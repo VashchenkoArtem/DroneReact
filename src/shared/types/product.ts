@@ -58,9 +58,9 @@ export interface IOrder {
     products: IProductOnOrder[];
     address: IAddresOrder
     ttnNumber: string;
-    warehouseDescription: string
+    warehouseDescription: string;
+    status: string;
 }
-
 export interface INPCity {
     Present: string;
     DeliveryCity: string;

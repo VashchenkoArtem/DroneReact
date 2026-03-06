@@ -161,7 +161,9 @@
     align-items: center;
     
 }
-
+.topNav{
+    cursor: pointer;
+}
 @media (max-width: 767px){
     .header{
         grid-template-columns: 1fr 1fr ;
