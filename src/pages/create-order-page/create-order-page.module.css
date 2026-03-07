@@ -47,7 +47,6 @@
 
 .formContainer {
     width: 100%;
-    max-width: 668px;
     flex-shrink: 1;
 }
 
@@ -86,7 +85,7 @@
 }
 
 .inputWrapper label {
-    font-size: clamp(10px, 1vw, 11px);
+    font-size: 16px;
     font-weight: 500;
     opacity: 0.6;
 }
@@ -199,8 +198,7 @@
 }
 
 .summaryCard {
-    width: 100%;
-    max-width: 440px;
+    width: 45%;
     border: 1px solid #F0F2F5;
     border-radius: 12px;
     padding: clamp(20px, 3vw, 32px);
@@ -249,7 +247,9 @@
     font-weight: 600;
     margin-bottom: 4px;
 }
-
+.itemMeta {
+    width: 100%;
+}
 .priceRow {
     display: flex;
     gap: 8px;
@@ -296,8 +296,8 @@
 }
 
 .btnSubmit {
-    width: 100%;
-    height: clamp(48px, 6vh, 56px);
+    width: 264px;
+    height: 42px;
     background: #0C122A;
     color: #fff;
     border-radius: 100px;
@@ -310,7 +310,13 @@
     cursor: pointer;
     transition: transform 0.2s ease, background 0.3s ease;
 }
-
+.pencilBtn{
+    cursor: pointer;
+}
+.buttonSubmitContainer{
+    text-align: end;
+    width: 100%;
+}
 .btnSubmit:hover {
     background: #1a2340;
 }
@@ -352,7 +358,7 @@
     
     font-family: "GT Walsheim Pro", sans-serif;
     font-weight: 400;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 100%;
     letter-spacing: 0.04em;
     color: #0C122A;
@@ -372,7 +378,7 @@
     border: 1px solid #E5E7EB;
     border-radius: 4px;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
 }
 
@@ -473,7 +479,6 @@
         gap: 50px;
     }
     .formContainer, .summaryCard {
-        max-width: 668px;
         position: static;
     }
 }

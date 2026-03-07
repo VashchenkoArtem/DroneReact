@@ -389,7 +389,7 @@ const selectedWarehouse = Array.isArray(warehouses)
                 <aside className={styles.summaryCard}>
                     <div className={styles.summaryHeader}>
                         <h3>Замовлення</h3>
-                        <ICONS.pencilBtn onClick={() => {setIsCartModalOpen(true)}}/>
+                        <ICONS.pencilBtn className={styles.pencilBtn} onClick={() => {setIsCartModalOpen(true)}}/>
                     </div>
                     <div className={styles.orderScroll}>
                         {items.map(p => (
@@ -415,7 +415,9 @@ const selectedWarehouse = Array.isArray(warehouses)
                     <div className={styles.totals}>
                         <div className={styles.totalRow}><span>Загальна сума</span><span>{totalPrice} ₴</span></div>
                     </div>
-                    <button type="submit" className={styles.btnSubmit}>ПІДТВЕРДИТИ ЗАМОВЛЕННЯ</button>
+                    <div className={styles.buttonSubmitContainer}>
+                        <button type="submit" className={styles.btnSubmit}>ПІДТВЕРДИТИ ЗАМОВЛЕННЯ</button>
+                    </div>
                 </aside>
             </form>
         </div>

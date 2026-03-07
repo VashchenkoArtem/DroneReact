@@ -355,9 +355,6 @@ h1 {
     transform: scale(1);
 }
 
-.productCard {
-    height: 100%;
-}
 
 .productsList {
     align-items: stretch;
@@ -365,7 +362,6 @@ h1 {
 
 .productImage {
     width: 100%;
-    height: auto;
     margin-bottom: 10px;
 }
 
@@ -529,7 +525,6 @@ h1 {
 
     .productCard {
         width: 100%;
-        max-width: 340px;
         padding: 20px;
     }
 
@@ -569,7 +564,7 @@ h1 {
         
     .productCard {
         width: 380px;
-        min-height: 300px;
+        height: 363px;
 
         /* padding: clamp(35px, 2vw, 40px); */
         background-color: white;

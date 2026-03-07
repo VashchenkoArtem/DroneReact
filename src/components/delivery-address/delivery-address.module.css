@@ -1,6 +1,5 @@
 .wrapper {
     width: 100%;
-    max-width: 668px;
     margin-left: 0;
     box-sizing: border-box;
 }
@@ -16,11 +15,12 @@
 .addressList {
     display: flex;
     flex-direction: column;
-    gap: 16px; 
+    gap: 16px;
+    width: 100%; 
 }
 
 .addressItemWrapper {
-    width: 668px; 
+    width: 95%; 
     border: 1px solid #9EA0AA;
     border-radius: 4px;
     background: #ffffff;

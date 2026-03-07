@@ -79,7 +79,10 @@ export function OneProductPage() {
                         <button className={styles.droneButtonOne} onClick={addToCartFunc}>
                             <ICONS.cartImage className={styles.newProductButtonArrow} />
                         </button>
-                        <button className={styles.droneButton} onClick={addToCartFunc}>
+                        <button className={styles.droneButton} onClick={() => {
+                            addToCartFunc()
+                            navigate("/checkoutOrder")
+                            }}>
                             ЗАМОВИТИ
                             <ICONS.newProductsArrow className={styles.newProductButtonArrow} />
                         </button>
@@ -103,7 +106,7 @@ export function OneProductPage() {
                             <p>{block.description}</p>
                         </div>
                         <div className={styles.blockImageWrapper}>
-                            <img src={block.image} alt={block.title} />
+                            <img src={block.image} alt={block.title} className={styles.blockImage}/>
                         </div>
                     </div>
                 ))}

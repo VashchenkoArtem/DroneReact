@@ -20,7 +20,6 @@
     left: 50%;
     transform: translate(-50%, 50%);
     z-index: 1000;
-    opacity: 70%;
 }
 
 .urls{
@@ -35,6 +34,7 @@
     font-family: "medium walsheim", sans-serif;
     font-weight: 500;
     color: rgba(12, 18, 42, 1);
+    opacity: 70%;
 }
 
 .buttons{
@@ -49,6 +49,7 @@
 }
 .logo{
     text-align: center;
+    opacity: 70%;
     width: clamp(115px, 2vw, 130px);
 }
 

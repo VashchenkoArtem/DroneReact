@@ -181,9 +181,16 @@ export function MyOrders() {
                       </div>
                     </div>
 
-                    <button className={styles.cancelButton} onClick={() => {
-                      UpdateOrder(order.id, {status: "Скасовано"})
-                    }}>СКАСУВАТИ</button>
+                    {order.status !== "Отримано" && order.status !== "Скасовано" && (
+                      <button
+                        className={styles.cancelButton}
+                        onClick={() => {
+                          UpdateOrder(order.id, { status: "Скасовано" })
+                        }}
+                      >
+                        СКАСУВАТИ
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
