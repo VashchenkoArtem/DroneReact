@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 .informationContainer{
-    width: 40%;
+    width: 50%;
     align-items: flex-start;
     gap: clamp(18px, 2vw, 24px);
 }
