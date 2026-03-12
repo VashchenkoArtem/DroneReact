@@ -24,11 +24,13 @@
 .container{
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 .contactsBlock, .formBlock{
     display: flex;
     flex-direction: column;
     gap: clamp(30px, 2vw, 44px);
+    width: 50%;
 }
 .contactsItems{
     display: flex;
