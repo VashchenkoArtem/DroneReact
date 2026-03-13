@@ -40,7 +40,13 @@ export function OneProductPage() {
 		}
 		context?.addItemToCart(productInCart)
 	}
-
+    function addToCartSimilarProduct(similarProduct: IProduct) {
+        const similarProductInCart = {
+            ...similarProduct,
+            count: 1
+        }
+        context?.addItemToCart(similarProductInCart)
+    }
     return (
         <div className={styles.productCart}>
             <img src={IMAGES.headerBG} className={styles.headerImage} alt="Header Background" />
@@ -133,9 +139,13 @@ export function OneProductPage() {
                                 </div>
                                 }
 
-                                <button className={styles.productHoverBtn}>
-                                    <ICONS.productHoverCart />
-                                </button>
+                            <button className={styles.productHoverBtn} onClick={(e) => {
+                                        e.preventDefault(); 
+                                        e.stopPropagation(); 
+                                        addToCartSimilarProduct(item);
+                            }}>
+                                <ICONS.productHoverCart />
+                            </button>
                             </Link>)
                         })}
                 </div>

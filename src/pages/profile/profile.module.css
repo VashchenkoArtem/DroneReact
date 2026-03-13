@@ -4,5 +4,5 @@
     margin-top: 150px;
     justify-content: flex-start;
     gap: clamp(200px, 6vw, 250px);
-    height: 100vh;
+    min-height: 100vh;
 }

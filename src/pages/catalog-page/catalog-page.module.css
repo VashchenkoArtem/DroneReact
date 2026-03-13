@@ -201,6 +201,9 @@
 .productsList {
     align-items: stretch;
 }
+.activeCategory {
+    background-color: rgba(231, 231, 234, 1) !important;
+}
 @media (max-width: 900px) {
     .newProductsList {
         justify-content: center;

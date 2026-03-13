@@ -18,9 +18,16 @@ export function CatalogPage() {
     const { products, error, loading, fetchProductsToPage } = useProductsToPage()
     const navigate = useNavigate()
     const context = useContext(CartContext);
+    const [activeCategory, setActiveCategory] = useState<number | null>(null)
+    const resetFilters = () => {
+        setCurrentPage(1)
+        setOffset(0)
+        setActiveCategory(null)
+        fetchProductsToPage(0)
+    }
     useEffect(() => {
-        fetchProductsToPage(offset)
-    }, [offset])
+        fetchProductsToPage(offset, activeCategory ?? undefined)
+    }, [offset, activeCategory])
     if (error || !products || !allProducts) {
         return <h1>{error}</h1>
     }
@@ -58,10 +65,26 @@ export function CatalogPage() {
             <h1 className={styles.catalogTxt}>КАТАЛОГ</h1>
 
             <div className={styles.categoryContainer}>
-                <button>Всі</button>
+                <button
+                    onClick={resetFilters}
+                    className={activeCategory === null ? styles.activeCategory : ""}
+                >
+                    Всі
+                </button>
                 { categories?.map((category)=>{
                     return (
-                        <button key = {category.id} className={styles.droneBtnCategory} onClick={() => fetchProductsToPage(offset, category.id)}>
+                        <button
+                            key={category.id}
+                            className={`${styles.droneBtnCategory} ${
+                                activeCategory === category.id ? styles.activeCategory : ""
+                            }`}
+                            onClick={() => {
+                                setActiveCategory(category.id)
+                                setCurrentPage(1)
+                                setOffset(0)
+                                fetchProductsToPage(0, category.id)
+                            }}
+                        >
                             <img src={category.image} className={styles.droneImgCategory} alt="" />
                         </button>
                     )
